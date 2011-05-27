@@ -1,0 +1,44 @@
+@charset "utf-8";
+/*-------------------------------------------------------------------------------------
+  reset css
+-------------------------------------------------------------------------------------*/
+html{
+	overflow-y:scroll;
+}
+
+img{
+	border:none;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td caption{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+br.clear{
+	clear:both;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+}
+
+table{
+	border-collapse:collapse;
+}
+
+caption,th{
+	text-align:left;
+}
+
+object,embed,tr{
+	vertical-align:top;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-size:1em;
+}
+
+
+

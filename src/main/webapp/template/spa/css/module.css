@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+/*-------------------------------------------------------------------------------------
+  body
+-------------------------------------------------------------------------------------*/
+body {
+	background: #fff;
+	color: #231815;
+	font-size: 0.8em;
+	font-family: "ＭＳ Ｐゴシック", "メイリオ", "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka, sans-serif;
+	line-height: 1.3em;
+	/*font-family: "メイリオ", "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka;*/
+	/*line-height: 1.5em;*/
+}
+
+
+/*-------------------------------------------------------------------------------------
+  link color
+-------------------------------------------------------------------------------------*/
+a:link{color:#262626;text-decoration:underline;}
+a:visited{color:#262626;text-decoration:underline;}
+a:hover{color:#262626;text-decoration:none;}
+
+/*-------------------------------------------------------------------------------------
+  #container
+-------------------------------------------------------------------------------------*/
+#container{
+}
+
+/*-------------------------------------------------------------------------------------
+  #header
+-------------------------------------------------------------------------------------*/
+#header {
+	width:100%;
+	background:url("../images/header_bg.jpg") top left repeat-x;
+}
+
+#headerIn{
+	width:884px;
+	height:86px;
+	margin:0 auto;
+	position:relative;
+}
+
+#headerIn p{
+	position:absolute;
+	top:9px;
+	left:0;
+}
+
+#headerIn ul#hNavHead{
+	position:absolute;
+	top:1px;
+	left:431px;
+	background:url("../images/hnav_headbg.gif") top left no-repeat;
+}
+
+#headerIn ul#hNavHead li{
+	float:left;
+	padding:0 0 0 2px;
+}
+
+#headerIn ul#hNavFoot{
+	position:absolute;
+	top:54px;
+	left:236px;
+	background:url("../images/hnav_footbg.gif") top left no-repeat;
+}
+#headerIn ul#hNavFoot li{
+	float:left;
+}
+
+#headerIn ul li a{display:block;}
+#headerIn ul li a:hover {background:transparent;}
+#headerIn ul li a:hover img{visibility:hidden;}
+/*-------------------------------------------------------------------------------------
+  #footer
+-------------------------------------------------------------------------------------*/
+#footer {
+	width:100%;
+	background:url("../images/footer_bg.jpg") top left repeat-x;
+	padding:0 0 30px 0;
+}
+
+#footerIn{
+	width:884px;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+#footerIn dl{
+	float:left;
+	width:500px;
+	padding:12px 0 10px 7px;
+	overflow:hidden;
+}
+
+#footerIn dl dt{
+	float:left;
+	width:159px;
+}
+
+#footerIn dl dd{
+	float:left;
+	padding:8px 25px 0 0;
+}
+
+#footerIn p{
+	float:right;
+	width:287px;
+	padding:18px 5px 10px 0;
+}
+
+#footerIn #copyright{
+	clear:both;
+	width:884px;
+	padding:5px 0 0 0;
+	border-top:2px solid #d7d7d7;
+	text-align:right;
+	color:#878787;
+}
+
+#footerIn a:link{color:#666;text-decoration:none;}
+#footerIn a:visited{color:#666;text-decoration:none;}
+#footerIn a:hover{color:#666;text-decoration:underline;}
+
+/*-------------------------------------------------------------------------------------
+  #layerBg
+-------------------------------------------------------------------------------------*/
+
+#layerBg{
+	width:100%;
+	height:299px;
+}
+
+#main-sub{
+	margin:-299px auto 0 auto;
+	width:884px;
+	min-height:299px;
+	border-left:1px solid #e3e4e4;
+	border-right:1px solid #e3e4e4;
+	background:#fff;
+	overflow:hidden;
+}
+
+/*-------------------------------------------------------------------------------------
+  #main
+-------------------------------------------------------------------------------------*/
+#topFla{
+	width:100%;
+	min-height:200px;
+}
+
+#main{
+	float:right;
+	width:699px;
+}
+
+.contentsIn{
+	width:672px;
+	margin:0 auto;
+}
+
+#pageTitle{
+	width:672px;
+	display:table;
+	margin:0 auto;
+}
+
+#pageTitle h1{
+	display:table-cell;
+	vertical-align:middle;
+}
+#pageTitle #h1{
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#pageTitle p{
+	display:table-cell;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:0.9em;
+}
+
+* html #pageTitle{/* IE 6 */
+	vertical-align:middle;
+	color:#666;
+	overflow:hidden;
+}
+
+* html #pageTitle h1 {/* IE 6 */
+	display:inline;
+	zoom:1;
+}
+
+* html #pageTitle #h1 {/* IE 6 */
+	display:inline;
+	zoom:1;
+}
+
+* html #pageTitle p {/* IE 6 */
+	display:inline;
+	zoom:1;
+}
+
+ul#topicPath{
+	margin:7px 0;
+}
+ul#topicPath li a:link {color:#666;text-decoration:underline;}
+ul#topicPath li a:visited {color:#666;text-decoration:underline;}
+ul#topicPath li a:hover {color:#666;text-decoration:none;}
+
+
+#pageTop{
+	margin:30px 0;
+	text-align:right;
+	cursor:pointer;
+	padding-top:9px;
+}
+
+/*-------------------------------------------------------------------------------------
+  #sub
+-------------------------------------------------------------------------------------*/
+#sub{
+	float:left;
+	width:185px;
+}
+
+#sub ul{width:185px;}
+#sub ul li{zoom:1;font-size:0;line-height:0;overflow:hidden;font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka;}
+#sub ul a{display:block;}
+#sub ul a:hover {background:transparent;}
+#sub ul a:hover img{visibility:hidden;}
+
+
+div.StaffListPic{
+width: 120px;
+height: 160px;
+margin: 0;
+padding: 0;
+}	
+
+/**/

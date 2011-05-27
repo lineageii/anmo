@@ -57,7 +57,8 @@
 					<td>
 					<dl>
 						<dt><a href="/tenpo/guzel_oda">${name}</a></dt>
-						<dd>身高:${height }cm</dd>
+						 
+						<dd><s:text name="height"/>:${height }cm</dd>
 						<dd>体重:${weight }kg</dd>
 						<dd>年龄:${thisyear - birthyear}岁</dd>
 						<dd>籍贯:${birthplace}</dd>

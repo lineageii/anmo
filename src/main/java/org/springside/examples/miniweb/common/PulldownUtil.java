@@ -1,8 +1,10 @@
 package org.springside.examples.miniweb.common;
 
+import java.util.Locale;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
+import com.opensymphony.xwork2.util.LocalizedTextUtil;
 
 public class PulldownUtil {
 
@@ -43,6 +45,7 @@ public class PulldownUtil {
 
 	public static Map getLanguagesMap() {
 		Map<String, String> map = Maps.newHashMap();
+		LocalizedTextUtil.findDefaultText("jp", new Locale("zh_CN"));
 		map.put("jp", "日语");
 		map.put("en", "英语");
 		return map;

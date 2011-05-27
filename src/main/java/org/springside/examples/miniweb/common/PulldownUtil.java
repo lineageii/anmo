@@ -5,7 +5,7 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 public class PulldownUtil {
-	
+
 	public static Map getProvinceMap() {
 		Map<String, String> map = Maps.newHashMap();
 		map.put("北京", "北京");
@@ -38,6 +38,13 @@ public class PulldownUtil {
 		map.put("海南", "海南");
 		map.put("甘肃", "甘肃");
 		map.put("青海", "青海");
+		return map;
+	}
+
+	public static Map getLanguagesMap() {
+		Map<String, String> map = Maps.newHashMap();
+		map.put("jp", "日语");
+		map.put("en", "英语");
 		return map;
 	}
 }

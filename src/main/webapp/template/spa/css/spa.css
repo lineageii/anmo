@@ -439,7 +439,7 @@ body.treatment h2,body.f_beauty h2{
 #tbList li table td{
 	padding:2px;
 	width:196px;
-	vertical-align:bottom;
+	vertical-align:top;
 }
 
 #tbList li table table{

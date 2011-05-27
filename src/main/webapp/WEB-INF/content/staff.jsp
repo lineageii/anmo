@@ -36,22 +36,11 @@
 
 <div id="main">
 <ul id="topicPath">
-	<li><a href="/">TOP</a></li>
-	<li><a href="/spa">Spa LaQua</a></li>
-	<li>Treatment &amp; Beauty</li>
+	<li><a href="/">首页</a></li>
+	<li>技师介绍</li>
 </ul>
-
-<div id="pageTitle">
-<h1><img src="images/spa/tb/ttl.gif" width="542" height="41"
-	alt="TREATMENT &amp; BEAUTY トリートメント＆ビューティー" /></h1>
-</div>
-<h2><img src="images/spa/tb/sttl.gif" width="660" height="34"
-	alt="世界各国の施術で至福のひとときを。" /></h2>
-
 <ul id="tbList">
-
-
-
+	<s:iterator value="page.result">
 	<li>
 	<table>
 		<tr>
@@ -59,17 +48,23 @@
 			<th>
 			<div class="StaffListPic"><a href="/tenpo/guzel_oda"> <img
 				src="${ctx}/staff_imges/160_list.jpg" />
-			</a></div>
+			</a>
+			</div>
 			</th>
 			<td class="txt">
 			<table class="floor5F">
 				<tr>
-
 					<td>
 					<dl>
-						<dt><a href="/tenpo/guzel_oda">ギュゼル オダ</a></dt>
-
-						<dd>（ボディケア）</dd>
+						<dt><a href="/tenpo/guzel_oda">${name}</a></dt>
+						<dd>身高:${height }cm</dd>
+						<dd>体重:${weight }kg</dd>
+						<dd>年龄:${thisyear - birthyear}岁</dd>
+						<dd>籍贯:${birthplace}</dd>
+						<dd>语言:
+						<c:forTokens items="${languages}" delims="," var="language">
+							<c:out value="${languagesMap[language]}"/>
+						</c:forTokens></dd>
 					</dl>
 					</td>
 				</tr>
@@ -89,6 +84,9 @@
 		</tr>
 	</table>
 	</li>
+	</s:iterator>
+	
+	
 	<li>
 	<table>
 		<tr>
@@ -595,37 +593,37 @@
 
 <div id="sub">
 <ul>
-	<li><a href="/spa"><img src="/images/spa/sub/snav_ttl.gif"
+	<li><a href="/spa"><img src="${ctx}/template/spa/images/snav_ttl.gif"
 		width="185" height="60" alt="SPA LAQUA" /></a></li>
 	<li id="snav-news"><a href="/newslist?mode=spa_news"><img
-		src="/images/spa/sub/snav_news.gif" width="96" height="21"
+		src="${ctx}/template/spa/images/snav_news.gif" width="96" height="21"
 		alt="Spa News" /></a></li>
 	<li id="snav-map"><a href="/map/spa_s.html"><img
-		src="/images/spa/sub/snav_map.gif" width="89" height="21" alt="フロアマップ" /></a></li>
+		src="${ctx}/template/spa/images/snav_map.gif" width="89" height="21" alt="フロアマップ" /></a></li>
 	<li id="snav-zone"><a href="/spa_s/spazone.html"><img
-		src="/images/spa/sub/snav_spa.gif" width="185" height="49"
+		src="${ctx}/template/spa/images/snav_spa.gif" width="185" height="49"
 		alt="SPA ZONE スパ ゾーン" /></a></li>
 	<li id="snav-healing"><a href="/spa_s/healing.html"><img
-		src="/images/spa/sub/snav_healing.gif" width="185" height="50"
+		src="${ctx}/template/spa/images/snav_healing.gif" width="185" height="50"
 		alt="HEALING BADEN ヒーリングバーデ" /></a></li>
 	<li id="snav-relaxation"><a href="/spa_s/relaxation.html"><img
-		src="/images/spa/sub/snav_relaxation.gif" width="185" height="50"
+		src="${ctx}/template/spa/images/snav_relaxation.gif" width="185" height="50"
 		alt="RELAXATION リラクゼーション" /></a></li>
 	<li id="snav-treatment"><a href="/tblist"><img
-		src="/images/spa/sub/snav_treatment.gif" width="185" height="50"
+		src="${ctx}/template/spa/images/snav_treatment.gif" width="185" height="50"
 		alt="TREATMENT &amp; BEAUTY トリートメント＆ビューティー" /></a></li>
 
 	<li id="snav-restaurant"><a href="/sparlist"><img
-		src="/images/spa/sub/snav_restaurant.gif" width="185" height="50"
+		src="${ctx}/template/spa/images/snav_restaurant.gif" width="185" height="50"
 		alt="RESTAURANT レストラン" /></a></li>
 	<li id="snav-guide"><a href="/spa_s/sguide.html"><img
-		src="/images/spa/sub/snav_guide.gif" width="185" height="48"
+		src="${ctx}/template/spa/images/snav_guide.gif" width="185" height="48"
 		alt="営業案内" /></a></li>
 	<li id="snav-first"><a href="/spa_s/first.html"><img
-		src="/images/spa/sub/snav_firsttime.gif" width="185" height="48"
+		src="${ctx}/template/spa/images/snav_firsttime.gif" width="185" height="48"
 		alt="はじめての方へ" /></a></li>
 	<li id="snav-sticking"><a href="/spa_s/sticking.html"><img
-		src="/images/spa/sub/snav_sticking.gif" width="185" height="49"
+		src="${ctx}/template/spa/images/snav_sticking.gif" width="185" height="49"
 		alt="スパ ラクーアのこだわり" /></a></li>
 </ul>
 </div>

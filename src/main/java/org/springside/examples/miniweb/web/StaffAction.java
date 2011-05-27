@@ -1,4 +1,4 @@
-package org.springside.examples.miniweb.web.account;
+package org.springside.examples.miniweb.web;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,10 +13,10 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springside.examples.miniweb.common.PulldownUtil;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
 import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.service.ServiceException;
-import org.springside.examples.miniweb.web.CrudActionSupport;
 import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PropertyFilter;
 import org.springside.modules.utils.web.struts2.Struts2Utils;
@@ -31,12 +31,12 @@ import com.google.common.collect.Lists;
  * 
  * @author calvin
  */
-// 定义URL映射对应/account/Technician.action
-@Namespace("/account")
+// 定义URL映射对应/Staff.action
+@Namespace("/")
 // 定义名为reload的result重定向到user.action, 其他result则按照convention默认.
-@Results({ @Result(name = CrudActionSupport.RELOAD, location = "technician.anmo", type = "redirect") })
+@Results({ @Result(name = CrudActionSupport.RELOAD, location = "staff.anmo", type = "redirect") })
 @Action(interceptorRefs = { @InterceptorRef("fileUploadStack"), @InterceptorRef("defaultStack") })
-public class TechnicianAction extends CrudActionSupport<Technician> {
+public class StaffAction extends CrudActionSupport<Technician> {
 
 	private static final long serialVersionUID = -2902701210829184452L;
 
@@ -53,6 +53,8 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadFileNames = new ArrayList<String>();
 	private List<String> uploadContentTypes = new ArrayList<String>();
+
+	private Map<String, String> languagesMap = PulldownUtil.getLanguagesMap();
 
 	// -- ModelDriven 与 Preparable函数 --//
 	public void setId(Long id) {
@@ -177,6 +179,10 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	public void setUploadContentTypes(List<String> uploadContentTypes) {
 		this.uploadContentTypes = uploadContentTypes;
+	}
+
+	public Map<String, String> getLanguagesMap() {
+		return languagesMap;
 	}
 
 }

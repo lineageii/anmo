@@ -24,7 +24,7 @@
 <label>臀围</label><input id="hip" name="hip" value="${hip}" type="text" size="10"/></div>
 <div class="field"><label>身高</label><input id="height" name="height" value="${height}" type="text" size="10"/></div>
 <div class="field"><label>体重</label><input id="weight" name="weight" value="${weight}" type="text" size="10"/></div>
-<div class="field"><label>籍贯</label><s:select id="birthplace" name="birthplace" list="@org.springside.examples.miniweb.common.PulldownUtil@getProvinceMap()" listKey="key" listValue="value" theme="simple"/></div>
+<div class="field"><label>籍贯</label><s:select id="birthplace" name="birthplace" list="provinceMap" listKey="key" listValue="value" theme="simple"/></div>
 <s:checkboxlist name="checkedLanguages" list="#{'jp':'日语','en':'英语'}" listKey="key" listValue="value" theme="simple"/>
 <div><s:file name="pic" label="照片" /></div>
 <div><s:file name="pic" label="照片" /></div>

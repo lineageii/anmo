@@ -13,8 +13,11 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springside.examples.miniweb.common.Lan;
 import org.springside.examples.miniweb.common.PulldownUtil;
+import org.springside.examples.miniweb.dao.account.PulldownDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
+import org.springside.examples.miniweb.entity.account.Pulldown;
 import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.service.ServiceException;
 import org.springside.modules.orm.Page;
@@ -41,7 +44,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	private static final long serialVersionUID = -2902701210829184452L;
 
 	private TechnicianDao technicianDao;
-
+	private PulldownDao pulldownDao;
 	// -- 页面属性 --//
 	private Long id;
 	private Technician entity;
@@ -49,7 +52,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	private List<String> checkedLanguages = Lists.newArrayList();
 	private Map<String, String> genderMap = ImmutableMap.of("men", "男", "women", "女");
 	private int thisyear;
-
+	private Map<String, String> provinceMap;
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadFileNames = new ArrayList<String>();
 	private List<String> uploadContentTypes = new ArrayList<String>();
@@ -64,6 +67,10 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	public Technician getModel() {
 		return entity;
 	}
+	
+	private void initPulldown(){
+		provinceMap = getProvinceMap(Lan.getLanByLocale(getLocale()));
+	}
 
 	@Override
 	protected void prepareModel() throws Exception {
@@ -77,6 +84,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	// -- CRUD Action 函数 --//
 	@Override
 	public String list() throws Exception {
+		initPulldown();
 		thisyear = Calendar.getInstance().get(Calendar.YEAR);
 
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(Struts2Utils.getRequest());
@@ -91,7 +99,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 
 	@Override
 	public String input() throws Exception {
-
+		initPulldown();
 		if (entity.getLanguages() == null)
 			return INPUT;
 		String[] arrays = entity.getLanguages().split(",");
@@ -185,4 +193,20 @@ public class StaffAction extends CrudActionSupport<Technician> {
 		return languagesMap;
 	}
 
+	public Map<String, String> getProvinceMap() {
+		return provinceMap;
+	}
+
+	@Override
+	public PulldownDao getPulldownDao() {
+		return pulldownDao;
+	}
+
+	@Autowired
+	public void setPulldownDao(PulldownDao pulldownDao) {
+		this.pulldownDao = pulldownDao;
+	}
+	
+	
+	
 }

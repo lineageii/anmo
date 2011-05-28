@@ -1,8 +1,15 @@
 package org.springside.examples.miniweb.web;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springside.examples.miniweb.common.PulldownType;
+import org.springside.examples.miniweb.dao.account.PulldownDao;
+import org.springside.examples.miniweb.entity.account.Pulldown;
 
+import com.google.common.collect.Maps;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -84,4 +91,23 @@ public abstract class CrudActionSupport<T> extends ActionSupport implements Mode
 	 * 等同于prepare()的内部函数,供prepardMethodName()函数调用. 
 	 */
 	protected abstract void prepareModel() throws Exception;
+	
+	
+	protected Map<String, String> getPulldown(String type, String lan) {
+		Map<String, String> map = Maps.newHashMap();
+		List<Pulldown> pulldownList = getPulldownDao().getProvinces(type, lan);
+		for(Pulldown pulldown : pulldownList){
+			map.put(pulldown.getKey(), pulldown.getValue());
+		}
+		return map;
+	}
+	
+	protected Map<String, String> getProvinceMap(String lan) {
+		return getPulldown(PulldownType.PROVINCE, lan);
+	}
+	
+	protected PulldownDao getPulldownDao() {
+		return null;
+	}
+	
 }

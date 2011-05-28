@@ -61,7 +61,7 @@
 						<dd><s:text name="height"/>:${height }cm</dd>
 						<dd>体重:${weight }kg</dd>
 						<dd>年龄:${thisyear - birthyear}岁</dd>
-						<dd>籍贯:${birthplace}</dd>
+						<dd>籍贯:${provinceMap[birthplace]} </dd>
 						<dd>语言:
 						<c:forTokens items="${languages}" delims="," var="language">
 							<c:out value="${languagesMap[language]}"/>

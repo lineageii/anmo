@@ -25,4 +25,18 @@
   <ACCT_USER_ROLE USER_ID="4" ROLE_ID="2"/>
   <ACCT_USER_ROLE USER_ID="5" ROLE_ID="2"/>
   <ACCT_USER_ROLE USER_ID="6" ROLE_ID="2"/>
+  <T_PULLDOWN ID="1" KEY="beijing" VALUE="北京" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="2" KEY="shanghai" VALUE="上海" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="3" KEY="guangdong" VALUE="广东" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="4" KEY="liaoning" VALUE="辽宁" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="5" KEY="zhejiang" VALUE="浙江" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="6" KEY="jiangsu" VALUE="江苏" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="7" KEY="henan" VALUE="河南" TYPE="province" LAN="zh" />
+  <T_PULLDOWN ID="8" KEY="hunan" VALUE="湖南" TYPE="province" LAN="zh" />
+   <T_PULLDOWN ID="9" KEY="sichuan" VALUE="四川" TYPE="province" LAN="zh" />
+   <T_PULLDOWN ID="10" KEY="anhui" VALUE="安徽" TYPE="province" LAN="zh" />
+   <T_PULLDOWN ID="11" KEY="jiangxi" VALUE="江西" TYPE="province" LAN="zh" />
+   <T_PULLDOWN ID="12" KEY="hebei" VALUE="河北" TYPE="province" LAN="zh" />
+   <T_PULLDOWN ID="13" KEY="shanxi" VALUE="山西" TYPE="province" LAN="zh" />
+  
 </dataset>

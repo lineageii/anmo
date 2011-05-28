@@ -1,10 +1,7 @@
 package org.springside.examples.miniweb.entity.account;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -42,7 +39,11 @@ public class Technician extends IdEntity {
 	private String weight;
 	/** 籍贯 */
 	private String birthplace;
-	
+	/** 爱好 */
+	private String hobby;
+	/** 梦想 */
+	private String dream;
+	/** 语言 */
 	private String languages;
 	
 	/** 手机号码 */
@@ -52,6 +53,10 @@ public class Technician extends IdEntity {
 	private String qq;
 	private String msn;
 	private String email;
+	
+	/** 状态:1:空闲 2:出勤中 3:休息*/
+	private String status;
+	
 	public String getEmpno() {
 		return empno;
 	}
@@ -159,6 +164,18 @@ public class Technician extends IdEntity {
 	}
 	public void setBirthyear(Integer birthyear) {
 		this.birthyear = birthyear;
+	}
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	public String getDream() {
+		return dream;
+	}
+	public void setDream(String dream) {
+		this.dream = dream;
 	}
 
 }

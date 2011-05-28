@@ -26,6 +26,8 @@
 <div class="field"><label>体重</label><input id="weight" name="weight" value="${weight}" type="text" size="10"/></div>
 <div class="field"><label>籍贯</label><s:select id="birthplace" name="birthplace" list="provinceMap" listKey="key" listValue="value" theme="simple"/></div>
 <s:checkboxlist name="checkedLanguages" list="#{'jp':'日语','en':'英语'}" listKey="key" listValue="value" theme="simple"/>
+<div class="field"><label>爱好</label><input type="text" name="hobby" value="${hobby}" /></div>
+<div class="field"><label>梦想</label><input type="text" name="dream" value="${dream}" /></div>
 <div><s:file name="pic" label="照片" /></div>
 <div><s:file name="pic" label="照片" /></div>
 <br>

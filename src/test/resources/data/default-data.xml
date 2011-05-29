@@ -57,9 +57,9 @@
 		LAN="zh" />
 	<T_PULLDOWN ID="13" KEY="shanxi" VALUE="山西" TYPE="province"
 		LAN="zh" />
-	<T_WEEKWORK ID="1" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
-	<T_WEEKWORK ID="2" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
-	<T_WEEKWORK ID="3" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
+	<T_WEEKWORK ID="1" WEEK1="work" WEEK2="rest" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
+	<T_WEEKWORK ID="2" WEEK1="rest" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
+	<T_WEEKWORK ID="3" WEEK1="work" WEEK2="work" WEEK3="rest" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
 	
 	<T_TECHNICIAN ID="1" WEEKWORKID="1" ADDRESS="上海市徐汇区苍梧路" BIRTHDAY="02"
 		BIRTHMONTH="02" BIRTHPLACE="shanghai" BIRTHYEAR="1989" BUST="35E" DREAM="环游世界" EMAIL="test1@qq.com" EMPNO="T001" GENDER="women" HEIGHT="170"

@@ -41,23 +41,21 @@
 	<table>
 		<tr>
 			<th><s:text name="week1"/></th>
-			<th>星期二</th>
-			<th>星期三</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th><s:text name="week2"/></th>
+			<th><s:text name="week3"/></th>
+			<th><s:text name="week4"/></th>
+			<th><s:text name="week5"/></th>
+			<th><s:text name="week6"/></th>
+			<th><s:text name="week7"/></th>
 		</tr>
 		<tr>
-			<td></td>
-			<td>星期二</td>
-			<td>星期三</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><s:select id="week1" name="weekWork.week1" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<td><s:select id="week2" name="weekWork.week2" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<td><s:select id="week3" name="weekWork.week3" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<td><s:select id="week4" name="weekWork.week4" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<td><s:select id="week5" name="weekWork.week5" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<td><s:select id="week6" name="weekWork.week6" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<td><s:select id="week7" name="weekWork.week7" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
 		</tr>
 		
 	</table>

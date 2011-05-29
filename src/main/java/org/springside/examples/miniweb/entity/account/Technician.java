@@ -1,6 +1,8 @@
 package org.springside.examples.miniweb.entity.account;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -56,6 +58,8 @@ public class Technician extends IdEntity {
 	
 	/** 状态:1:空闲 2:出勤中 3:休息*/
 	private String status;
+	
+	private WeekWork weekWork;
 	
 	public String getEmpno() {
 		return empno;
@@ -177,5 +181,20 @@ public class Technician extends IdEntity {
 	public void setDream(String dream) {
 		this.dream = dream;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	@OneToOne
+	@JoinColumn(name = "weekworkid", nullable = false)
+	public WeekWork getWeekWork() {
+		return weekWork;
+	}
+	public void setWeekWork(WeekWork weekWork) {
+		this.weekWork = weekWork;
+	}
 
+	
 }

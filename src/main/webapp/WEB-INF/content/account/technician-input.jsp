@@ -37,6 +37,31 @@
 <div class="field"><label>MSN</label><input id="msn" name="msn" value="${msn}" type="text" size="10"/></div>
 <div class="field"><label>地址</label><input id="address" name="address" value="${address}" type="text" size="10"/></div>
 
+<div class="weekwork">
+	<table>
+		<tr>
+			<th><s:text name="week1"/></th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>星期二</td>
+			<td>星期三</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+</div>
 <div><input type="submit"value="保存" /></div>
 </form>
 <%@ include file="/common/footer.jsp" %>

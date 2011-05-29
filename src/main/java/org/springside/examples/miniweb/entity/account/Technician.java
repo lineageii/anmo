@@ -5,10 +5,12 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Where;
 import org.springside.examples.miniweb.entity.IdEntity;
 
 import com.google.common.collect.Lists;
@@ -244,6 +246,8 @@ public class Technician extends IdEntity {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technician")
+	@OrderBy("eventdate DESC")
+	@Where(clause = "now() <= eventdate")
 	public List<WorkEvent> getWorkEventList() {
 		return workEventList;
 	}

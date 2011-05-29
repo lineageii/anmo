@@ -187,8 +187,9 @@ public class Technician extends IdEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	@OneToOne
-	@JoinColumn(name = "weekworkid", nullable = false)
+	@OneToOne(optional=false)
+    @JoinColumn(
+    	name="WEEKWORKID", unique=true, nullable=false, updatable=false)
 	public WeekWork getWeekWork() {
 		return weekWork;
 	}

@@ -57,6 +57,10 @@
 		LAN="zh" />
 	<T_PULLDOWN ID="13" KEY="shanxi" VALUE="山西" TYPE="province"
 		LAN="zh" />
+	<T_WEEKWORK ID="1" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
+	<T_WEEKWORK ID="2" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
+	<T_WEEKWORK ID="3" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
+	
 	<T_TECHNICIAN ID="1" WEEKWORKID="1" ADDRESS="上海市徐汇区苍梧路" BIRTHDAY="02"
 		BIRTHMONTH="02" BIRTHPLACE="shanghai" BIRTHYEAR="1989" BUST="35E" DREAM="环游世界" EMAIL="test1@qq.com" EMPNO="T001" GENDER="women" HEIGHT="170"
 		HIP="45" HOBBY="唱歌 看电影 旅游" LANGUAGES="jp,en" MOBILENO="13482379210" MSN="test1@msn.com" NAME="王昭君" QQ="53090595" WAISTLINE="36" WEIGHT="45" />
@@ -66,8 +70,6 @@
 	<T_TECHNICIAN ID="3" WEEKWORKID="3" ADDRESS="上海市徐汇区苍梧路" BIRTHDAY="02"
 		BIRTHMONTH="02" BIRTHPLACE="shanghai" BIRTHYEAR="1989" BUST="35E" DREAM="环游世界" EMAIL="test1@qq.com" EMPNO="T001" GENDER="women" HEIGHT="170"
 		HIP="45" HOBBY="唱歌 看电影 旅游" LANGUAGES="jp,en" MOBILENO="13482379210" MSN="test1@msn.com" NAME="王昭君" QQ="53090595" WAISTLINE="36" WEIGHT="45"/>
-	<T_WEEKWORK ID="1" TECHNICIANID="1" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
-	<T_WEEKWORK ID="2" TECHNICIANID="2" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
-	<T_WEEKWORK ID="3" TECHNICIANID="3" WEEK1="work" WEEK2="work" WEEK3="work" WEEK4="work" WEEK5="work" WEEK6="work" WEEK7="work" />
-	
+
+
 </dataset>

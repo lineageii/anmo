@@ -1,5 +1,6 @@
 package org.springside.examples.miniweb.entity.account;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -28,8 +29,7 @@ public class WeekWork extends IdEntity {
 	private String week6;
 	private String week7;
 	
-	@OneToOne
-	@JoinColumn(name = "technicianid", nullable = false)
+	@OneToOne(optional=false, mappedBy="weekWork")
 	public Technician getTechnician() {
 		return technician;
 	}

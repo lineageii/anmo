@@ -83,10 +83,16 @@
 
 	<filter-mapping>
 		<filter-name>struts2Filter</filter-name>
+		<url-pattern>/struts/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>struts2Filter</filter-name>
 		<url-pattern>*.anmo</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
+
 
 	<!--Spring的ApplicationContext 载入 -->
 	<listener>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/common/taglibs.jsp" %>
-
+<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,16 +13,27 @@
 <script type="text/javascript" src="${ctx}/template/spa/js/jquery.js"></script>
 <script type="text/javascript"
 	src="${ctx}/template/spa/js/jquery.lightbox-0.5.js"></script>
+	<sx:head parseContent="true" extraLocales="UTF-8" /> 
 </head>
 
 <script type="text/javascript">
 	function cleartime(obj){
+		var starttime = $(obj).next().next();
+		var endtime = $(starttime).next().next().next();
 		if($(obj).val() == 'rest'){
-			var starttime = $(obj).next().next();
-			var endtime = $(starttime).next().next().next();
 			$(starttime).val('');
+			$(starttime).attr("disabled",true);
 			$(endtime).val('');
+			$(endtime).attr("disabled",true);
+		} else {
+			$(starttime).attr("disabled",false);
+			$(endtime).attr("disabled",false);
 		}
+	}
+	
+	function hideTr(obj){
+		$(obj).parent().parent().hide();
+		$(obj).next().val('1');
 	}
 </script>
 <body>
@@ -64,20 +75,127 @@
 			<th><s:text name="week7"/></th>
 		</tr>
 		<tr>
-			<s:iterator value="weekWorkList" status="index">
+			<s:iterator value="weekWorkList" status="stat">
 				<td align="center">
-				<s:select name="status" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" onchange="cleartime(this)"/>
+				<select name="weekWorkList[${stat.index}].status" onchange="cleartime(this)">
+					<s:iterator value="workStatusMap" var="option">
+						<option value="${option.key}" <c:if test="${option.key==status}">selected</c:if>>
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
 				<br/>
-				<s:select name="starttime" list="workTimeMap" listKey="key" listValue="value"  emptyOption="true" theme="simple" />
+				<select name="weekWorkList[${stat.index}].starttime" <c:if test="${''==starttime}">disabled</c:if>>
+					<option value="" ></option>
+					<s:iterator value="workTimeMap" var="option">
+						<option value="${option.key}" <c:if test="${option.key==starttime}">selected</c:if>>
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
 				<br/>
 				~
 				<br/>
-				<s:select name="endtime" list="workTimeMap" listKey="key" listValue="value" emptyOption="true" theme="simple" />
+				<select name="weekWorkList[${stat.index}].endtime" <c:if test="${''==endtime}">disabled</c:if>>
+					<option value=""></option>
+					<s:iterator value="workTimeMap" var="option">
+						<option value="${option.key}" <c:if test="${option.key==endtime}">selected</c:if>>
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
 				</td>
 			</s:iterator>
 		</tr>
 	</table>
-</div>
+</div> <!-- weekwork end -->
+<div id="wordevent">
+	<table>
+		<tr>
+			<th>日期</th>
+			<th>出勤状态</th>
+			<th>出勤开始时间</th>
+			<th>出勤结束时间</th>
+			<th>删除</th>
+		</tr>
+		<s:iterator value="workEventList" status="stat">
+		<tr <c:if test="${'1' == delflag}">style="display:none"</c:if>>
+			<td><sx:datetimepicker name="workEventList[%{#stat.index}].eventdate" displayFormat="yyyy-MM-dd" value="eventdate" language="utf-8"/></td>
+			<td>
+				<select name="workEventList[${stat.index}].status" onchange="cleartime(this)">
+					<s:iterator value="workStatusMap" var="option">
+						<option value="${option.key}" <c:if test="${option.key==status}">selected</c:if>>
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
+			</td>
+			<td>
+				<select name="workEventList[${stat.index}].starttime" <c:if test="${''==starttime}">disabled</c:if>>
+					<option value=""></option>
+					<s:iterator value="workTimeMap" var="option">
+						<option value="${option.key}" <c:if test="${option.key==starttime}">selected</c:if>>
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
+			</td>
+			<td>
+				<select name="workEventList[${stat.index}].endtime" <c:if test="${''==endtime}">disabled</c:if>>
+					<option value=""></option>
+					<s:iterator value="workTimeMap" var="option">
+						<option value="${option.key}" <c:if test="${option.key==endtime}">selected</c:if>>
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
+			</td>
+			<td>
+				<input type="button" value="删除" onclick="hideTr(this)"/>
+				<input type="hidden" name="workEventList[${stat.index}].delflag" value="${delflag}"/>
+			</td>
+		</tr>
+		</s:iterator>
+		<tr>
+			<td><sx:datetimepicker name="workEventList[].eventdate" displayFormat="yyyy-MM-dd" value="%{'today'}" language="utf-8"/></td>
+			<td>
+				
+				<select name="workEventList[].status" onchange="cleartime(this)">
+					<option value=""></option>
+					<s:iterator value="workStatusMap" var="option">
+						<option value="${option.key}">
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
+			</td>
+			<td>
+				<select name="workEventList[].starttime" <c:if test="${''==starttime}">disabled</c:if>>
+					<option value=""></option>
+					<s:iterator value="workTimeMap" var="option">
+						<option value="${option.key}" >
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
+			</td>
+			<td>
+				<select name="workEventList[].endtime" <c:if test="${''==endtime}">disabled</c:if>>
+					<option value=""></option>
+					<s:iterator value="workTimeMap" var="option">
+						<option value="${option.key}">
+							${option.value}
+						</option>
+					</s:iterator>
+				</select>
+			</td>
+			<td>
+				<input type="button" value="添加" onclick="hideTr(this)"/>
+				<input type="hidden" name="workEventList[].delflag" value="${delflag}"/>
+			</td>
+		</tr>
+	</table>
+</div> <!-- wordevent end -->
 <div><input type="submit"value="保存" /></div>
 </form>
 <%@ include file="/common/footer.jsp" %>

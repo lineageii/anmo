@@ -39,14 +39,15 @@ import com.google.common.collect.Lists;
 @Namespace("/account")
 // 定义名为reload的result重定向到user.action, 其他result则按照convention默认.
 @Results({ @Result(name = CrudActionSupport.RELOAD, location = "technician.anmo", type = "redirect") })
-@Action(interceptorRefs = {@InterceptorRef("i18n"), @InterceptorRef("fileUploadStack"), @InterceptorRef("defaultStack") })
+@Action(interceptorRefs = { @InterceptorRef("i18n"), @InterceptorRef("fileUploadStack"),
+		@InterceptorRef("defaultStack") })
 public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	private static final long serialVersionUID = -2902701210829184452L;
 
 	private TechnicianDao technicianDao;
 	private PulldownDao pulldownDao;
-	
+
 	private TechnicianService technicianService;
 
 	// -- 页面属性 --//
@@ -56,8 +57,10 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	private List<String> checkedLanguages = Lists.newArrayList();
 	private Map<String, String> genderMap = ImmutableMap.of("men", "男", "women", "女");
 	private int thisyear;
+
 	private Map<String, String> provinceMap;
 	private Map<String, String> workTimeMap;
+	private Map<String, String> workStatusMap;
 
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadFileNames = new ArrayList<String>();
@@ -72,11 +75,12 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 		return entity;
 	}
 
-	private void initPulldown(){
+	private void initPulldown() {
 		provinceMap = getProvinceMap(Lan.getLanByLocale(getLocale()));
 		workTimeMap = PulldownUtil.getWorkTimeMap(getText("workTimePrex"));
+		workStatusMap = PulldownUtil.getWorkStatusMap(getText("work"), getText("rest"));
 	}
-	
+
 	@Override
 	protected void prepareModel() throws Exception {
 		if (id != null) {
@@ -111,7 +115,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 		for (String str : arrays) {
 			checkedLanguages.add(str.trim());
 		}
-		technicianService.putWorkEvent2WeekWork(entity);
+		//technicianService.putWorkEvent2WeekWork(entity);
 		return INPUT;
 	}
 
@@ -150,6 +154,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public void setTechnicianDao(TechnicianDao technicianDao) {
 		this.technicianDao = technicianDao;
 	}
+
 	@Autowired
 	public void setPulldownDao(PulldownDao pulldownDao) {
 		this.pulldownDao = pulldownDao;
@@ -207,6 +212,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public Map<String, String> getProvinceMap() {
 		return provinceMap;
 	}
+
 	@Autowired
 	public void setTechnicianService(TechnicianService technicianService) {
 		this.technicianService = technicianService;
@@ -215,7 +221,9 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public Map<String, String> getWorkTimeMap() {
 		return workTimeMap;
 	}
-	
-	
+
+	public Map<String, String> getWorkStatusMap() {
+		return workStatusMap;
+	}
 
 }

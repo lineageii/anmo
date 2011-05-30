@@ -56,16 +56,23 @@ public class PulldownUtil {
 	 *            中文：凌晨， 日文：翌
 	 * @return
 	 */
-	public static Map<String, String> getWorkTimeMap(String prex){
+	public static Map<String, String> getWorkTimeMap(String prex) {
 		Map<String, String> map = Maps.newTreeMap();
 		int start = 12;
 		int end = 29;
-		
-		for(int i = start; i <= end; i++) {
+
+		for (int i = start; i <= end; i++) {
 			String value = i < 24 ? String.valueOf(i) : prex + (i - 24);
 			map.put(i + "00", value + ":00");
 			map.put(i + "30", value + ":30");
 		}
+		return map;
+	}
+
+	public static Map<String, String> getWorkStatusMap(String workValue, String restValue) {
+		Map<String, String> map = Maps.newTreeMap();
+		map.put("work", workValue);
+		map.put("rest", restValue);
 		return map;
 	}
 }

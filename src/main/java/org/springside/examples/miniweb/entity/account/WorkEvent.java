@@ -28,6 +28,7 @@ public class WorkEvent extends IdEntity {
 	private String status;
 	private String starttime;
 	private String endtime;
+	private String delflag;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "technicianid", nullable = false, updatable = false)
@@ -69,6 +70,14 @@ public class WorkEvent extends IdEntity {
 
 	public void setEndtime(String endtime) {
 		this.endtime = endtime;
+	}
+
+	public String getDelflag() {
+		return delflag;
+	}
+
+	public void setDelflag(String delflag) {
+		this.delflag = delflag;
 	}
 
 }

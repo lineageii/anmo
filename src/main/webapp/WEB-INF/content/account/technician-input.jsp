@@ -57,7 +57,7 @@
 			<td><s:select id="week6" name="weekWork.week6" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
 			<td><s:select id="week7" name="weekWork.week7" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
 		</tr>
-		
+		test
 	</table>
 </div>
 <div><input type="submit"value="保存" /></div>

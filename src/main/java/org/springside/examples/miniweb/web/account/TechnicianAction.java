@@ -14,12 +14,11 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.common.Lan;
-import org.springside.examples.miniweb.common.PulldownType;
 import org.springside.examples.miniweb.dao.account.PulldownDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
-import org.springside.examples.miniweb.entity.account.Pulldown;
 import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.service.ServiceException;
+import org.springside.examples.miniweb.service.account.TechnicianService;
 import org.springside.examples.miniweb.web.CrudActionSupport;
 import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PropertyFilter;
@@ -46,6 +45,8 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	private TechnicianDao technicianDao;
 	private PulldownDao pulldownDao;
+	
+	private TechnicianService technicianService;
 
 	// -- 页面属性 --//
 	private Long id;
@@ -107,6 +108,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 		for (String str : arrays) {
 			checkedLanguages.add(str.trim());
 		}
+		technicianService.putWorkEvent2WeekWork(entity);
 		return INPUT;
 	}
 
@@ -202,6 +204,11 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public Map<String, String> getProvinceMap() {
 		return provinceMap;
 	}
-
+	@Autowired
+	public void setTechnicianService(TechnicianService technicianService) {
+		this.technicianService = technicianService;
+	}
+	
+	
 
 }

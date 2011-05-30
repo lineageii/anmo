@@ -14,6 +14,7 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.common.Lan;
+import org.springside.examples.miniweb.common.PulldownUtil;
 import org.springside.examples.miniweb.dao.account.PulldownDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
 import org.springside.examples.miniweb.entity.account.Technician;
@@ -56,6 +57,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	private Map<String, String> genderMap = ImmutableMap.of("men", "男", "women", "女");
 	private int thisyear;
 	private Map<String, String> provinceMap;
+	private Map<String, String> workTimeMap;
 
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadFileNames = new ArrayList<String>();
@@ -72,6 +74,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	private void initPulldown(){
 		provinceMap = getProvinceMap(Lan.getLanByLocale(getLocale()));
+		workTimeMap = PulldownUtil.getWorkTimeMap(getText("workTimePrex"));
 	}
 	
 	@Override
@@ -207,6 +210,10 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	@Autowired
 	public void setTechnicianService(TechnicianService technicianService) {
 		this.technicianService = technicianService;
+	}
+
+	public Map<String, String> getWorkTimeMap() {
+		return workTimeMap;
 	}
 	
 	

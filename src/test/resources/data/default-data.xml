@@ -57,6 +57,7 @@
 		LAN="zh" />
 	<T_PULLDOWN ID="13" KEY="shanxi" VALUE="山西" TYPE="province"
 		LAN="zh" />
+		
 
 	<T_TECHNICIAN ID="1"  ADDRESS="上海市徐汇区苍梧路" BIRTHDAY="02"
 		BIRTHMONTH="02" BIRTHPLACE="shanghai" BIRTHYEAR="1989" BUST="35E" DREAM="环游世界" EMAIL="test1@qq.com" EMPNO="T001" GENDER="women" HEIGHT="170"

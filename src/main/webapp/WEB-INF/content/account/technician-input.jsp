@@ -68,11 +68,11 @@
 				<td align="center">
 				<s:select name="status" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" onchange="cleartime(this)"/>
 				<br/>
-				<s:select name="starttime" list="#{'1400':'14:00','1430':'14:30','1630':'16:30','1730':'17:30'}" listKey="key" listValue="value"  emptyOption="true" theme="simple" />
+				<s:select name="starttime" list="workTimeMap" listKey="key" listValue="value"  emptyOption="true" theme="simple" />
 				<br/>
 				~
 				<br/>
-				<s:select name="endtime" list="#{'2230':'22:30','2330':'23:30','2730':'凌晨3:30','2800':'凌晨4:00'}" listKey="key" listValue="value" emptyOption="true" theme="simple" />
+				<s:select name="endtime" list="workTimeMap" listKey="key" listValue="value" emptyOption="true" theme="simple" />
 				</td>
 			</s:iterator>
 		</tr>

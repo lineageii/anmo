@@ -1,13 +1,17 @@
 package org.springside.examples.miniweb.entity.account;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springside.examples.miniweb.entity.IdEntity;
+
+import com.google.common.collect.Lists;
 
 /**
  * 技师表
@@ -47,7 +51,7 @@ public class Technician extends IdEntity {
 	private String dream;
 	/** 语言 */
 	private String languages;
-	
+
 	/** 手机号码 */
 	private String mobileno;
 	/** 住址 */
@@ -55,147 +59,197 @@ public class Technician extends IdEntity {
 	private String qq;
 	private String msn;
 	private String email;
-	
+
 	/** 状态:1:空闲 2:出勤中 3:休息*/
 	private String status;
-	
-	private WeekWork weekWork;
-	
+
+	private List<WeekWork> weekWorkList = Lists.newArrayList();
+	private List<WorkEvent> workEventList = Lists.newArrayList();
+
 	public String getEmpno() {
 		return empno;
 	}
+
 	public void setEmpno(String empno) {
 		this.empno = empno;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 	public String getBirthmonth() {
 		return birthmonth;
 	}
+
 	public void setBirthmonth(String birthmonth) {
 		this.birthmonth = birthmonth;
 	}
+
 	public String getBirthday() {
 		return birthday;
 	}
+
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
+
 	public String getBust() {
 		return bust;
 	}
+
 	public void setBust(String bust) {
 		this.bust = bust;
 	}
+
 	public String getWaistline() {
 		return waistline;
 	}
+
 	public void setWaistline(String waistline) {
 		this.waistline = waistline;
 	}
+
 	public String getHip() {
 		return hip;
 	}
+
 	public void setHip(String hip) {
 		this.hip = hip;
 	}
+
 	public String getHeight() {
 		return height;
 	}
+
 	public void setHeight(String height) {
 		this.height = height;
 	}
+
 	public String getWeight() {
 		return weight;
 	}
+
 	public void setWeight(String weight) {
 		this.weight = weight;
 	}
+
 	public String getBirthplace() {
 		return birthplace;
 	}
+
 	public void setBirthplace(String birthplace) {
 		this.birthplace = birthplace;
 	}
+
 	public String getMobileno() {
 		return mobileno;
 	}
+
 	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public String getQq() {
 		return qq;
 	}
+
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
+
 	public String getMsn() {
 		return msn;
 	}
+
 	public void setMsn(String msn) {
 		this.msn = msn;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getLanguages() {
 		return languages;
 	}
+
 	public void setLanguages(String languages) {
 		this.languages = languages;
 	}
+
 	public Integer getBirthyear() {
 		return birthyear;
 	}
+
 	public void setBirthyear(Integer birthyear) {
 		this.birthyear = birthyear;
 	}
+
 	public String getHobby() {
 		return hobby;
 	}
+
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
 	}
+
 	public String getDream() {
 		return dream;
 	}
+
 	public void setDream(String dream) {
 		this.dream = dream;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	@OneToOne(optional=false)
-    @JoinColumn(
-    	name="WEEKWORKID", unique=true, nullable=false, updatable=false)
-	public WeekWork getWeekWork() {
-		return weekWork;
-	}
-	public void setWeekWork(WeekWork weekWork) {
-		this.weekWork = weekWork;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technician")
+	public List<WeekWork> getWeekWorkList() {
+		return weekWorkList;
 	}
 
-	
+	public void setWeekWorkList(List<WeekWork> weekWorkList) {
+		this.weekWorkList = weekWorkList;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technician")
+	public List<WorkEvent> getWorkEventList() {
+		return workEventList;
+	}
+
+	public void setWorkEventList(List<WorkEvent> workEventList) {
+		this.workEventList = workEventList;
+	}
+
 }

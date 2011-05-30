@@ -8,8 +8,23 @@
 	<%@ include file="/common/meta.jsp" %>
 	<link href="${ctx}/css/yui.css" type="text/css" rel="stylesheet"/>
 	<link href="${ctx}/css/style.css" type="text/css" rel="stylesheet"/>
+	<link href="${ctx}/template/spa/css/jquery.lightbox-0.5.css"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${ctx}/template/spa/js/jquery.js"></script>
+<script type="text/javascript"
+	src="${ctx}/template/spa/js/jquery.lightbox-0.5.js"></script>
 </head>
 
+<script type="text/javascript">
+	function cleartime(obj){
+		if($(obj).val() == 'rest'){
+			var starttime = $(obj).next().next();
+			var endtime = $(starttime).next().next().next();
+			$(starttime).val('');
+			$(endtime).val('');
+		}
+	}
+</script>
 <body>
 <div id="doc3">
 <form id="inputForm" action="technician!save.anmo" method="post">
@@ -49,15 +64,18 @@
 			<th><s:text name="week7"/></th>
 		</tr>
 		<tr>
-			<td><s:select id="week1" name="weekWork.week1" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
-			<td><s:select id="week2" name="weekWork.week2" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
-			<td><s:select id="week3" name="weekWork.week3" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
-			<td><s:select id="week4" name="weekWork.week4" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
-			<td><s:select id="week5" name="weekWork.week5" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
-			<td><s:select id="week6" name="weekWork.week6" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
-			<td><s:select id="week7" name="weekWork.week7" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" /></td>
+			<s:iterator value="weekWorkList" status="index">
+				<td align="center">
+				<s:select name="status" list="#{'work':'出勤','rest':'休息'}" listKey="key" listValue="value" theme="simple" onchange="cleartime(this)"/>
+				<br/>
+				<s:select name="starttime" list="#{'1400':'14:00','1430':'14:30'}" listKey="key" listValue="value"  emptyOption="true" theme="simple" />
+				<br/>
+				~
+				<br/>
+				<s:select name="endtime" list="#{'2730':'凌晨3:30','2800':'凌晨4:00'}" listKey="key" listValue="value" emptyOption="true" theme="simple" />
+				</td>
+			</s:iterator>
 		</tr>
-		test
 	</table>
 </div>
 <div><input type="submit"value="保存" /></div>

@@ -1,5 +1,7 @@
 package org.springside.examples.miniweb.entity.account;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,18 +12,18 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springside.examples.miniweb.entity.IdEntity;
 
 /**
- * 周出勤表
+ * 出勤事件表
  * @author hujia
  *
  */
 @Entity
-@Table(name = "T_WEEKWORK")
+@Table(name = "T_WORKEVENT")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class WeekWork extends IdEntity {
+public class WorkEvent extends IdEntity {
 
 	private Technician technician;
-	/** week1:星期一,week2:星期二,week7,星期日 */
-	private String weekno;
+	/** 事件日期 */
+	private Date eventdate;
 	/** 状态, work:出勤, rest:休息*/
 	private String status;
 	private String starttime;
@@ -37,12 +39,12 @@ public class WeekWork extends IdEntity {
 		this.technician = technician;
 	}
 
-	public String getWeekno() {
-		return weekno;
+	public Date getEventdate() {
+		return eventdate;
 	}
 
-	public void setWeekno(String weekno) {
-		this.weekno = weekno;
+	public void setEventdate(Date eventdate) {
+		this.eventdate = eventdate;
 	}
 
 	public String getStatus() {

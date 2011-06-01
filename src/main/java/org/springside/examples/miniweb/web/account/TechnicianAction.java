@@ -39,8 +39,7 @@ import com.google.common.collect.Lists;
 @Namespace("/account")
 // 定义名为reload的result重定向到user.action, 其他result则按照convention默认.
 @Results({ @Result(name = CrudActionSupport.RELOAD, location = "technician.anmo", type = "redirect") })
-@Action(interceptorRefs = { @InterceptorRef("i18n"), @InterceptorRef("fileUploadStack"),
-		@InterceptorRef("defaultStack") })
+@Action(interceptorRefs = { @InterceptorRef("fileUploadStack"), @InterceptorRef("defaultStack") })
 public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	private static final long serialVersionUID = -2902701210829184452L;

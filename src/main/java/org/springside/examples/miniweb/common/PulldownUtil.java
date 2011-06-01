@@ -44,7 +44,7 @@ public class PulldownUtil {
 	// return map;
 
 	public static Map getLanguagesMap() {
-		Map<String, String> map = Maps.newHashMap();
+		Map<String, String> map = Maps.newLinkedHashMap();
 		map.put("jp", "日语");
 		map.put("en", "英语");
 		return map;
@@ -57,7 +57,7 @@ public class PulldownUtil {
 	 * @return
 	 */
 	public static Map<String, String> getWorkTimeMap(String prex) {
-		Map<String, String> map = Maps.newTreeMap();
+		Map<String, String> map = Maps.newLinkedHashMap();
 		int start = 12;
 		int end = 29;
 
@@ -70,7 +70,7 @@ public class PulldownUtil {
 	}
 
 	public static Map<String, String> getWorkStatusMap(String workValue, String restValue) {
-		Map<String, String> map = Maps.newTreeMap();
+		Map<String, String> map = Maps.newLinkedHashMap();
 		map.put("work", workValue);
 		map.put("rest", restValue);
 		return map;

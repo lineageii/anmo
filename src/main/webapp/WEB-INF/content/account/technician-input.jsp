@@ -157,10 +157,10 @@
 		</tr>
 		</s:iterator>
 		<tr>
-			<td><sx:datetimepicker name="workEventList[].eventdate" displayFormat="yyyy-MM-dd" value="%{'today'}" language="utf-8"/></td>
+			<td><sx:datetimepicker name="workEventList[i].eventdate" displayFormat="yyyy-MM-dd" value="%{'today'}" language="utf-8"/></td>
 			<td>
 				
-				<select name="workEventList[].status" onchange="cleartime(this)">
+				<select name="workEventList[i].status" onchange="cleartime(this)">
 					<option value=""></option>
 					<s:iterator value="workStatusMap" var="option">
 						<option value="${option.key}">
@@ -170,7 +170,7 @@
 				</select>
 			</td>
 			<td>
-				<select name="workEventList[].starttime" <c:if test="${''==starttime}">disabled</c:if>>
+				<select name="workEventList[i].starttime" <c:if test="${''==starttime}">disabled</c:if>>
 					<option value=""></option>
 					<s:iterator value="workTimeMap" var="option">
 						<option value="${option.key}" >
@@ -180,7 +180,7 @@
 				</select>
 			</td>
 			<td>
-				<select name="workEventList[].endtime" <c:if test="${''==endtime}">disabled</c:if>>
+				<select name="workEventList[i].endtime" <c:if test="${''==endtime}">disabled</c:if>>
 					<option value=""></option>
 					<s:iterator value="workTimeMap" var="option">
 						<option value="${option.key}">
@@ -191,7 +191,7 @@
 			</td>
 			<td>
 				<input type="button" value="添加" onclick="hideTr(this)"/>
-				<input type="hidden" name="workEventList[].delflag" value="${delflag}"/>
+				<input type="hidden" name="workEventList[i].delflag" value="${delflag}"/>
 			</td>
 		</tr>
 	</table>

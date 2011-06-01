@@ -1,13 +1,17 @@
 package org.springside.examples.miniweb.web.account;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springside.examples.miniweb.common.PulldownUtil;
+import org.springside.examples.miniweb.dao.account.TechnicianDao;
 import org.springside.examples.miniweb.dao.account.WorkEventDao;
+import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.entity.account.WorkEvent;
 import org.springside.examples.miniweb.service.ServiceException;
 import org.springside.examples.miniweb.web.CrudActionSupport;
@@ -26,17 +30,22 @@ import org.springside.modules.utils.web.struts2.Struts2Utils;
 //定义URL映射对应/account/user.action
 @Namespace("/account")
 //定义名为reload的result重定向到user.action, 其他result则按照convention默认.
-@Results( { @Result(name = CrudActionSupport.RELOAD, location = "workevent.anmo", type = "redirect") })
-public class WorkEventAction extends CrudActionSupport<WorkEvent> {
+@Results({ @Result(name = CrudActionSupport.RELOAD, location = "workevent.anmo", type = "redirect") })
+public class WorkeventAction extends CrudActionSupport<WorkEvent> {
 
 	private static final long serialVersionUID = 8683878162525847072L;
 
 	private WorkEventDao workEventDao;
+	private TechnicianDao technicianDao;
 	//-- 页面属性 --//
 	private Long id;
 	private WorkEvent entity;
 	private Page<WorkEvent> page = new Page<WorkEvent>(10);//每页5条记录
 	private List<Long> checkedRoleIds; //页面中钩选的角色id列表
+
+	private Map<String, String> workTimeMap;
+	private Map<String, String> workStatusMap;
+	private List<Technician> technicianList;
 
 	//-- ModelDriven 与 Preparable函数 --//
 	public void setId(Long id) {
@@ -45,6 +54,11 @@ public class WorkEventAction extends CrudActionSupport<WorkEvent> {
 
 	public WorkEvent getModel() {
 		return entity;
+	}
+
+	private void initPulldown() {
+		workTimeMap = PulldownUtil.getWorkTimeMap(getText("workTimePrex"));
+		workStatusMap = PulldownUtil.getWorkStatusMap(getText("work"), getText("rest"));
 	}
 
 	@Override
@@ -59,11 +73,12 @@ public class WorkEventAction extends CrudActionSupport<WorkEvent> {
 	//-- CRUD Action 函数 --//
 	@Override
 	public String list() throws Exception {
+		initPulldown();
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(Struts2Utils.getRequest());
 		// 设置默认排序方式
 		if (!page.isOrderBySetted()) {
-			page.setOrderBy("id");
-			page.setOrder(Page.ASC);
+			page.setOrderBy("eventdate");
+			page.setOrder(Page.DESC);
 		}
 		page = workEventDao.findPage(page, filters);
 		return SUCCESS;
@@ -71,6 +86,8 @@ public class WorkEventAction extends CrudActionSupport<WorkEvent> {
 
 	@Override
 	public String input() throws Exception {
+		initPulldown();
+		technicianList = technicianDao.getAll();
 		return INPUT;
 	}
 
@@ -95,7 +112,6 @@ public class WorkEventAction extends CrudActionSupport<WorkEvent> {
 		}
 		return RELOAD;
 	}
-
 
 	//-- 页面属性访问函数 --//
 	/**
@@ -127,7 +143,26 @@ public class WorkEventAction extends CrudActionSupport<WorkEvent> {
 	public void setWorkEventDao(WorkEventDao workEventDao) {
 		this.workEventDao = workEventDao;
 	}
-	
-	
+
+	public Map<String, String> getWorkTimeMap() {
+		return workTimeMap;
+	}
+
+	public Map<String, String> getWorkStatusMap() {
+		return workStatusMap;
+	}
+
+	public List<Technician> getTechnicianList() {
+		return technicianList;
+	}
+
+	public TechnicianDao getTechnicianDao() {
+		return technicianDao;
+	}
+
+	@Autowired
+	public void setTechnicianDao(TechnicianDao technicianDao) {
+		this.technicianDao = technicianDao;
+	}
 
 }

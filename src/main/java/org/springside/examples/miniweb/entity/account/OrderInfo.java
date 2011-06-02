@@ -27,6 +27,7 @@ public class OrderInfo extends IdEntity {
 	private Order order;
 	private Technician technician;
 	private BigDecimal price;
+	/** 货币单位：usd:美元 rmb:人民币 */
 	private String currency;
 
 	@ManyToOne

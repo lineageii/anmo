@@ -1,5 +1,6 @@
 package org.springside.examples.miniweb.entity.account;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -27,11 +28,14 @@ import com.google.common.collect.Lists;
 public class Order extends IdEntity {
 
 	private String orderno;
+	private Date orderdate;
 	private Customer customer;
 	private String contactAddress;
 	private String contactName;
 	private String contactPhoneNo;
 	private String remark;
+	/** 订单状态  new:新建  审核完毕 发货  收货 交易结束 取消 */
+	private String status;
 
 	private List<OrderInfo> orderInfoList = Lists.newArrayList();
 
@@ -97,6 +101,22 @@ public class Order extends IdEntity {
 
 	public void setOrderInfoList(List<OrderInfo> orderInfoList) {
 		this.orderInfoList = orderInfoList;
+	}
+
+	public Date getOrderdate() {
+		return orderdate;
+	}
+
+	public void setOrderdate(Date orderdate) {
+		this.orderdate = orderdate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

@@ -69,60 +69,52 @@
 <div id="bd">
 	<div id="yui-main">
 	<div class="yui-b">
-	<h2><s:if test="id == null">创建</s:if><s:else>修改</s:else>出勤事件</h2>
-	<form id="inputForm" action="user!save.anmo" method="post">
+	<h2><s:if test="id == null">创建</s:if><s:else>修改</s:else>订单</h2>
+	<form id="inputForm" action="order!save.anmo" method="post">
 		<input type="hidden" name="id" value="${id}"/>
 		<table class="noborder">
 			<tr>
-				<td>出勤日期:</td>
+				<td>订单编号:</td>
+				<td>${orderno}</td>
+			</tr>
+			<tr>
+				<td>订单日期:</td>
 				<td>
 				<s:if test="id == null"><sx:datetimepicker name="eventdate" displayFormat="yyyy-MM-dd" value="%{'today'}" language="utf-8"/></s:if>
-				<s:else><sx:datetimepicker name="eventdate" displayFormat="yyyy-MM-dd" value="eventdate" language="utf-8"/></s:else>
+				<s:else><sx:datetimepicker name="orderdate" displayFormat="yyyy-MM-dd" value="orderdate" language="utf-8"/></s:else>
 				</td>
 			</tr>
 			<tr>
-				<td>技师:</td>
-				<td><select name="technician">
-					<s:iterator value="technicianList" var="option">
-						<option value="${option.id}" <c:if test="${option.id==technician.id}">selected</c:if>>
-							${option.empno}-${option.name}
-						</option>
-					</s:iterator>
-				</select>
-				</td>
+				<td>顾客姓名:</td>
+				<td><input type="text" name="customer.name" value="${customer.name}" /> </td>
 			</tr>
 			<tr>
-				<td>出勤状态:</td>
-				<td><select id="status" name="status" onchange="cleartime(this)">
-					<s:iterator value="workStatusMap" var="option">
-						<option value="${option.key}" <c:if test="${option.key==status}">selected</c:if>>
-							${option.value}
-						</option>
-					</s:iterator>
-				</select></td>
+				<td>顾客手机:</td>
+				<td><input type="text" name="customer.phoneno" value="${customer.phoneno}" /></td>
 			</tr>
 			<tr>
-				<td>出勤开始时间:</td>
-				<td><select id="starttime" name="starttime" <c:if test="${''==starttime}">disabled</c:if>>
-					<option value="" ></option>
-					<s:iterator value="workTimeMap" var="option">
-						<option value="${option.key}" <c:if test="${option.key==starttime}">selected</c:if>>
-							${option.value}
-						</option>
-					</s:iterator>
-				</select>
-				</td>
+				<td>顾客QQ:</td>
+				<td><input type="text" name="customer.qq" value="${customer.qq}" /></td>
 			</tr>
 			<tr>
-				<td>出勤结束时间:</td>
-				<td><select id="endtime" name="endtime" <c:if test="${''==endtime}">disabled</c:if>>
-					<option value=""></option>
-					<s:iterator value="workTimeMap" var="option">
-						<option value="${option.key}" <c:if test="${option.key==endtime}">selected</c:if>>
-							${option.value}
-						</option>
-					</s:iterator>
-				</select></td>
+				<td>联系地址:</td>
+				<td><input type="text" name="contactAddress" value="${contactAddress}" /></td>
+			</tr>
+			<tr>
+				<td>联系人<:</td>
+				<td><input type="text" name="contactName" value="${contactName}" /></td>
+			</tr>
+			<tr>
+				<td>联系人电话:</td>
+				<td><input type="text" name="contactPhoneNo" value="${contactPhoneNo}" /></td>
+			</tr>
+			<tr>
+				<td>备注:</td>
+				<td><input type="text" name="remark" value="${remark}" /></td>
+			</tr>
+			<tr>
+				<td>状态:</td>
+				<td><input type="text" name="status" value="${status}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2">

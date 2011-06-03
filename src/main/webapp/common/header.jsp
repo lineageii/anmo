@@ -8,8 +8,9 @@
 	</div>
 	<div id="menu">
 		<ul>
-			<li><a href="${ctx}/account/user.anmo">帐号列表</a></li>
-			<li><a href="${ctx}/account/role.anmo">角色列表</a></li>
+			<li><a href="${ctx}/account/user.anmo">帐号</a></li>
+			<li><a href="${ctx}/account/role.anmo">角色</a></li>
+			<li><a href="${ctx}/account/order.anmo">订单</a></li>
 			<li><a href="${ctx}/j_spring_security_logout">退出登录</a></li>
 		</ul>
 	</div>

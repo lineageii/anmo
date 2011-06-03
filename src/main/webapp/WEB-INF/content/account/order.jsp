@@ -33,23 +33,33 @@
 				<tr>
 					<th><a href="javascript:sort('id','asc')">订单编号</a></th>
 					<th><a href="javascript:sort('orderdate','asc')">订单日期</a></th>
-					<th>出勤状态</th>
-					<th>出勤开始时</th>
-					<th>出勤结束时</th>
+					<th>顾客姓名</th>
+					<th>顾客手机</th>
+					<th>顾客QQ</th>
+					<th>联系地址</th>
+					<th>联系人</th>
+					<th>联系人电话</th>
+					<th>备注</th>
+					<th>状态</th>
 					<th>操作</th>
 				</tr>
 
 				<s:iterator value="page.result">
 					<tr>
-						<td>${eventdate}&nbsp;</td>
-						<td>${technician.empno}-${technician.name}&nbsp;</td>
-						<td>${workStatusMap[status]}&nbsp;</td>
-						<td>${workTimeMap[starttime]}&nbsp;</td>
-						<td>${workTimeMap[endtime]}</td>
+						<td>${orderno}&nbsp;</td>
+						<td>${orderdate}&nbsp;</td>
+						<td>${customer.name}&nbsp;</td>
+						<td>${customer.phoneno}&nbsp;</td>
+						<td>${customer.qq}&nbsp;</td>
+						<td>${contactAddress}&nbsp;</td>
+						<td>${contactName}&nbsp;</td>
+						<td>${contactPhoneNo}&nbsp;</td>
+						<td>${remark}&nbsp;</td>
+						<td>${status}&nbsp;</td>
 						<td>&nbsp;
 							<security:authorize ifAnyGranted="ROLE_修改用户">
-								<a href="workevent!input.anmo?id=${id}">修改</a>&nbsp;
-								<a href="workevent!delete.anmo?id=${id}">删除</a>
+								<a href="order!input.anmo?id=${id}">修改</a>&nbsp;
+								<a href="order!delete.anmo?id=${id}">删除</a>
 							</security:authorize>
 						</td>
 					</tr>
@@ -65,7 +75,7 @@
 			<a href="javascript:jumpPage(${page.totalPages})">末页</a>
 
 			<security:authorize ifAnyGranted="ROLE_修改用户">
-				<a href="workevent!input.anmo">增加新用户</a>
+				<a href="order!input.anmo">增加新用户</a>
 			</security:authorize>
 		</div>
 	</s:form>

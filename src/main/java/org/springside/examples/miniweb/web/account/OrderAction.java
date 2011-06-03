@@ -7,6 +7,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springside.examples.miniweb.common.RandomUtil;
 import org.springside.examples.miniweb.dao.account.OrderDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
 import org.springside.examples.miniweb.entity.account.Order;
@@ -59,6 +60,7 @@ public class OrderAction extends CrudActionSupport<Order> {
 			entity = OrderDao.get(id);
 		} else {
 			entity = new Order();
+			entity.setOrderno(RandomUtil.createOrderNo());
 		}
 	}
 

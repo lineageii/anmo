@@ -70,7 +70,7 @@
 	<div id="yui-main">
 	<div class="yui-b">
 	<h2><s:if test="id == null">创建</s:if><s:else>修改</s:else>出勤事件</h2>
-	<form id="inputForm" action="user!save.anmo" method="post">
+	<form id="inputForm" action="workevent!save.anmo" method="post">
 		<input type="hidden" name="id" value="${id}"/>
 		<table class="noborder">
 			<tr>
@@ -82,7 +82,7 @@
 			</tr>
 			<tr>
 				<td>技师:</td>
-				<td><select name="technician">
+				<td><select name="technician.id" <s:if test="id != null">disabled</s:if>>
 					<s:iterator value="technicianList" var="option">
 						<option value="${option.id}" <c:if test="${option.id==technician.id}">selected</c:if>>
 							${option.empno}-${option.name}

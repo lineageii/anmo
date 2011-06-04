@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="org.springside.modules.security.springsecurity.SpringSecurityUtils" %>
 <%@ include file="/common/taglibs.jsp" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,7 +47,7 @@
 				<s:iterator value="page.result">
 					<tr>
 						<td>${orderno}&nbsp;</td>
-						<td>${orderdate}&nbsp;</td>
+						<td><fmt:formatDate value="${orderdate}" type="date" />&nbsp;</td>
 						<td>${customer.name}&nbsp;</td>
 						<td>${customer.phoneno}&nbsp;</td>
 						<td>${customer.qq}&nbsp;</td>

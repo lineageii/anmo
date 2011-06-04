@@ -11,12 +11,12 @@ public class RandomUtil {
 	/**
 	 * 创建唯一的订单编号<br>
 	 * 订单编号生成规则<br>
-	 * 5位随机字母+日期<br>
-	 * XXXXX+yyyyMMdd<br>
+	 * 日期 5位随机字母<br>
+	 * yyyyMMdd XXXXX<br>
 	 * @return 订单编号
 	 */
 	public static String createOrderNo() {
-		return randomChar(5) + DateUtil.getNow();
+		return DateUtil.getNow() + randomChar(5);
 	}
 
 	public static String randomChar(int length) {

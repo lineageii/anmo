@@ -80,8 +80,8 @@
 			<tr>
 				<td>订单日期:</td>
 				<td>
-				<s:if test="id == null"><sx:datetimepicker name="eventdate" displayFormat="yyyy-MM-dd" value="%{'today'}" language="utf-8"/></s:if>
-				<s:else><sx:datetimepicker name="orderdate" displayFormat="yyyy-MM-dd" value="orderdate" language="utf-8"/></s:else>
+				<s:if test="id == null"><sx:datetimepicker name="orderdate" displayFormat="yyyy-MM-dd" value="%{'today'}" language="utf-8"/></s:if>
+				<s:else><sx:datetimepicker name="orderdate" displayFormat="yyyy-MM-dd" language="utf-8"/></s:else>
 				</td>
 			</tr>
 			<tr>
@@ -101,7 +101,7 @@
 				<td><input type="text" name="contactAddress" value="${contactAddress}" /></td>
 			</tr>
 			<tr>
-				<td>联系人<:</td>
+				<td>联系人</td>
 				<td><input type="text" name="contactName" value="${contactName}" /></td>
 			</tr>
 			<tr>
@@ -111,10 +111,6 @@
 			<tr>
 				<td>备注:</td>
 				<td><input type="text" name="remark" value="${remark}" /></td>
-			</tr>
-			<tr>
-				<td>状态:</td>
-				<td><input type="text" name="status" value="${status}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2">

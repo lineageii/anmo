@@ -8,8 +8,10 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.common.RandomUtil;
+import org.springside.examples.miniweb.dao.account.CustomerDao;
 import org.springside.examples.miniweb.dao.account.OrderDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
+import org.springside.examples.miniweb.entity.account.Customer;
 import org.springside.examples.miniweb.entity.account.Order;
 import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.service.ServiceException;
@@ -34,8 +36,9 @@ public class OrderAction extends CrudActionSupport<Order> {
 
 	private static final long serialVersionUID = 8683878162525847072L;
 
-	private OrderDao OrderDao;
+	private OrderDao orderDao;
 	private TechnicianDao technicianDao;
+	private CustomerDao customerDao;
 	//-- 页面属性 --//
 	private Long id;
 	private Order entity;
@@ -57,7 +60,7 @@ public class OrderAction extends CrudActionSupport<Order> {
 	@Override
 	protected void prepareModel() throws Exception {
 		if (id != null) {
-			entity = OrderDao.get(id);
+			entity = orderDao.get(id);
 		} else {
 			entity = new Order();
 			entity.setOrderno(RandomUtil.createOrderNo());
@@ -74,7 +77,7 @@ public class OrderAction extends CrudActionSupport<Order> {
 			page.setOrderBy("id");
 			page.setOrder(Page.DESC);
 		}
-		page = OrderDao.findPage(page, filters);
+		page = orderDao.findPage(page, filters);
 		return SUCCESS;
 	}
 
@@ -89,7 +92,10 @@ public class OrderAction extends CrudActionSupport<Order> {
 	@Transactional
 	public String save() throws Exception {
 		//根据页面上的checkbox选择 整合User的Roles Set
-		OrderDao.save(entity);
+		if(entity.getCustomer().getId() == null){
+			customerDao.save(entity.getCustomer());
+		} 
+		orderDao.save(entity);
 		addActionMessage("保存用户成功");
 		return RELOAD;
 	}
@@ -98,7 +104,7 @@ public class OrderAction extends CrudActionSupport<Order> {
 	@Transactional
 	public String delete() throws Exception {
 		try {
-			OrderDao.delete(id);
+			orderDao.delete(id);
 			addActionMessage("删除用户成功");
 		} catch (ServiceException e) {
 			logger.error(e.getMessage(), e);
@@ -116,12 +122,12 @@ public class OrderAction extends CrudActionSupport<Order> {
 	}
 
 	public OrderDao getOrderDao() {
-		return OrderDao;
+		return orderDao;
 	}
 
 	@Autowired
-	public void setOrderDao(OrderDao OrderDao) {
-		this.OrderDao = OrderDao;
+	public void setOrderDao(OrderDao orderDao) {
+		this.orderDao = orderDao;
 	}
 
 	public List<Technician> getTechnicianList() {
@@ -137,4 +143,13 @@ public class OrderAction extends CrudActionSupport<Order> {
 		this.technicianDao = technicianDao;
 	}
 
+	public CustomerDao getCustomerDao() {
+		return customerDao;
+	}
+	@Autowired
+	public void setCustomerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+
+	
 }

@@ -48,8 +48,8 @@ public class Order extends IdEntity {
 		this.orderno = orderno;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "customerid", nullable = false)
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "customerid", nullable = false, updatable = false)
 	public Customer getCustomer() {
 		return customer;
 	}

@@ -1,6 +1,7 @@
 package org.springside.examples.miniweb.entity.account;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,9 +11,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.json.JSONObject;
 import org.springside.examples.miniweb.entity.IdEntity;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 /**
  * 顾客表
@@ -86,4 +89,14 @@ public class Customer extends IdEntity {
 		this.orderList = orderList;
 	}
 
+	public String toJson(){
+		Map<String, String> map = Maps.newHashMap();
+		map.put("id", String.valueOf(this.id));
+		map.put("name", this.name);
+		map.put("phoneno", this.phoneno);
+		map.put("address", this.address);
+		map.put("qq", this.qq);
+		map.put("msn", this.msn);
+		return new JSONObject(map).toString();
+	}
 }

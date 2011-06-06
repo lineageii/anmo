@@ -59,6 +59,29 @@
 			}
 		}
 		
+		function searchCustomer(obj){
+			if($(obj).val() != "") {
+				$.get("order!searchCustomerJsonByPhoneno.anmo?phoneno=" + $(obj).val(),
+						{},
+						function(response){
+							if(response == null) {
+								if('${id}' == ''){ 
+									$("#customerid").val('');
+									$("#name").val('');
+									$("#qq").val('');
+									$("#msn").val('');
+								}
+							} else {
+								$("#customerid").val(response.id);
+								$("#name").val(response.name);
+								$("#qq").val(response.qq);
+								$("#msn").val(response.msn);
+							}
+
+						});
+				
+			}
+		}
 	</script>
 	
 </head>
@@ -72,6 +95,7 @@
 	<h2><s:if test="id == null">创建</s:if><s:else>修改</s:else>订单</h2>
 	<form id="inputForm" action="order!save.anmo" method="post">
 		<input type="hidden" name="id" value="${id}"/>
+		<input type="hidden" id="customerid" name="customer.id" value="${customer.id}"/>
 		<table class="noborder">
 			<tr>
 				<td>订单编号:</td>
@@ -85,32 +109,37 @@
 				</td>
 			</tr>
 			<tr>
-				<td>顾客姓名:</td>
-				<td><input type="text" name="customer.name" value="${customer.name}" /> </td>
+				<td>顾客手机:</td>
+				<td><input type="text" id="phoneno" name="customer.phoneno" value="${customer.phoneno}" onblur="searchCustomer(this)"/></td>
 			</tr>
 			<tr>
-				<td>顾客手机:</td>
-				<td><input type="text" name="customer.phoneno" value="${customer.phoneno}" /></td>
+				<td>顾客姓名:</td>
+				<td><input type="text" id="name" name="customer.name" value="${customer.name}" /> </td>
 			</tr>
+
 			<tr>
 				<td>顾客QQ:</td>
-				<td><input type="text" name="customer.qq" value="${customer.qq}" /></td>
+				<td><input type="text" id="qq" name="customer.qq" value="${customer.qq}" /></td>
 			</tr>
 			<tr>
-				<td>联系地址:</td>
-				<td><input type="text" name="contactAddress" value="${contactAddress}" /></td>
+				<td>顾客MSN:</td>
+				<td><input type="text" id="msn" name="customer.msn" value="${customer.msn}" /></td>
 			</tr>
 			<tr>
-				<td>联系人</td>
-				<td><input type="text" name="contactName" value="${contactName}" /></td>
+				<td>联系人姓名</td>
+				<td><input type="text" id="contactName" name="contactName" value="${contactName}" /></td>
+			</tr>
+			<tr>
+				<td>联系人地址:</td>
+				<td><input type="text" id="contactAddress" name="contactAddress" value="${contactAddress}" /></td>
 			</tr>
 			<tr>
 				<td>联系人电话:</td>
-				<td><input type="text" name="contactPhoneNo" value="${contactPhoneNo}" /></td>
+				<td><input type="text" id="contactPhoneNo" name="contactPhoneNo" value="${contactPhoneNo}" /></td>
 			</tr>
 			<tr>
 				<td>备注:</td>
-				<td><input type="text" name="remark" value="${remark}" /></td>
+				<td><input type="text" id="remark" name="remark" value="${remark}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2">

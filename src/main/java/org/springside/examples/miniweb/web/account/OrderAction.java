@@ -5,6 +5,9 @@ import java.util.List;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mortbay.jetty.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.common.RandomUtil;
@@ -15,10 +18,13 @@ import org.springside.examples.miniweb.entity.account.Customer;
 import org.springside.examples.miniweb.entity.account.Order;
 import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.service.ServiceException;
+import org.springside.examples.miniweb.service.account.OrderService;
 import org.springside.examples.miniweb.web.CrudActionSupport;
 import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PropertyFilter;
 import org.springside.modules.utils.web.struts2.Struts2Utils;
+
+import com.opensymphony.xwork2.ActionContext;
 
 /**
  * 订单Action.
@@ -39,6 +45,8 @@ public class OrderAction extends CrudActionSupport<Order> {
 	private OrderDao orderDao;
 	private TechnicianDao technicianDao;
 	private CustomerDao customerDao;
+	private OrderService orderService;
+	
 	//-- 页面属性 --//
 	private Long id;
 	private Order entity;
@@ -112,6 +120,18 @@ public class OrderAction extends CrudActionSupport<Order> {
 		}
 		return RELOAD;
 	}
+	
+	
+	/**
+	 * 根据手机查询客户信息
+	 * @param phoneno
+	 * @return
+	 * @throws JSONException 
+	 */
+	public void searchCustomerJsonByPhoneno() throws JSONException{
+		String jsonString = orderService.getCustomerJsonByPhoneno(Struts2Utils.getParameter("phoneno"));
+		Struts2Utils.renderJson(jsonString, "encoding:UTF-8");
+	}
 
 	//-- 页面属性访问函数 --//
 	/**
@@ -149,6 +169,14 @@ public class OrderAction extends CrudActionSupport<Order> {
 	@Autowired
 	public void setCustomerDao(CustomerDao customerDao) {
 		this.customerDao = customerDao;
+	}
+
+	public OrderService getOrderService() {
+		return orderService;
+	}
+	@Autowired
+	public void setOrderService(OrderService orderService) {
+		this.orderService = orderService;
 	}
 
 	

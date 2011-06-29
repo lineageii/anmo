@@ -126,15 +126,15 @@
 				<td><input type="text" id="msn" name="customer.msn" value="${customer.msn}" /></td>
 			</tr>
 			<tr>
-				<td>联系人姓名</td>
+				<td>服务顾客姓名</td>
 				<td><input type="text" id="contactName" name="contactName" value="${contactName}" /></td>
 			</tr>
 			<tr>
-				<td>联系人地址:</td>
+				<td>服务地址:</td>
 				<td><input type="text" id="contactAddress" name="contactAddress" value="${contactAddress}" /></td>
 			</tr>
 			<tr>
-				<td>联系人电话:</td>
+				<td>服务顾客电话:</td>
 				<td><input type="text" id="contactPhoneNo" name="contactPhoneNo" value="${contactPhoneNo}" /></td>
 			</tr>
 			<tr>

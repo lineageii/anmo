@@ -77,7 +77,7 @@
 			<a href="javascript:jumpPage(${page.totalPages})">末页</a>
 
 			<security:authorize ifAnyGranted="ROLE_修改用户">
-				<a href="technician!input.anmo">增加新用户</a>
+				<a href="technician!input.anmo">新增技师</a>
 			</security:authorize>
 		</div>
 	</s:form>

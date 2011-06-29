@@ -65,7 +65,7 @@
 			<a href="javascript:jumpPage(${page.totalPages})">末页</a>
 
 			<security:authorize ifAnyGranted="ROLE_修改用户">
-				<a href="workevent!input.anmo">增加新用户</a>
+				<a href="workevent!input.anmo">新增出勤请假</a>
 			</security:authorize>
 		</div>
 	</s:form>

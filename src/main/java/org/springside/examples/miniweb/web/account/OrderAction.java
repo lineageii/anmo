@@ -36,7 +36,7 @@ import com.opensymphony.xwork2.ActionContext;
  */
 //定义URL映射对应/account/user.action
 @Namespace("/account")
-//定义名为reload的result重定向到user.action, 其他result则按照convention默认.
+//定义名为reload的result重定向到order.action, 其他result则按照convention默认.
 @Results({ @Result(name = CrudActionSupport.RELOAD, location = "order.anmo", type = "redirect") })
 public class OrderAction extends CrudActionSupport<Order> {
 

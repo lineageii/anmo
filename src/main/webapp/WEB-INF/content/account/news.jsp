@@ -30,12 +30,19 @@
 		</div>
 		<div id="content">
 			<table id="contentTable">
+				<tr>
+				<th>No.</th>
+				<th>Title</th>
+				<th>内容</th>
+				<th>创建时间</th>
+				<th>操作</th>
+				</tr>
 			<s:iterator value="page.result">
 				<tr>
 					<td rowspan="2">${id}</td>
 					<td>新闻标题</td>
 					<td>${title}</td>
-					<td rowspan="2"><fmt:formatDate value="${createdate}" type="date" /></td>
+					<td rowspan="2"><fmt:formatDate value="${createdate}" type="both" /></td>
 					<td rowspan="2">&nbsp;
 							<security:authorize ifAnyGranted="ROLE_修改用户">
 								<a href="news!input.anmo?id=${id}">修改</a>&nbsp;

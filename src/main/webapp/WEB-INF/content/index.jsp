@@ -51,28 +51,13 @@
 			<div id="spaNews">
 				<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549" height="32" alt="Spa News" /></h1>
 				<ul id="spaNewsList">
+					<s:iterator value="newsPage.result">
 					<li>
 						<dl>
-							<dt><a href="/news/%e3%82%ae%e3%83%95%e3%83%88%e3%81%ab%e6%9c%80%e9%81%a9%ef%bc%81%e3%83%88%e3%83%aa%e3%83%bc%e3%83%88%e3%83%a1%e3%83%b3%e3%83%88%ef%bc%86%e3%83%93%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%bc%e5%88%a9" target="_self">ギフトに最適！トリートメント＆ビューティー利用券 新発売</a></dt>
-
-							<dd>１枚(1,000円)からご購入いただけます</dd>
+							<dt><a href="${ctx}/news!input.anmo?id=${id}" target="_self">${title}</a></dt>
 						</dl>
-											</li>
-					<li>
-						<dl>
-							<dt><a href="/news/%e3%83%88%e3%83%aa%e3%83%bc%e3%83%88%e3%83%a1%e3%83%b3%e3%83%88%ef%bc%86%e3%83%93%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%bc%ef%bc%98%e5%91%a8%e5%b9%b4%e8%a8%98%e5%bf%b5%e3%83%a1%e3%83%8b%e3%83%a5" target="_self">トリートメント＆ビューティー８周年特別メニュー登場</a></dt>
-							<dd>８周年平日パックプラン＆８周年アニバーサリーメニューのお知らせ</dd>
-
-						</dl>
-											</li>
-					<li>
-						<dl>
-							<dt><a href="http://www.laqua.jp/news_s/8th_anniversary/" target="_self">HAPPY BIRTHDAY LaQua 8TH ANNIVERSARY</a></dt>
-							<dd>ラクーア8周年ありがとう</dd>
-						</dl>
-																				<p><img src="http://www.laqua.jp/wp-content/uploads/2011/04/laqua8th_web0328-80x80.jpg" width="80" height="80" border="0" /></p>
-
-											</li>
+					</li>
+					</s:iterator>
 </ul>
 				<p class="more"><a href="http://www.laqua.jp/newslist?mode=spa_news">スパ ニュースをもっと見る</a></p>
 				<ul id="topBanners">

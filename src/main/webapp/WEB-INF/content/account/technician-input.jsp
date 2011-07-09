@@ -77,6 +77,7 @@
 		<tr>
 			<s:iterator value="weekWorkList" status="stat">
 				<td align="center">
+				<input name="weekWorkList[${stat.index}].weekno" type="hidden" value="${weekno}"/>
 				<select name="weekWorkList[${stat.index}].status" onchange="cleartime(this)">
 					<s:iterator value="workStatusMap" var="option">
 						<option value="${option.key}" <c:if test="${option.key==status}">selected</c:if>>

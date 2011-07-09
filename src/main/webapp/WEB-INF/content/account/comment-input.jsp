@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-	<title>新闻管理</title>
+	<title>留言管理</title>
 	<%@ include file="/common/meta.jsp" %>
 	<link href="${ctx}/css/yui.css" type="text/css" rel="stylesheet"/>
 	<link href="${ctx}/css/style.css" type="text/css" rel="stylesheet"/>
@@ -92,19 +92,24 @@
 <div id="bd">
 	<div id="yui-main">
 	<div class="yui-b">
-	<h2><s:if test="id == null">创建</s:if><s:else>修改</s:else>新闻</h2>
-	<form id="inputForm" action="news!save.anmo" method="post">
+	<h2><s:if test="id == null">创建</s:if><s:else>修改</s:else>留言</h2>
+	<form id="inputForm" action="comment!save.anmo" method="post">
 		<input type="hidden" name="id" value="${id}"/>
 		
 		<table class="noborder">
 			<tr>
-				<td>新闻标题:</td>
-				<td><input type="text" name="title" value="${title}" size="80"/></td>
+				<td>顾客<br/>
+				<input name="customer.id" value="${customer.id}"/><br/>
+				
+				留言:</td>
+				<td><textarea name="comment" rows="6" cols="100">${comment}</textarea></td>
 			</tr>
 			<tr>
-				<td>新闻内容:</td>
+				<td>技师<br/>
+				<input name="technician.id" value="${technician.id}"/><br/>
+				回复:</td>
 				<td>
-					<textarea name="content" rows="6" cols="100">${content}</textarea>
+					<textarea name="reply" rows="6" cols="100">${reply}</textarea>
 				</td>
 			</tr>
 			<tr>

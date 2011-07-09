@@ -17,9 +17,10 @@ import org.springside.examples.miniweb.common.Lan;
 import org.springside.examples.miniweb.common.PulldownUtil;
 import org.springside.examples.miniweb.dao.account.PulldownDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
+import org.springside.examples.miniweb.dao.account.WeekWorkDao;
 import org.springside.examples.miniweb.entity.account.Technician;
+import org.springside.examples.miniweb.entity.account.WeekWork;
 import org.springside.examples.miniweb.service.ServiceException;
-import org.springside.examples.miniweb.service.account.TechnicianService;
 import org.springside.examples.miniweb.web.CrudActionSupport;
 import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PropertyFilter;
@@ -46,8 +47,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	private TechnicianDao technicianDao;
 	private PulldownDao pulldownDao;
-
-	private TechnicianService technicianService;
+	private WeekWorkDao weekWorkDao;
 
 	// -- 页面属性 --//
 	private Long id;
@@ -64,6 +64,7 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadFileNames = new ArrayList<String>();
 	private List<String> uploadContentTypes = new ArrayList<String>();
+	private List<WeekWork> weekWorkList = new ArrayList<WeekWork>(7);
 
 	// -- ModelDriven 与 Preparable函数 --//
 	public void setId(Long id) {
@@ -108,13 +109,23 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	@Override
 	public String input() throws Exception {
 		initPulldown();
-		if (entity.getLanguages() == null)
-			return INPUT;
-		String[] arrays = entity.getLanguages().split(",");
-		for (String str : arrays) {
-			checkedLanguages.add(str.trim());
+		if (entity.getLanguages() != null){
+			String[] arrays = entity.getLanguages().split(",");
+			for (String str : arrays) {
+				checkedLanguages.add(str.trim());
+			}
 		}
-		//technicianService.putWorkEvent2WeekWork(entity);
+		
+		if(entity.getWeekWorkList().size() == 0 ) {
+			for(int i = 0; i < 7; i++){
+				WeekWork weekWork = new WeekWork();
+				weekWork.setWeekno("week" + (i + 1));
+				weekWork.setStatus("work");
+				weekWork.setStarttime("1200");
+				weekWork.setEndtime("2600");
+				entity.getWeekWorkList().add(weekWork);
+			}
+		}
 		return INPUT;
 	}
 
@@ -123,7 +134,13 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public String save() throws Exception {
 		// 根据页面上的checkbox选择 整合User的Roles Set
 		entity.setLanguages(this.checkedLanguages.toString().replace("[", "").replace("]", "").replace(" ", ""));
+		
+		for(WeekWork weekWork : entity.getWeekWorkList()){
+			weekWork.setTechnician(entity);
+		}
 		technicianDao.save(entity);
+
+		
 		addActionMessage("保存用户成功");
 		return RELOAD;
 	}
@@ -212,11 +229,6 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 		return provinceMap;
 	}
 
-	@Autowired
-	public void setTechnicianService(TechnicianService technicianService) {
-		this.technicianService = technicianService;
-	}
-
 	public Map<String, String> getWorkTimeMap() {
 		return workTimeMap;
 	}
@@ -225,4 +237,17 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 		return workStatusMap;
 	}
 
+	public List<WeekWork> getWeekWorkList() {
+		return weekWorkList;
+	}
+
+	public void setWeekWorkList(List<WeekWork> weekWorkList) {
+		this.weekWorkList = weekWorkList;
+	}
+	@Autowired
+	public void setWeekWorkDao(WeekWorkDao weekWorkDao) {
+		this.weekWorkDao = weekWorkDao;
+	}
+
+	
 }

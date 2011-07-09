@@ -14,6 +14,7 @@
 			<li><a href="${ctx}/account/workevent.anmo">出勤请假</a></li>
 			<li><a href="${ctx}/account/order.anmo">订单</a></li>
 			<li><a href="${ctx}/account/news.anmo">新闻</a></li>
+			<li><a href="${ctx}/account/comment.anmo">留言</a></li>
 			<li><a href="${ctx}/j_spring_security_logout">退出登录</a></li>
 		</ul>
 	</div>

@@ -40,6 +40,7 @@
 <div id="doc3">
 <form id="inputForm" action="technician!save.anmo" method="post">
 <input type="hidden" name="id" value="${id}"/>
+<div class="field"><label>员工编号</label><input id="empno" name="empno" value="${empno}" type="text" size="10"/></div>
 <div class="field"><label>姓名</label><input id="name" name="name" value="${name}" type="text" size="10"/></div>
 <div class="field"><label>性别</label><s:radio name="gender" list="#{'men':'男','women':'女'}" listKey="key" listValue="value" theme="simple"/></div>
 <div class="field"><label>出生年</label><input id="birthyear" name="birthyear" value="${birthyear}" type="text" size="10"/>

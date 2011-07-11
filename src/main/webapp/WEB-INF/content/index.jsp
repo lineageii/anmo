@@ -59,7 +59,7 @@
 					</li>
 					</s:iterator>
 </ul>
-				<p class="more"><a href="http://www.laqua.jp/newslist?mode=spa_news">スパ ニュースをもっと見る</a></p>
+				<p class="more"><a href="http://www.laqua.jp/newslist?mode=spa_news">查看更多...</a></p>
 				<ul id="topBanners">
 					<li><a href="/spa_s/sticking.html"><img src="${ctx}/template/spa/images/about.gif" width="551" height="157" alt="スパ ラクーアのこだわり" /></a></li>
 				</ul>
@@ -71,59 +71,22 @@
 			<h2><img src="${ctx}/template/spa/images/ttl_topics.gif" width="310" height="51" alt="Topics" /></h2>
 			<div id="spaTopicsList">
 				<ul>
+					<s:iterator value="commentPage.result">
 					<li>
 						<dl>
-							<dt><a href="/tenpo/lanikai">夏直前！ハワイアンビューティーフェア 6/1～7/31</a></dt>
-							<dd>ラニカイが贈るスペシャルメニューがこの夏復活！！</dd>
-							<dd class="TenpoLink">ラニカイ<br /><b>（ハワイアンロミロミ）</b></dd>
+							<dd class="TenpoLink">${customer.name}先生的感受</dd>
+							<dt><a href="${ctx}/comment!input.anmo?id=${id}">${fn:substring(comment,0,28)}...</a></dt>
+							<dd class="TenpoLink">技师${technician.name}的回复</dd>
+							<dd>${fn:substring(reply,0,40)}...</dd>
+							
 
-						</dl>
-																				<p><img src="http://www.laqua.jp/wp-content/uploads/2011/05/resize_0001-80x80.jpg" width="80" height="80" border="0" /></p>
+						</dl><p><img src="http://www.laqua.jp/wp-content/uploads/2011/05/resize_0001-80x80.jpg" width="80" height="80" border="0" /></p>
 
-											</li>
-					<li>
-						<dl>
-							<dt><a href="/tenpo/dining-takenawa">５月　料理長のおすすめ</a></dt>
-							<dd>初夏におすすめ　豚肉と根菜の煮物　\560</dd>
-
-							<dd class="TenpoLink">酣(TAKENAWA）<br /><b>（和食ダイニング）</b></dd>
-						</dl>
-																				<p><img src="http://www.laqua.jp/wp-content/uploads/2011/05/resize_0002-80x80.jpg" width="80" height="80" border="0" /></p>
-
-											</li>
-					<li>
-						<dl>
-							<dt><a href="/tenpo/dining-takenawa">５月　料理長のおすすめ</a></dt>
-
-							<dd>初夏におすすめ　辛味大根冷やしそば　\680</dd>
-							<dd class="TenpoLink">酣(TAKENAWA）<br /><b>（和食ダイニング）</b></dd>
-						</dl>
-																				<p><img src="http://www.laqua.jp/wp-content/uploads/2011/05/resize_001-80x80.jpg" width="80" height="80" border="0" /></p>
-
-											</li>
-					<li>
-						<dl>
-
-							<dt><a href="/tenpo/dining-takenawa">【入館料込み￥3,500の大人気ランチプラン♪】</a></dt>
-							<dd>初夏の彩り御膳　</dd>
-							<dd class="TenpoLink">酣(TAKENAWA）<br /><b>（和食ダイニング）</b></dd>
-						</dl>
-																				<p><img src="http://www.laqua.jp/wp-content/uploads/2011/05/resize_000-80x80.jpg" width="80" height="80" border="0" /></p>
-
-											</li>
-
-					<li>
-						<dl>
-							<dt><a href="/tenpo/lotus_moon">【入館料込み￥3,500の大人気ランチプラン♪】</a></dt>
-							<dd>ラクーア８周年記念♪8種類のアジアン御膳　</dd>
-							<dd class="TenpoLink">ロータスムーン<br /><b>（アジアンエスニックレストラン）</b></dd>
-						</dl>
-																				<p><img src="http://www.laqua.jp/wp-content/uploads/2011/04/resize_0002-80x80.jpg" width="80" height="80" border="0" /></p>
-
-											</li>
+					</li>
+					</s:iterator>
 				</ul>
 			</div>
-			<p class="more"><a href="/topicslist?mode=spa">Topicsをもっと見る</a></p>
+			<p class="more"><a href="/topicslist?mode=spa">查看更多...</a></p>
 			<p id="spaTopLadys"><a href="/ladysdaylist?mode=spa"><img src="${ctx}/template/spa/images/ladysday.gif" width="304" height="70" alt="毎週水曜女性限定レディースデー" /></a></p>
 		</div><!-- /#spaTopRight -->
 

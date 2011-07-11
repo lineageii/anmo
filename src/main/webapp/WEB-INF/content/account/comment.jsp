@@ -19,7 +19,7 @@
 <div id="bd">
 	<div id="yui-main">
 	<div class="yui-b">
-	<s:form id="mainForm" action="order" method="get">
+	<s:form id="mainForm" action="comment" method="get">
 		<input type="hidden" name="page.pageNo" id="pageNo" value="${page.pageNo}"/>
 		<input type="hidden" name="page.orderBy" id="orderBy" value="${page.orderBy}"/>
 		<input type="hidden" name="page.order" id="order" value="${page.order}"/>
@@ -39,7 +39,7 @@
 			<s:iterator value="page.result">
 				<tr>
 					<td rowspan="2">${id}</td>
-					<td>顾客留言</td>
+					<td>顾客<br/>${customer.name}<br/>留言</td>
 					<td><textarea rows="6" cols="80" readonly>${comment}</textarea>  </td>
 					<td rowspan="2">&nbsp;
 							<security:authorize ifAnyGranted="ROLE_修改用户">
@@ -49,7 +49,7 @@
 						</td>
 				</tr>
 				<tr>
-					<td>技师回复</td>
+					<td>技师<br/>${technician.name}<br/>回复</td>
 					<td><textarea rows="6" cols="80" readonly>${reply}</textarea>  </td>
 				</tr>
 				</s:iterator>

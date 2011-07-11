@@ -19,7 +19,7 @@
 <div id="bd">
 	<div id="yui-main">
 	<div class="yui-b">
-	<s:form id="mainForm" action="order" method="get">
+	<s:form id="mainForm" action="news" method="get">
 		<input type="hidden" name="page.pageNo" id="pageNo" value="${page.pageNo}"/>
 		<input type="hidden" name="page.orderBy" id="orderBy" value="${page.orderBy}"/>
 		<input type="hidden" name="page.order" id="order" value="${page.order}"/>

@@ -24,7 +24,6 @@
 	<div id="layerBg"></div>
 
 	<div id="main-sub">
-
 		<div id="mainImg">
 			<p><img src="${ctx}/template/spa/images/main_img.jpg" width="574" height="330" alt="SPA LAQUA ～癒しを極めた6つの空間～" /></p>
 			<ul>
@@ -40,7 +39,6 @@
 				<li><a href="/spa_s/first.html"><img src="${ctx}/template/spa/images/main_nav_firsttime.gif" width="153" height="37" alt="はじめての方へ" /></a></li>
 			</ul>
 		</div>
-		
 		<div id="spaTopLeft">
 			<ul id="topicPath">
 				<li><a href="/">TOP</a></li>

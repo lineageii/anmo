@@ -1,9 +1,13 @@
 package org.springside.examples.miniweb.entity.account;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -26,8 +30,10 @@ public class WeekWork extends IdEntity {
 	private String status;
 	private String starttime;
 	private String endtime;
+	@Transient
+	private Date day;
 
-	@ManyToOne(optional = false)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "technicianid", nullable = false, updatable = false)
 	public Technician getTechnician() {
 		return technician;
@@ -67,6 +73,14 @@ public class WeekWork extends IdEntity {
 
 	public void setEndtime(String endtime) {
 		this.endtime = endtime;
+	}
+
+	public Date getDay() {
+		return day;
+	}
+
+	public void setDay(Date day) {
+		this.day = day;
 	}
 
 }

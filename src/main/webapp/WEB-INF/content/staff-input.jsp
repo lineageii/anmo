@@ -39,58 +39,59 @@
 	<li><a href="/">首页</a></li>
 	<li>技师介绍</li>
 </ul>
-<ul id="tbList">
-	<s:iterator value="page.result">
-	<li>
-	<table>
+<div class="weekwork">
+	<table >
 		<tr>
-
-			<th>
-			<div class="StaffListPic"><a href="/tenpo/guzel_oda"> <img
-				src="${ctx}/staff_imges/160_list.jpg" />
-			</a>
-			</div>
-			</th>
-			<td class="txt">
-			<table class="floor5F">
-				<tr>
-					<td>
-					<dl>
-						<dt><a href="${ctx}/staff!input.anmo?id=${id}">${name}</a></dt>
-						 
-						<dd><s:text name="height"/>:${height }cm</dd>
-						<dd>体重:${weight }kg</dd>
-						<dd>年龄:${thisyear - birthyear}岁</dd>
-						<dd>三围:${bust} ${waistline} ${hip}</dd>
-						<dd>籍贯:${provinceMap[birthplace]} </dd>
-						<dd>语言:
-						<c:forTokens items="${languages}" delims="," var="language">
-							<c:out value="${languagesMap[language]}"/>
-						</c:forTokens></dd>
-						<dd>爱好:${hobby}</dd>
-						<dd>梦想:${dream}</dd>
-					</dl>
-					</td>
-				</tr>
-				<tr>
-					<td class="icon">
-					<p class="topics"><a href="/tenpo/guzel_oda#topicsArea"><img
-						src="images/spa/icon_topics.gif" width="53" height="18"
-						alt="Topics" /></a></p>
-					<p class="ladysday"><a href="/tenpo/guzel_oda#ladysDayArea"><img
-						src="images/spa/icon_ladysday.gif" width="74" height="18"
-						alt="Lady's Day" /></a></p>
-					</td>
-
-				</tr>
-			</table>
-			</td>
+			<s:iterator value="weekWorkList" status="stat" var="weekWork">
+				<td align="center">
+				<fmt:formatDate value="${weekWork.day}" pattern="M/d" />
+				</td>
+			</s:iterator>
+		</tr>
+		<tr>
+			<s:iterator value="weekWorkList" status="stat" var="weekWork">
+				<td align="center">
+				${workStatusMap[weekWork.status]}
+				<br/>
+				${workTimeMap[weekWork.starttime]}-${workTimeMap[weekWork.endtime]}
+				</td>
+			</s:iterator>
 		</tr>
 	</table>
-	</li>
-	</s:iterator>
-</ul>
+</div> <!-- weekwork end -->
 
+<div id="comment">
+		<input type="hidden" name="commentPage.pageNo" id="pageNo" value="${commentPage.pageNo}"/>
+		<input type="hidden" name="commentPage.orderBy" id="orderBy" value="${commentPage.orderBy}"/>
+		<input type="hidden" name="commentPage.order" id="order" value="${commentPage.order}"/>
+		
+		<s:iterator value="commentPage.result" >
+		<table>
+			<tr>
+				<th>
+					顾客姓名:${customer.name} 顾客电话:${customer.phoneno}
+				</th>
+			</tr>
+			<tr>
+				<td>
+					${comment}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					${reply}
+				</td>
+			</tr>
+		</table>
+		</s:iterator>
+</div>
+<div>
+			第${commentPage.pageNo}页, 共${commentPage.totalPages}页
+			<a href="javascript:jumpPage(1)">首页</a>
+			<s:if test="commentPage.hasPre"><a href="javascript:jumpPage(${commentPage.prePage})">上一页</a></s:if>
+			<s:if test="commentPage.hasNext"><a href="javascript:jumpPage(${commentPage.nextPage})">下一页</a></s:if>
+			<a href="javascript:jumpPage(${commentPage.totalPages})">末页</a>
+</div>
 <table id="aboutReserve">
 	<caption><img src="images/spa/tb/ttl_about_reserve.gif"
 		width="658" height="17" alt="事前予約について" /></caption>

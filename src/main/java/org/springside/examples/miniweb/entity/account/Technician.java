@@ -1,7 +1,9 @@
 package org.springside.examples.miniweb.entity.account;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -236,7 +238,7 @@ public class Technician extends IdEntity {
 		this.status = status;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "technician")
+	@OneToMany(cascade =CascadeType.ALL ,fetch = FetchType.LAZY, mappedBy = "technician")
 	public List<WeekWork> getWeekWorkList() {
 		return weekWorkList;
 	}

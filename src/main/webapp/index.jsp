@@ -51,7 +51,6 @@
 			<div id="spaNews">
 				<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549" height="32" alt="Spa News" /></h1>
 				<ul id="spaNewsList">
-
 					<li>
 						<dl>
 							<dt><a href="/news/%e3%82%ae%e3%83%95%e3%83%88%e3%81%ab%e6%9c%80%e9%81%a9%ef%bc%81%e3%83%88%e3%83%aa%e3%83%bc%e3%83%88%e3%83%a1%e3%83%b3%e3%83%88%ef%bc%86%e3%83%93%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%bc%e5%88%a9" target="_self">ギフトに最適！トリートメント＆ビューティー利用券 新発売</a></dt>

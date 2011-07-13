@@ -49,8 +49,8 @@
 }
 
 #headerIn ul#hNavHead{
-	background:url("../images/hnav_headbg.gif") top left no-repeat;
-	left:432px;
+	top:10px;
+	right:0px;
 }
 #headerIn ul#hNavFoot{
 	background:url("../images/hnav_footbg.gif") top left no-repeat;

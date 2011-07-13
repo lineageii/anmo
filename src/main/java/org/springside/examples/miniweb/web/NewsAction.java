@@ -21,6 +21,7 @@ import org.springside.modules.utils.web.struts2.Struts2Utils;
  * @author roy
  *
  */
+@Namespace("/")
 public class NewsAction extends CrudActionSupport<News> {
 	private static final long serialVersionUID = 3593331645711019058L;
 

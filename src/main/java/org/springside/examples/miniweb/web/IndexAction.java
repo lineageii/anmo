@@ -1,5 +1,6 @@
 package org.springside.examples.miniweb.web;
 
+import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springside.examples.miniweb.dao.account.CommentDao;
 import org.springside.examples.miniweb.dao.account.NewsDao;
@@ -9,6 +10,7 @@ import org.springside.modules.orm.Page;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+@Namespace("/")
 public class IndexAction extends ActionSupport {
 	private NewsDao newsDao;
 	private CommentDao commentDao;

@@ -2,6 +2,7 @@ package org.springside.examples.miniweb.web;
 
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.dao.account.CommentDao;
@@ -16,6 +17,7 @@ import org.springside.modules.utils.web.struts2.Struts2Utils;
  * @author roy
  *
  */
+@Namespace("/")
 public class CommentAction extends CrudActionSupport<Comment> {
 	private static final long serialVersionUID = 3593331645711019058L;
 

@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/account/login.anmo"); %>
+<% response.sendRedirect(request.getContextPath() + "/account/news.anmo"); %>

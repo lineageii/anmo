@@ -22,6 +22,7 @@
 
 <script type="text/javascript" src="${ctx}/template/spa/js/jq-lib.js"></script>
 <script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
+<script src="${ctx}/js/table.js" type="text/javascript"></script>
 </head>
 <body id="spa" class="treatment">
 <div id="container">
@@ -69,19 +70,9 @@
 						</c:forTokens></dd>
 						<dd>爱好:${hobby}</dd>
 						<dd>梦想:${dream}</dd>
+						<dd>顾客留言数:<font color="red" ><b>11</b></font>条</dd>
 					</dl>
 					</td>
-				</tr>
-				<tr>
-					<td class="icon">
-					<p class="topics"><a href="/tenpo/guzel_oda#topicsArea"><img
-						src="images/spa/icon_topics.gif" width="53" height="18"
-						alt="Topics" /></a></p>
-					<p class="ladysday"><a href="/tenpo/guzel_oda#ladysDayArea"><img
-						src="images/spa/icon_ladysday.gif" width="74" height="18"
-						alt="Lady's Day" /></a></p>
-					</td>
-
 				</tr>
 			</table>
 			</td>
@@ -90,35 +81,21 @@
 	</li>
 	</s:iterator>
 </ul>
-
-<table id="aboutReserve">
-	<caption><img src="images/spa/tb/ttl_about_reserve.gif"
-		width="658" height="17" alt="事前予約について" /></caption>
-
-	<tr>
-		<th><img src="images/spa/tb/txt_reserve_1.gif" width="153"
-			height="169" alt="ご予約方法" /></th>
-		<td><img src="images/spa/tb/txt_reserve_2.gif" />「予約」マークのついている店舗では､電話による事前予約を受け付けております。<br />
-		<strong>TEL：03-3817-4173（音声ガイダンス）</strong><br />
-		（電話予約受付時間12:00～22:00）
-		<ul>
-			<li><b>※</b>事前予約は、仮予約です。当日は、施術開始1時間前までにご入館の上、<br />
-
-			店舗にて本予約をお願い致します。<br />
-			本予約されない場合には、自動的にキャンセルとなりますのでご注意下さい。</li>
-			<li><b>※</b>「ユーロフュージョンセラピー ユーロフィア」は施術希望日の一週間前より受付開始。<br />
-			その他の店舗は施術希望の1ヶ月前より受付開始。</li>
-			<li><b>※</b>「ユーロフュージョンセラピー ユーロフィア」は土日祝特定日の事前予約は不可。</li>
-
-			<li><b>※</b>店舗により注意事項が異なります。電話予約時に詳細をご確認下さい。</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
+<div class="jumpPage">
+<s:form id="mainForm" action="staff" method="get">
+		<input type="hidden" name="page.pageNo" id="pageNo" value="${page.pageNo}"/>
+		<input type="hidden" name="page.orderBy" id="orderBy" value="${page.orderBy}"/>
+		<input type="hidden" name="page.order" id="order" value="${page.order}"/>
+		<div>
+			第${page.pageNo}页, 共${page.totalPages}页
+			<a href="javascript:jumpPage(1)">首页</a>
+			<s:if test="page.hasPre"><a href="javascript:jumpPage(${page.prePage})">上一页</a></s:if>
+			<s:if test="page.hasNext"><a href="javascript:jumpPage(${page.nextPage})">下一页</a></s:if>
+			<a href="javascript:jumpPage(${page.totalPages})">末页</a>
+		</div>
+</s:form>
+</div>
 <div class="contentsIn">
-<div id="pageTop" class="pageTop"><img
-	src="images/spa/pagetop.gif" width="54" height="12" alt="Page Top" /></div>
 </div>
 <!-- /.contentsIn --></div>
 

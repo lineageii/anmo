@@ -2773,3 +2773,8 @@ body#spa #lShopList ul.ladysShopList li dl{
 body#spa.map #pageTitleLink{
 	border-bottom:2px solid #cfa168;
 }
+
+.jumpPage {
+	width:660px;
+	text-align:right;
+}

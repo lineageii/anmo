@@ -45,7 +45,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	// -- 页面属性 --//
 	private Long id;
 	private Technician entity;
-	private Page<Technician> page = new Page<Technician>(10);// 每页5条记录
+	private Page<Technician> page = new Page<Technician>(50);// 每页5条记录
 	private Page<Comment> commentPage = new Page<Comment>(10);
 	private List<String> checkedLanguages = Lists.newArrayList();
 	private Map<String, String> genderMap = ImmutableMap.of("men", "男", "women", "女");

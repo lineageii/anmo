@@ -1,6 +1,5 @@
 package org.springside.examples.miniweb.entity.account;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -69,6 +68,7 @@ public class Technician extends IdEntity {
 
 	private List<WeekWork> weekWorkList = Lists.newArrayList();
 	private List<WorkEvent> workEventList = Lists.newArrayList();
+	private List<Upload> uploadList = Lists.newArrayList();
 
 	public String getEmpno() {
 		return empno;
@@ -238,7 +238,7 @@ public class Technician extends IdEntity {
 		this.status = status;
 	}
 
-	@OneToMany(cascade =CascadeType.ALL ,fetch = FetchType.LAZY, mappedBy = "technician")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "technician")
 	public List<WeekWork> getWeekWorkList() {
 		return weekWorkList;
 	}
@@ -256,6 +256,15 @@ public class Technician extends IdEntity {
 
 	public void setWorkEventList(List<WorkEvent> workEventList) {
 		this.workEventList = workEventList;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "technician")
+	public List<Upload> getUploadList() {
+		return uploadList;
+	}
+
+	public void setUploadList(List<Upload> uploadList) {
+		this.uploadList = uploadList;
 	}
 
 }

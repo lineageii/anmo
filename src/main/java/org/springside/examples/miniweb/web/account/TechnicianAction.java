@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.components.File;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -17,10 +17,11 @@ import org.springside.examples.miniweb.common.Lan;
 import org.springside.examples.miniweb.common.PulldownUtil;
 import org.springside.examples.miniweb.dao.account.PulldownDao;
 import org.springside.examples.miniweb.dao.account.TechnicianDao;
-import org.springside.examples.miniweb.dao.account.WeekWorkDao;
+import org.springside.examples.miniweb.dao.account.UploadFile;
 import org.springside.examples.miniweb.entity.account.Technician;
 import org.springside.examples.miniweb.entity.account.WeekWork;
 import org.springside.examples.miniweb.service.ServiceException;
+import org.springside.examples.miniweb.service.account.UploadService;
 import org.springside.examples.miniweb.web.CrudActionSupport;
 import org.springside.modules.orm.Page;
 import org.springside.modules.orm.PropertyFilter;
@@ -47,7 +48,8 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 
 	private TechnicianDao technicianDao;
 	private PulldownDao pulldownDao;
-	private WeekWorkDao weekWorkDao;
+
+	private UploadService uploadService;
 
 	// -- 页面属性 --//
 	private Long id;
@@ -61,9 +63,10 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	private Map<String, String> workTimeMap;
 	private Map<String, String> workStatusMap;
 
-	private List<File> uploads = new ArrayList<File>();
-	private List<String> uploadFileNames = new ArrayList<String>();
-	private List<String> uploadContentTypes = new ArrayList<String>();
+	private List<UploadFile> uploadFile = Lists.newArrayList();
+	//private List<File> upload = new ArrayList<File>();
+	//private List<String> uploadFileName = new ArrayList<String>();
+
 	private List<WeekWork> weekWorkList = new ArrayList<WeekWork>(7);
 
 	// -- ModelDriven 与 Preparable函数 --//
@@ -109,15 +112,15 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	@Override
 	public String input() throws Exception {
 		initPulldown();
-		if (entity.getLanguages() != null){
+		if (entity.getLanguages() != null) {
 			String[] arrays = entity.getLanguages().split(",");
 			for (String str : arrays) {
 				checkedLanguages.add(str.trim());
 			}
 		}
-		
-		if(entity.getWeekWorkList().size() == 0 ) {
-			for(int i = 0; i < 7; i++){
+
+		if (entity.getWeekWorkList().size() == 0) {
+			for (int i = 0; i < 7; i++) {
 				WeekWork weekWork = new WeekWork();
 				weekWork.setWeekno("week" + (i + 1));
 				weekWork.setStatus("work");
@@ -134,13 +137,17 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public String save() throws Exception {
 		// 根据页面上的checkbox选择 整合User的Roles Set
 		entity.setLanguages(this.checkedLanguages.toString().replace("[", "").replace("]", "").replace(" ", ""));
-		
-		for(WeekWork weekWork : entity.getWeekWorkList()){
+
+		for (WeekWork weekWork : entity.getWeekWorkList()) {
 			weekWork.setTechnician(entity);
 		}
+
+		String uploadDir = ServletActionContext.getServletContext().getRealPath("/upload");
+
+		entity.setUploadList(uploadService.uploadFiles(uploadFile, uploadDir, entity));
+
 		technicianDao.save(entity);
 
-		
 		addActionMessage("保存用户成功");
 		return RELOAD;
 	}
@@ -196,30 +203,6 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 		return thisyear;
 	}
 
-	public List<File> getUploads() {
-		return uploads;
-	}
-
-	public void setUploads(List<File> uploads) {
-		this.uploads = uploads;
-	}
-
-	public List<String> getUploadFileNames() {
-		return uploadFileNames;
-	}
-
-	public void setUploadFileNames(List<String> uploadFileNames) {
-		this.uploadFileNames = uploadFileNames;
-	}
-
-	public List<String> getUploadContentTypes() {
-		return uploadContentTypes;
-	}
-
-	public void setUploadContentTypes(List<String> uploadContentTypes) {
-		this.uploadContentTypes = uploadContentTypes;
-	}
-
 	@Override
 	public PulldownDao getPulldownDao() {
 		return pulldownDao;
@@ -244,10 +227,22 @@ public class TechnicianAction extends CrudActionSupport<Technician> {
 	public void setWeekWorkList(List<WeekWork> weekWorkList) {
 		this.weekWorkList = weekWorkList;
 	}
-	@Autowired
-	public void setWeekWorkDao(WeekWorkDao weekWorkDao) {
-		this.weekWorkDao = weekWorkDao;
+
+	public UploadService getUploadService() {
+		return uploadService;
 	}
 
-	
+	@Autowired
+	public void setUploadService(UploadService uploadService) {
+		this.uploadService = uploadService;
+	}
+
+	public List<UploadFile> getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(List<UploadFile> uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
 }

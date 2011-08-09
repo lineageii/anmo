@@ -47,9 +47,16 @@
 		<tr>
 
 			<th>
-			<div class="StaffListPic"><a href="/tenpo/guzel_oda"> <img
-				src="${ctx}/staff_imges/160_list.jpg" />
-			</a>
+			<div class="StaffListPic">
+				<a href="${ctx}/staff!input.anmo?id=${id}">
+				<c:if test="${empty uploadList}">
+					<img src="${ctx}/staff_imges/nopic.jpg" height="160"/>
+				</c:if>
+				<c:if test="${not empty uploadList}">
+					<img src="${ctx}/upload/${uploadList[0].sysname}" height="160"/>
+				</c:if>
+					
+				</a>
 			</div>
 			</th>
 			<td class="txt">

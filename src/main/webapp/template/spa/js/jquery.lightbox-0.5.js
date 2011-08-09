@@ -11,7 +11,7 @@
  * @license CCAttribution-ShareAlike 2.5 Brazil - http://creativecommons.org/licenses/by-sa/2.5/br/deed.en_US
  * @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
  */
-
+var ctx = "/mini-web";
 // Offering a Custom Alias suport - More info: http://docs.jquery.com/Plugins/Authoring#Custom_Alias
 (function($) {
 	/**
@@ -27,11 +27,11 @@
 			// Configuration related to navigation
 			fixedNavigation:		false,		// (boolean) Boolean that informs if the navigation (next and prev button) will be fixed or not in the interface.
 			// Configuration related to images
-			imageLoading:			'/images/lightbox/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
-			imageBtnPrev:			'/images/lightbox/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
-			imageBtnNext:		'/images/lightbox/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
-			imageBtnClose:		'/images/lightbox/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
-			imageBlank:			'/images/lightbox/lightbox-blank.gif',			// (string) Path and the name of a blank image (one pixel)
+			imageLoading:			ctx + '/images/lightbox/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
+			imageBtnPrev:			ctx + '/images/lightbox/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
+			imageBtnNext:		ctx + '/images/lightbox/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
+			imageBtnClose:		ctx + '/images/lightbox/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
+			imageBlank:			ctx + '/images/lightbox/lightbox-blank.gif',			// (string) Path and the name of a blank image (one pixel)
 			// Configuration related to container image box
 			containerBorderSize:	10,			// (integer) If you adjust the padding in the CSS for the container, #lightbox-container-image-box, you will need to update this value
 			containerResizeSpeed:	400,		// (integer) Specify the resize duration of container image. These number are miliseconds. 400 is default.

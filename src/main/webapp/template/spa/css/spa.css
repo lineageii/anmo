@@ -15,6 +15,38 @@
   spa bg
 -------------------------------------------------------------------------------------*/
 
+/*-------------------------------------------------------------------------------------
+  staff!input.anmo?id=1 weekwork
+-------------------------------------------------------------------------------------*/
+table#weekwork{
+	width:658px;
+	margin:10px 0 0 15px;
+	border:1px solid #c93;
+}
+table#weekwork tr{
+	vertical-align:middle;
+}
+table#weekwork th{
+	padding:4px;
+	width:153px;
+	background:#e6debe;
+	text-align:center;
+	border-right:1px solid #c93;
+}
+table#weekwork caption{
+	margin:0;
+	padding:0 0 10px 0;
+}
+table#weekwork td{
+	line-height:1.8em;
+	padding:4px 4px 4px 15px;
+	font-size:12px;
+	background:#f3efde;
+	text-align:center;
+	border-right:1px solid #c93;
+}
+
+
 #contents{
 	background:#f7f4e8;
 }
@@ -733,7 +765,7 @@ ul.commodity li dd.supple{
 	width:530px;
 	height:23px;
 	padding:5px 0 0 125px;
-	margin:0;
+	margin:10px 0px 0px 15px;
 	background:url("../images/topics_bg.gif") top left no-repeat;
 }
 
@@ -741,7 +773,7 @@ ul.commodity li dd.supple{
 	width:530px;
 	height:23px;
 	padding:5px 0 0 125px;
-	margin:0 0 15px 0;
+	margin:10px 0px 0px 15px;
 	background:url("../images/menu_bg.gif") top left no-repeat;
 }
 
@@ -749,7 +781,7 @@ ul.commodity li dd.supple{
 	width:485px;
 	height:23px;
 	padding:5px 0 0 170px;
-	margin:0;
+	margin:10px 0px 0px 15px;
 	background:url("../images/ladysday_bg.gif") top left no-repeat;
 }
 
@@ -885,9 +917,9 @@ ul#dMenuCt1 li dl{
 
 #pickUpArea{
 	border-top:1px solid #b2b2b2;
-	width:653px;
+	width:658px;
 	background:#ededed;
-	margin:0 0 20px 0;
+	margin:10px 0px 0px 15px;
 }
 
 #pickUpArea h2{

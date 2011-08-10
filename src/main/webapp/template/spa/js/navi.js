@@ -7,13 +7,13 @@
 		<li><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="東京ドームシティわくわくダイヤル 03-5800-9999" /></a></li>\
 		</ul>\
 		<ul id="hNavFoot">\
-		<li id="hnav_business"><a href=' + ctx+ ' ><img src="template/spa/images/hnav_business.gif" width="82" height="20" alt="首页" /></a></li>\
+		<li id="hnav_business"><a href=' + ctx+ '/ ><img src="template/spa/images/hnav_business.gif" width="82" height="20" alt="首页" /></a></li>\
 		<li id="hnav_access"><a href=' + ctx+ '/staff.anmo><img src="template/spa/images/hnav_access.gif" width="85" height="20" alt="技师魅影" /></a></li>\
-		<li id="hnav_map"><a href=' + ctx + '/service.html><img src="template/spa/images/hnav_map.gif" width="97" height="20" alt="服务项目" /></a></li>\
-		<li id="hnav_mobile"><a href=' + ctx+'/flow.html><img src="template/spa/images/hnav_mobile.gif" width="117" height="20" alt="服务流程" /></a></li>\
+		<li id="hnav_map"><a href=' + ctx + '/service.jsp><img src="template/spa/images/hnav_map.gif" width="97" height="20" alt="服务项目" /></a></li>\
+		<li id="hnav_mobile"><a href=' + ctx+'/flow.jsp><img src="template/spa/images/hnav_mobile.gif" width="117" height="20" alt="服务流程" /></a></li>\
 		<li id="hnav_staff"><a href=' + ctx+'/comment.anmo><img src="template/spa/images/hnav_staff.gif" width="93" height="20" alt="顾客点评" /></a></li>\
 		<li id="hnav_sponcer"><a href=' + ctx+'/store.anmo><img src="template/spa/images/hnav_sponcer.gif" width="115" height="20" alt="附近店铺" /></a></li>\
-		<li id="hnav_qa"><a href=' + ctx+'/help.html><img src="template/spa/images/hnav_qa.gif" width="58" height="20" alt="帮助" /></a></li>\
+		<li id="hnav_qa"><a href=' + ctx+'/help.jsp><img src="template/spa/images/hnav_qa.gif" width="58" height="20" alt="帮助" /></a></li>\
 		</ul>\
 		</div>\
 	';

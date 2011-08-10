@@ -23,8 +23,8 @@
 		<div id="main-sub"> 
 			<div id="main"> 
 				<ul id="topicPath"> 
-					<li><a href="/">TOP</a></li> 
-					<li><a href="/spa">Spa LaQua</a></li> 
+					<li><a href="${ctx}/">首页</a></li> 
+					<li><a href="${ctx}/news.anmo">NEWS</a></li> 
 					<li>${title}</li> 
 				</ul> 
 				<div id="pageTitle"> 

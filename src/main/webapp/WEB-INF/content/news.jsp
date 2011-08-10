@@ -2,7 +2,7 @@
 <%@ include file="/common/taglibs.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html lang="ja"> 
+<html> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <meta name="keywords" content="ラクーア,laqua,東京ドーム,東京ドームシティ,ミーツポート,温泉,日帰り温泉,スパ,アジアンリゾート,都会,リゾート,極上,贅沢,東京,後楽園,水道橋,ビューティー,リラックス,女性,レディース,レディースデイ,水曜日,健康,ランスパ,ランニング,ジョギング,マラソン,エステ,アロマ,マッサージ,ヘッドスパ,タイ式,大浴場,宴会,手ぶら,こだわり,安心,安全,アミューズメント,夜景,観覧車,ジェットコースター,噴水,水,夜景,買い物,食事,飲み会,レストラン,ショッピングモール,ショッピングセンター,ショップリスト,セール" /> 
@@ -23,7 +23,7 @@
 		<div id="main-sub"> 
 			<div id="main"> 
 				<ul id="topicPath"> 
-					<li><a href="${ctx}">首页</a></li> 
+					<li><a href="${ctx}/">首页</a></li> 
 					<li><a href="${ctx}/news.anmo">NEWS</a></li> 
 					<li>${title}</li> 
 				</ul> 

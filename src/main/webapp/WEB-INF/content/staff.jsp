@@ -37,7 +37,7 @@
 
 <div id="main">
 <ul id="topicPath">
-	<li><a href="${ctx}">首页</a></li>
+	<li><a href="${ctx}/">首页</a></li>
 	<li>技师魅影</li>
 </ul>
 <ul id="tbList">

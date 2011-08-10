@@ -2818,3 +2818,77 @@ body#spa.map #pageTitleLink{
 	width:552px;
 	text-align:right;
 }
+
+
+#tbList1{
+	width:672px;
+	margin:0 auto;
+	_width:690px;
+	_margin:0 0 0 7px;
+
+	overflow:hidden;
+}
+
+#tbList1 li{
+	float:left;
+	width:275px;
+	padding:0 0 5px 3px;
+}
+
+#tbList1 li table{
+	border:1px solid #c0a54d;
+	width:270px;
+	height:84px;
+	background:#f8f5ee;
+}
+
+#tbList1 li table th{
+	width:120px;
+	height:78px;
+	padding:4px 2px 2px 2px;
+}
+#tbList1 li table td{
+	padding:2px;
+	width:196px;
+	vertical-align:top;
+}
+
+#tbList1 li table table{
+	width:auto;
+	margin:0;
+	border:none;
+}
+
+#tbList1 li table table td{
+	vertical-align:top;
+	padding:10px 0 0 0;
+	height:40px;
+}
+
+#tbList1 li table table dd{
+	font-size:0.8em;
+}
+
+#tbList1 li table td.icon{
+	overflow:hidden;
+	padding:5px 0 0 0;
+	height:auto;
+}
+
+#tbList1 li table td.icon p{
+	float:left;
+	padding:0 3px 0 0;
+}
+
+#tbList1 li table td.icon p.reserve{
+	float:right;
+}
+
+#tbList1 li dt{
+	font-size:1.2em;
+	padding:0 0 3px 0;
+}
+
+#tbList1 li table table td.new{
+	background:url("../images/icon_new.gif") bottom right no-repeat;
+}

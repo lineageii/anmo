@@ -45,7 +45,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	// -- 页面属性 --//
 	private Long id;
 	private Technician entity;
-	private Page<Technician> page = new Page<Technician>(50);// 每页5条记录
+	private Page<Technician> page = new Page<Technician>(5);// 每页5条记录
 	private Page<Comment> commentPage = new Page<Comment>(3);
 	private List<String> checkedLanguages = Lists.newArrayList();
 	private Map<String, String> genderMap = ImmutableMap.of("men", "男", "women", "女");
@@ -125,13 +125,13 @@ public class StaffAction extends CrudActionSupport<Technician> {
 		technicianService.putWorkEvent2WeekWork(entity);
 		technicianService.reListWeekWork(entity);
 
-		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(Struts2Utils.getRequest());
+		//List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(Struts2Utils.getRequest());
 		// 设置默认排序方式
 		if (!commentPage.isOrderBySetted()) {
 			commentPage.setOrderBy("id");
 			commentPage.setOrder(Page.ASC);
 		}
-		commentPage = commentDao.findPage(commentPage, filters);
+		commentPage = commentDao.findPage(commentPage, "from Comment where technician.id=?", entity.getId());
 		return INPUT;
 	}
 

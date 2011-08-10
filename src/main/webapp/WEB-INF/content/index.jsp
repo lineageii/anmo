@@ -29,19 +29,17 @@
 				<li><img src="${ctx}/template/spa/images/main_nav_ttl.gif" width="220" height="33" alt="施設案内" /></li>
 				<li><a href="/map/spa_s.html"><img src="${ctx}/template/spa/images/main_nav_map.gif" width="90" height="33" alt="フロアマップ" /></a></li>
 				<li><a href="${ctx}/staff.anmo"><img src="${ctx}/template/spa/images/main_nav_spa.gif" width="310" height="51" alt="技师魅影" /></a></li>
-				<li><a href="${ctx}/service.anmo"><img src="${ctx}/template/spa/images/main_nav_healing.gif" width="310" height="53" alt="服务项目" /></a></li>
+				<li><a href="${ctx}/service.html"><img src="${ctx}/template/spa/images/main_nav_healing.gif" width="310" height="53" alt="服务项目" /></a></li>
 				<li><a href="${ctx}/order.anmo"><img src="${ctx}/template/spa/images/main_nav_relaxation.gif" width="310" height="53" alt="网上预约" /></a></li>
 				<li><a href="${ctx}/comment.anmo"><img src="${ctx}/template/spa/images/main_nav_treatment.gif" width="310" height="52" alt="顾客点评" /></a></li>
 				<li><a href="${ctx}/store.anmo"><img src="${ctx}/template/spa/images/main_nav_restaurant.gif" width="310" height="51" alt="附近的店铺" /></a></li>
 				<li><a href="${ctx}/price.anmo"><img src="${ctx}/template/spa/images/main_nav_info.gif" width="157" height="37" alt="收费标准" /></a></li>
-				<li><a href="${ctx}/flow.anmo"><img src="${ctx}/template/spa/images/main_nav_firsttime.gif" width="153" height="37" alt="服务流程" /></a></li>
+				<li><a href="${ctx}/flow.html"><img src="${ctx}/template/spa/images/main_nav_firsttime.gif" width="153" height="37" alt="服务流程" /></a></li>
 			</ul>
 		</div>
 		<div id="spaTopLeft">
 			<ul id="topicPath">
-				<li><a href="/">TOP</a></li>
-
-				<li>Spa LaQua</li>
+				<li><a href="${ctx}">首页</a></li>
 			</ul>
 			
 			<div id="spaNews">
@@ -54,11 +52,16 @@
 						</dl>
 					</li>
 					</s:iterator>
-</ul>
-				<p class="more"><a href="http://www.laqua.jp/newslist?mode=spa_news">查看更多...</a></p>
-				<ul id="topBanners">
-					<li><a href="/spa_s/sticking.html"><img src="${ctx}/template/spa/images/about.gif" width="551" height="157" alt="スパ ラクーアのこだわり" /></a></li>
 				</ul>
+				<p class="more"><a href="${ctx}/news.anmo">查看更多...</a></p>
+				<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549" height="32" alt="Spa News" /></h1>
+				<ul id="tbList1">
+					<s:iterator value="staffPage.result">
+					<%@ include file="/WEB-INF/include/stafflist.jsp" %>
+					</s:iterator>
+				</ul>
+				<p class="more"><a href="${ctx}/staff.anmo">查看更多...</a></p>
+				
 			</div>
 			
 		</div><!-- /#spaTopLeft -->
@@ -90,7 +93,6 @@
 				</ul>
 			</div>
 			<p class="more"><a href="/topicslist?mode=spa">查看更多...</a></p>
-			<p id="spaTopLadys"><a href="/ladysdaylist?mode=spa"><img src="${ctx}/template/spa/images/ladysday.gif" width="304" height="70" alt="毎週水曜女性限定レディースデー" /></a></p>
 		</div><!-- /#spaTopRight -->
 
 	</div><!-- /#main-sub -->

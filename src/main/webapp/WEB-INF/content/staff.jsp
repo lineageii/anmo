@@ -37,59 +37,16 @@
 
 <div id="main">
 <ul id="topicPath">
-	<li><a href="/">首页</a></li>
-	<li>技师介绍</li>
+	<li><a href="${ctx}">首页</a></li>
+	<li>技师魅影</li>
 </ul>
 <ul id="tbList">
 	<s:iterator value="page.result">
-	<li>
-	<table>
-		<tr>
-
-			<th>
-			<div class="StaffListPic">
-				<a href="${ctx}/staff!input.anmo?id=${id}">
-				<c:if test="${empty uploadList}">
-					<img src="${ctx}/staff_imges/nopic.jpg" height="160"/>
-				</c:if>
-				<c:if test="${not empty uploadList}">
-					<img src="${ctx}/upload/${uploadList[0].sysname}" height="160"/>
-				</c:if>
-					
-				</a>
-			</div>
-			</th>
-			<td class="txt">
-			<table class="floor5F">
-				<tr>
-					<td>
-					<dl>
-						<dt><a href="${ctx}/staff!input.anmo?id=${id}">${name}</a></dt>
-						 
-						<dd><s:text name="height"/>:${height }cm</dd>
-						<dd>体重:${weight }kg</dd>
-						<dd>年龄:${thisyear - birthyear}岁</dd>
-						<dd>三围:${bust} ${waistline} ${hip}</dd>
-						<dd>籍贯:${provinceMap[birthplace]} </dd>
-						<dd>语言:
-						<c:forTokens items="${languages}" delims="," var="language">
-							<c:out value="${languagesMap[language]}"/>
-						</c:forTokens></dd>
-						<dd>爱好:${hobby}</dd>
-						<dd>梦想:${dream}</dd>
-						<dd>顾客留言数:<font color="red" ><b>11</b></font>条</dd>
-					</dl>
-					</td>
-				</tr>
-			</table>
-			</td>
-		</tr>
-	</table>
-	</li>
+	<%@ include file="/WEB-INF/include/stafflist.jsp" %>
 	</s:iterator>
 </ul>
 <div class="jumpPage">
-<s:form id="mainForm" action="staff" method="get">
+<s:form id="mainForm" action="staff" method="post">
 		<input type="hidden" name="page.pageNo" id="pageNo" value="${page.pageNo}"/>
 		<input type="hidden" name="page.orderBy" id="orderBy" value="${page.orderBy}"/>
 		<input type="hidden" name="page.order" id="order" value="${page.order}"/>
@@ -106,42 +63,8 @@
 </div>
 <!-- /.contentsIn --></div>
 
-<div id="sub">
-<ul>
-	<li><a href="/spa"><img src="${ctx}/template/spa/images/snav_ttl.gif"
-		width="185" height="60" alt="SPA LAQUA" /></a></li>
-	<li id="snav-news"><a href="/newslist?mode=spa_news"><img
-		src="${ctx}/template/spa/images/snav_news.gif" width="96" height="21"
-		alt="Spa News" /></a></li>
-	<li id="snav-map"><a href="/map/spa_s.html"><img
-		src="${ctx}/template/spa/images/snav_map.gif" width="89" height="21" alt="フロアマップ" /></a></li>
-	<li id="snav-zone"><a href="/spa_s/spazone.html"><img
-		src="${ctx}/template/spa/images/snav_spa.gif" width="185" height="49"
-		alt="SPA ZONE スパ ゾーン" /></a></li>
-	<li id="snav-healing"><a href="/spa_s/healing.html"><img
-		src="${ctx}/template/spa/images/snav_healing.gif" width="185" height="50"
-		alt="HEALING BADEN ヒーリングバーデ" /></a></li>
-	<li id="snav-relaxation"><a href="/spa_s/relaxation.html"><img
-		src="${ctx}/template/spa/images/snav_relaxation.gif" width="185" height="50"
-		alt="RELAXATION リラクゼーション" /></a></li>
-	<li id="snav-treatment"><a href="/tblist"><img
-		src="${ctx}/template/spa/images/snav_treatment.gif" width="185" height="50"
-		alt="TREATMENT &amp; BEAUTY トリートメント＆ビューティー" /></a></li>
+<%@ include file="/common/sub.jsp" %>
 
-	<li id="snav-restaurant"><a href="/sparlist"><img
-		src="${ctx}/template/spa/images/snav_restaurant.gif" width="185" height="50"
-		alt="RESTAURANT レストラン" /></a></li>
-	<li id="snav-guide"><a href="/spa_s/sguide.html"><img
-		src="${ctx}/template/spa/images/snav_guide.gif" width="185" height="48"
-		alt="営業案内" /></a></li>
-	<li id="snav-first"><a href="/spa_s/first.html"><img
-		src="${ctx}/template/spa/images/snav_firsttime.gif" width="185" height="48"
-		alt="はじめての方へ" /></a></li>
-	<li id="snav-sticking"><a href="/spa_s/sticking.html"><img
-		src="${ctx}/template/spa/images/snav_sticking.gif" width="185" height="49"
-		alt="スパ ラクーアのこだわり" /></a></li>
-</ul>
-</div>
 <!-- /#sub --> <!-- Pager start --> <!-- Pager end // --></div>
 <!-- /#main-sub --></div>
 <!-- /#contents -->

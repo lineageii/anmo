@@ -1,31 +1,4 @@
-﻿
-	var header = '\
-		<div id="headerIn">\
-		<p>\
-			<img src="template/spa/images/logo.gif" width="214" height="77" alt="LaQua TOKYO DOME CITY" usemap="#logoMap" />\
-			<map name="logoMap" id="logoMap">\
-				<area shape="rect" coords="164,0,214,77" href="/pages/qa.html#q2" alt="" />\
-				<area shape="rect" coords="0,0,164,77" href="/" alt="" />\
-			</map>\
-		</p>\
-		<ul id="hNavHead">\
-		<li id="hnav_privacy"><a href="/pages/privacy.html" class="popup"><img src="template/spa/images/hnav_privacy.gif" width="99" height="20" alt="個人情報保護" /></a></li>\
-		<li id="hnav_use"><a href="/pages/kiyaku.html" class="popup"><img src="template/spa/images/hnav_use.gif" width="99" height="20" alt="サイト利用方法" /></a></li>\
-		<li id="hnav_questionnaire"><a href="/questionnaire" class="popup"><img src="template/spa/images/hnav_questionnaire.gif" width="92" height="20" alt="アンケート" /></a></li>\
-		<li id="hnav_sitemap"><a href="/pages/sitemap.html"><img src="template/spa/images/hnav_sitemap.gif" width="92" height="20" alt="サイトマップ" /></a></li>\
-		<li id="hnav_english"><a href="/pages/en/index.html" class="popup"><img src="template/spa/images/hnav_english.gif" width="59" height="20" alt="English" /></a></li>\
-		</ul>\
-		<ul id="hNavFoot">\
-		<li id="hnav_business"><a href="/pages/sguide.html"><img src="template/spa/images/hnav_business.gif" width="82" height="20" alt="営業時間" /></a></li>\
-		<li id="hnav_access"><a href="/pages/access.html"><img src="template/spa/images/hnav_access.gif" width="85" height="20" alt="アクセス" /></a></li>\
-		<li id="hnav_map"><a href="/map/index.html"><img src="template/spa/images/hnav_map.gif" width="97" height="20" alt="施設マップ" /></a></li>\
-		<li id="hnav_mobile"><a href="/mobile"><img src="template/spa/images/hnav_mobile.gif" width="117" height="20" alt="モバイルラクーア" /></a></li>\
-		<li id="hnav_staff"><a href="/recruit"><img src="template/spa/images/hnav_staff.gif" width="93" height="20" alt="スタッフ募集" /></a></li>\
-		<li id="hnav_sponcer"><a href="/pages/sponsor.html" class="popup"><img src="template/spa/images/hnav_sponcer.gif" width="115" height="20" alt="スポンサーシップ" /></a></li>\
-		<li id="hnav_qa"><a href="/pages/qa.html"><img src="template/spa/images/hnav_qa.gif" width="58" height="20" alt="Q＆A" /></a></li>\
-		</ul>\
-		</div>\
-	';
+﻿var ctx= "/mini-web";
 
 	var headerSpa = '\
 		<div id="headerIn">\
@@ -34,13 +7,13 @@
 		<li><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="東京ドームシティわくわくダイヤル 03-5800-9999" /></a></li>\
 		</ul>\
 		<ul id="hNavFoot">\
-		<li id="hnav_business"><a href="/pages/sguide.html"><img src="template/spa/images/hnav_business.gif" width="82" height="20" alt="首页" /></a></li>\
-		<li id="hnav_access"><a href="/pages/access.html"><img src="template/spa/images/hnav_access.gif" width="85" height="20" alt="アクセス" /></a></li>\
-		<li id="hnav_map"><a href="/map/index.html"><img src="template/spa/images/hnav_map.gif" width="97" height="20" alt="施設マップ" /></a></li>\
-		<li id="hnav_mobile"><a href="/mobile"><img src="template/spa/images/hnav_mobile.gif" width="117" height="20" alt="モバイルラクーア" /></a></li>\
-		<li id="hnav_staff"><a href="/recruit"><img src="template/spa/images/hnav_staff.gif" width="93" height="20" alt="スタッフ募集" /></a></li>\
-		<li id="hnav_sponcer"><a href="/pages/sponsor.html" class="popup"><img src="template/spa/images/hnav_sponcer.gif" width="115" height="20" alt="スポンサーシップ" /></a></li>\
-		<li id="hnav_qa"><a href="/pages/qa.html#areaSpa"><img src="template/spa/images/hnav_qa.gif" width="58" height="20" alt="Q＆A" /></a></li>\
+		<li id="hnav_business"><a href=' + ctx+ ' ><img src="template/spa/images/hnav_business.gif" width="82" height="20" alt="首页" /></a></li>\
+		<li id="hnav_access"><a href=' + ctx+ '/staff.anmo><img src="template/spa/images/hnav_access.gif" width="85" height="20" alt="技师魅影" /></a></li>\
+		<li id="hnav_map"><a href=' + ctx + '/service.html><img src="template/spa/images/hnav_map.gif" width="97" height="20" alt="服务项目" /></a></li>\
+		<li id="hnav_mobile"><a href=' + ctx+'/flow.html><img src="template/spa/images/hnav_mobile.gif" width="117" height="20" alt="服务流程" /></a></li>\
+		<li id="hnav_staff"><a href=' + ctx+'/comment.anmo><img src="template/spa/images/hnav_staff.gif" width="93" height="20" alt="顾客点评" /></a></li>\
+		<li id="hnav_sponcer"><a href=' + ctx+'/store.anmo><img src="template/spa/images/hnav_sponcer.gif" width="115" height="20" alt="附近店铺" /></a></li>\
+		<li id="hnav_qa"><a href=' + ctx+'/help.html><img src="template/spa/images/hnav_qa.gif" width="58" height="20" alt="帮助" /></a></li>\
 		</ul>\
 		</div>\
 	';

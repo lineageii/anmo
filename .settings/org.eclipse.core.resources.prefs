@@ -1,10 +1,7 @@
-#Thu Jul 07 14:01:47 CST 2011
+#Wed Aug 10 15:50:18 CST 2011
 eclipse.preferences.version=1
 encoding//src/main/resources/i18n_zh_CN.properties=UTF-8
 encoding//src/main/webapp/WEB-INF/content/news-input.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/content/staff.jsp=UTF-8
-encoding//src/main/webapp/index.jsp=UTF-8
-encoding//src/main/webapp/staff.jsp=UTF-8
-encoding//src/main/webapp/stafflist.jsp=UTF-8
 encoding//src/main/webapp/template/spa/js/navi.js=UTF-8
 encoding/<project>=UTF-8

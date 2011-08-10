@@ -46,7 +46,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	private Long id;
 	private Technician entity;
 	private Page<Technician> page = new Page<Technician>(50);// 每页5条记录
-	private Page<Comment> commentPage = new Page<Comment>(10);
+	private Page<Comment> commentPage = new Page<Comment>(3);
 	private List<String> checkedLanguages = Lists.newArrayList();
 	private Map<String, String> genderMap = ImmutableMap.of("men", "男", "women", "女");
 	private int thisyear;
@@ -59,23 +59,25 @@ public class StaffAction extends CrudActionSupport<Technician> {
 
 	private Map<String, String> workTimeMap;
 	private Map<String, String> workStatusMap;
-	
+
 	public TechnicianService getTechnicianService() {
 		return technicianService;
 	}
+
 	@Autowired
 	public void setTechnicianService(TechnicianService technicianService) {
 		this.technicianService = technicianService;
 	}
 
-	
 	public CommentDao getCommentDao() {
 		return commentDao;
 	}
+
 	@Autowired
 	public void setCommentDao(CommentDao commentDao) {
 		this.commentDao = commentDao;
 	}
+
 	// -- ModelDriven 与 Preparable函数 --//
 	public void setId(Long id) {
 		this.id = id;
@@ -84,8 +86,8 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	public Technician getModel() {
 		return entity;
 	}
-	
-	private void initPulldown(){
+
+	private void initPulldown() {
 		provinceMap = getProvinceMap(Lan.getLanByLocale(getLocale()));
 		workTimeMap = PulldownUtil.getWorkTimeMap(getText("workTimePrex"));
 		workStatusMap = PulldownUtil.getWorkStatusMap(getText("work"), getText("rest"));
@@ -118,26 +120,18 @@ public class StaffAction extends CrudActionSupport<Technician> {
 
 	@Override
 	public String input() throws Exception {
-		
-		
+
 		initPulldown();
 		technicianService.putWorkEvent2WeekWork(entity);
 		technicianService.reListWeekWork(entity);
-		
+
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(Struts2Utils.getRequest());
 		// 设置默认排序方式
 		if (!commentPage.isOrderBySetted()) {
 			commentPage.setOrderBy("id");
 			commentPage.setOrder(Page.ASC);
 		}
-		
-		commentPage = commentDao.findPage(commentPage, "from Comment where technician.id = ?", id);
-//		if (entity.getLanguages() == null)
-//			return INPUT;
-//		String[] arrays = entity.getLanguages().split(",");
-//		for (String str : arrays) {
-//			checkedLanguages.add(str.trim());
-//		}
+		commentPage = commentDao.findPage(commentPage, filters);
 		return INPUT;
 	}
 
@@ -238,8 +232,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	public void setPulldownDao(PulldownDao pulldownDao) {
 		this.pulldownDao = pulldownDao;
 	}
-	
-	
+
 	public Map<String, String> getWorkTimeMap() {
 		return workTimeMap;
 	}
@@ -247,12 +240,13 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	public Map<String, String> getWorkStatusMap() {
 		return workStatusMap;
 	}
+
 	public Page<Comment> getCommentPage() {
 		return commentPage;
 	}
+
 	public void setCommentPage(Page<Comment> commentPage) {
 		this.commentPage = commentPage;
 	}
-	
-	
+
 }

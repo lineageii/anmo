@@ -70,13 +70,20 @@
 					<s:iterator value="commentPage.result">
 					<li>
 						<dl>
-							<dd class="TenpoLink">${customer.name}先生的感受</dd>
+							<dd class="TenpoLink">${customer.name}的点评</dd>
 							<dt><a href="${ctx}/comment!input.anmo?id=${id}">${fn:substring(comment,0,28)}...</a></dt>
 							<dd class="TenpoLink">技师${technician.name}的回复</dd>
 							<dd>${fn:substring(reply,0,40)}...</dd>
 							
 
-						</dl><p><img src="http://www.laqua.jp/wp-content/uploads/2011/05/resize_0001-80x80.jpg" width="80" height="80" border="0" /></p>
+						</dl><p>
+							<c:if test="${empty technician.uploadList}">
+								<img src="${ctx}/staff_imges/nopic.jpg" width="80" border="0"/>
+							</c:if> 
+							<c:if test="${not empty technician.uploadList}">
+								<img src="${ctx}/upload/${technician.uploadList[0].sysname}" width="80" border="0"/>
+							</c:if>
+						</p>
 
 					</li>
 					</s:iterator>

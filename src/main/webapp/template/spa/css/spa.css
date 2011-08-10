@@ -1527,6 +1527,8 @@ table.normal td.txt{
 	background:#e6d1d4;
 	width:320px;
 }
+
+
 table.normal td strong{
 	font-weight:normal;
 	font-size:0.8em;
@@ -2808,5 +2810,11 @@ body#spa.map #pageTitleLink{
 
 .jumpPage {
 	width:660px;
+	text-align:right;
+}
+
+.jumpPage1 {
+	margin:5px 0px 0px 0px;
+	width:552px;
 	text-align:right;
 }

@@ -22,6 +22,7 @@
 
 <script type="text/javascript" src="${ctx}/template/spa/js/jq-lib.js"></script>
 <script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
+<script src="${ctx}/js/table.js" type="text/javascript"></script>
 </head>
 <body id="spa" class="treatment">
 <div id="container">
@@ -88,33 +89,42 @@
 </div>
 <!-- topicsArea end --> <!-- staff pic end -->
 
-<div id="menuArea">
+<div id="comment"> 
+<div id="ladysDayArea">
 <h2>顾客点评</h2>
-<div id="comment"><input type="hidden" name="commentPage.pageNo"
-	id="pageNo" value="${commentPage.pageNo}" /> <input type="hidden"
-	name="commentPage.orderBy" id="orderBy" value="${commentPage.orderBy}" />
-<input type="hidden" name="commentPage.order" id="order"
-	value="${commentPage.order}" /> <s:iterator value="commentPage.result">
-	<table class="other">
-		<tbody>
-		<tr>
-			<th>顾客:${customer.name} 外貌:3 技术:3 态度:3</th>
-		</tr>
-		<tr>
-			<td>${comment}</td>
-		</tr>
-		<tr>
-			<td>${reply}</td>
-		</tr>
-		</tbody>
-	</table>
-</s:iterator></div>
-<div>第${commentPage.pageNo}页, 共${commentPage.totalPages}页 <a
+<div class="jumpPage1">第${commentPage.pageNo}页, 共${commentPage.totalPages}页 <a
 	href="javascript:jumpPage(1)">首页</a> <s:if test="commentPage.hasPre">
 	<a href="javascript:jumpPage(${commentPage.prePage})">上一页</a>
 </s:if> <s:if test="commentPage.hasNext">
 	<a href="javascript:jumpPage(${commentPage.nextPage})">下一页</a>
 </s:if> <a href="javascript:jumpPage(${commentPage.totalPages})">末页</a></div>
+<s:iterator value="commentPage.result">
+	<table class="normal">
+		<tbody>
+		<tr>
+			<th>外貌:3 技术:3 态度:3</th>
+		</tr>
+		<tr>
+			<td>${customer.name}的点评:<br/>&nbsp;&nbsp;&nbsp;&nbsp;${comment}</td>
+		</tr>
+		<tr>
+			<td>${technician.name}的回复:<br/>&nbsp;&nbsp;&nbsp;&nbsp;${reply}</td>
+		</tr>
+		</tbody>
+	</table>
+</s:iterator></div>
+<form id="mainForm" action="staff!input.anmo#comment" method="post">
+<input type="hidden" name="id" id="id" value="${id}"/>
+<input type="hidden" name="commentPage.pageNo"id="pageNo" value="${commentPage.pageNo}" /> 
+<input type="hidden" name="commentPage.orderBy" id="orderBy" value="${commentPage.orderBy}" />
+<input type="hidden" name="commentPage.order" id="order" value="${commentPage.order}" />
+<div class="jumpPage1">第${commentPage.pageNo}页, 共${commentPage.totalPages}页 <a
+	href="javascript:jumpPage(1)">首页</a> <s:if test="commentPage.hasPre">
+	<a href="javascript:jumpPage(${commentPage.prePage})">上一页</a>
+</s:if> <s:if test="commentPage.hasNext">
+	<a href="javascript:jumpPage(${commentPage.nextPage})">下一页</a>
+</s:if> <a href="javascript:jumpPage(${commentPage.totalPages})">末页</a></div>
+</form>
 </div>
 <!-- ladysDayArea end -->
 <div class="contentsIn"></div>

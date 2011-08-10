@@ -1,4 +1,4 @@
-﻿var ctx= "/mini-web";
+﻿var ctx= "";
 
 	var headerSpa = '\
 		<div id="headerIn">\

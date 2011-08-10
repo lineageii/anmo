@@ -3,8 +3,7 @@
 <%@ include file="/common/taglibs.jsp" %>
 <div id="hd">
 	<div id="title">
-		<h1>Mini-Web示例</h1>
-		<h2>--CRUD管理界面演示</h2>
+		<h1>后台管理</h1>
 	</div>
 	<div id="menu">
 		<ul>

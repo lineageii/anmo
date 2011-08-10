@@ -275,6 +275,7 @@
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webDefaultXml>webdefault.xml</webDefaultXml>
+					<contextPath>/</contextPath>
 				</configuration>
 			</plugin>
 

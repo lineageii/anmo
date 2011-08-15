@@ -7,13 +7,15 @@
 		<li><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="東京ドームシティわくわくダイヤル 03-5800-9999" /></a></li>\
 		</ul>\
 		<ul id="hNavFoot">\
-		<li id="hnav_business"><a href=' + ctx+ '/ ><img src="template/spa/images/hnav_business.gif" width="82" height="20" alt="首页" /></a></li>\
-		<li id="hnav_access"><a href=' + ctx+ '/staff.anmo><img src="template/spa/images/hnav_access.gif" width="85" height="20" alt="技师魅影" /></a></li>\
-		<li id="hnav_map"><a href=' + ctx + '/service.jsp><img src="template/spa/images/hnav_map.gif" width="97" height="20" alt="服务项目" /></a></li>\
-		<li id="hnav_mobile"><a href=' + ctx+'/flow.jsp><img src="template/spa/images/hnav_mobile.gif" width="117" height="20" alt="服务流程" /></a></li>\
-		<li id="hnav_staff"><a href=' + ctx+'/comment.anmo><img src="template/spa/images/hnav_staff.gif" width="93" height="20" alt="顾客点评" /></a></li>\
-		<li id="hnav_sponcer"><a href=' + ctx+'/store.anmo><img src="template/spa/images/hnav_sponcer.gif" width="115" height="20" alt="附近店铺" /></a></li>\
-		<li id="hnav_qa"><a href=' + ctx+'/help.jsp><img src="template/spa/images/hnav_qa.gif" width="58" height="20" alt="帮助" /></a></li>\
+		<li id="hnav_home"><a href=' + ctx+ '/ ><img src="template/spa/images/head/hnav_home.gif" height="20" alt="首页" /></a></li>\
+		<li id="hnav_staff"><a href=' + ctx+ '/staff.anmo><img src="template/spa/images/head/hnav_staff.gif" height="20" alt="技师魅影" /></a></li>\
+		<li id="hnav_service"><a href=' + ctx + '/service.jsp><img src="template/spa/images/head/hnav_service.gif"height="20" alt="服务项目" /></a></li>\
+		<li id="hnav_order"><a href=' + ctx+'/order.jsp><img src="template/spa/images/head/hnav_order.gif" height="20" alt="网上预约" /></a></li>\
+		<li id="hnav_comment"><a href=' + ctx+'/comment.anmo><img src="template/spa/images/head/hnav_comment.gif" height="20" alt="顾客点评" /></a></li>\
+		<li id="hnav_store"><a href=' + ctx+'/store.anmo><img src="template/spa/images/head/hnav_store.gif"  height="20" alt="附近店铺" /></a></li>\
+		<li id="hnav_job"><a href=' + ctx+'/job.jsp><img src="template/spa/images/head/hnav_job.gif" height="20" alt="招聘信息" /></a></li>\
+		<li id="hnav_flow"><a href=' + ctx+'/flow.jsp><img src="template/spa/images/head/hnav_flow.gif" height="20" alt="服务流程" /></a></li>\
+		<li id="hnav_help"><a href=' + ctx+'/help.jsp><img src="template/spa/images/head/hnav_help.gif" height="20" alt="帮助" /></a></li>\
 		</ul>\
 		</div>\
 	';

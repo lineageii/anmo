@@ -93,7 +93,7 @@
 					</s:iterator>
 				</ul>
 			</div>
-			<p class="more"><a href="/topicslist?mode=spa">查看更多...</a></p>
+			<p class="more"><a href="${ctx}/comment.anmo">查看更多...</a></p>
 		</div><!-- /#spaTopRight -->
 
 	</div><!-- /#main-sub -->

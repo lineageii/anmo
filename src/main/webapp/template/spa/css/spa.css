@@ -915,6 +915,9 @@ ul#dMenuCt1 li dl{
 	width:627px;
 }
 
+
+
+
 #pickUpArea{
 	border-top:1px solid #b2b2b2;
 	width:658px;
@@ -943,8 +946,6 @@ ul#dMenuCt1 li dl{
 	height:135px;
 	position:absolute;
 	overflow:hidden;
-
-
 }
 
 
@@ -986,6 +987,128 @@ p#slideBack{
 	cursor:pointer;
 	display:none;
 }
+
+
+#slideImg ul li{
+	width:148px;
+		float:left;
+		padding:0 1px;
+}
+
+#slideImg ul li a{
+	display:block;
+	margin-bottom:3px;
+	border:1px solid #ccc;
+	width:146px;
+	text-align:center;
+	background:#fff;
+}
+
+#slideImg ul li a span{
+	display:none;
+}
+#slideImg ul li p{
+	text-align:center;
+	font-size:0.9em;
+}
+
+p#slideNext{
+	position:absolute;
+	top:53px;
+	left:627px;
+	cursor:pointer;
+	display:none;
+}
+
+p#slideBack{
+	position:absolute;
+	top:54px;
+	left:2px;
+	cursor:pointer;
+	display:none;
+}
+
+
+
+.pickUpArea{
+	border-top:1px solid #b2b2b2;
+	width:658px;
+	background:#ededed;
+	margin:10px 0px 0px 15px;
+}
+
+.pickUpArea h2{
+	background:none;
+	padding:10px 0 0 10px;
+}
+
+.slideImg{
+	width:650px;
+	height:143px;
+	position:relative;
+	margin:0;
+	overflow:hidden;
+}
+
+
+.slideImg{
+	width:650px;
+	height:143px;
+	position:relative;
+	margin:0;
+	overflow:hidden;
+}
+
+
+div.slideBox{
+	top:7px;
+	left:25px;
+	width:600px;
+	height:135px;
+	position:absolute;
+	overflow:hidden;
+}
+
+.slideImg ul li{
+	width:148px;
+		float:left;
+		padding:0 1px;
+}
+
+.slideImg ul li a{
+	display:block;
+	margin-bottom:3px;
+	border:1px solid #ccc;
+	width:146px;
+	text-align:center;
+	background:#fff;
+}
+
+.slideImg ul li a span{
+	display:none;
+}
+.slideImg ul li p{
+	text-align:center;
+	font-size:0.9em;
+}
+
+.slideNext{
+	position:absolute;
+	top:53px;
+	left:627px;
+	cursor:pointer;
+	display:none;
+}
+
+.slideBack{
+	position:absolute;
+	top:54px;
+	left:2px;
+	cursor:pointer;
+	display:none;
+}
+
+
 
 ul#dPickUp3 li{
 	float:left;
@@ -1744,7 +1867,7 @@ h2.firstTtl{
 #firstStep li{
 	overflow:hidden;
 	padding:15px 0;
-	background:url("../spa_s/images/first/step_bg.gif") 310px 100px no-repeat;
+	background:url("../images/step_bg.gif") 310px 100px no-repeat;
 }
 #firstStep dl{
 	float:left;
@@ -2891,4 +3014,22 @@ body#spa.map #pageTitleLink{
 
 #tbList1 li table table td.new{
 	background:url("../images/icon_new.gif") bottom right no-repeat;
+}
+
+#mycomment {
+	margin: 20px 0px 0px 20px;
+}
+
+#mycomment select{
+	margin-bottom: 10px;
+}
+	
+#mycomment input{
+	margin-bottom: 10px;
+}
+	
+#mycomment textarea{
+	margin-bottom: 10px;
+	font-size:12px;
+	width:500px;
 }

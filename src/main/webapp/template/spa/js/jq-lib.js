@@ -17,6 +17,12 @@ $(function(){
 	smoothScr();
 	slideImg();
 	dLightBox();
+	slideImgs('_jykb');
+	dLightBoxs('_jykb');
+	slideImgs('_lomi');
+	dLightBoxs('_lomi');
+	slideImgs('_tai');
+	dLightBoxs('_tai');
 	popup();
 	engNav();
 	detailDesign();
@@ -173,6 +179,63 @@ function dLightBox(){
 	if($('body').is(':has("#slideBox")')){
 		//$('#slideBox li a').lightBox({fixedNavigation:true});
 		$('#slideBox li a').lightBox();
+	}
+}
+
+
+/*--------------------------------
+slideImg
+-------------------------------*/
+function slideImgs(index){
+	if($('body').is(':has("#slideImg' + index + '")')){
+		var slideSize = $('#slideImg' + index + ' li').size();
+		var slideW = 150;
+		var slideNum = 4;
+		var maxw = -((slideW * slideSize)-(slideW * slideNum));
+		$('#slideImg' + index + ' ul').css('width',slideW*slideSize+'px');
+		
+		if(slideSize > 4){
+			$('p#slideNext' + index).fadeIn();
+	 		var i= 0;
+	 		$('p#slideNext' + index).click(function(){
+	 			if(i == 0){
+		 			$('p#slideBack' + index).fadeIn(300);
+	 				if(Number($('#slideImg' + index + ' ul').css('margin-left').split('px')[0]) == maxw+slideW){
+		 				i = 1;
+						$('#slideImg' + index + ' ul').animate({marginLeft : '-='+slideW+'px'},300,function(){i=0;});
+						$('p#slideNext' + index + '').fadeOut(300);
+					}else if(Number($('#slideImg' + index + ' ul').css('margin-left').split('px')[0]) > maxw){
+		 				i = 1;
+						$('#slideImg' + index + ' ul').animate({marginLeft : '-='+slideW+'px'},300,function(){i=0;});
+					}
+		 		}
+	 		});
+
+	 		$('p#slideBack' + index).click(function(){
+	 			if(i == 0){
+					$('p#slideNext' + index).fadeIn(300);
+					if($('#slideImg' + index + ' ul').css('margin-left') == '-'+slideW+'px'){
+						i = 1;
+		 				$('#slideImg' + index + ' ul').animate({marginLeft : '+='+slideW+'px'},300,function(){i=0;});
+		 				$('p#slideBack1').fadeOut(300);
+		 				
+	 				}else if($('#slideImg' + index + ' ul').css('margin-left') != '0px'){
+		 				i = 1;
+		 				$('#slideImg' + index + ' ul').animate({marginLeft : '+='+slideW+'px'},300,function(){i=0;});
+		 			}
+		 		}
+	 		});
+	 	}
+	}
+}
+/*--------------------------------
+lightBox
+-------------------------------*/
+
+function dLightBoxs(index){
+	if($('body').is(':has("#slideBox' + index + '")')){
+		//$('#slideBox li a').lightBox({fixedNavigation:true});
+		$('#slideBox' + index + ' li a').lightBox();
 	}
 }
 

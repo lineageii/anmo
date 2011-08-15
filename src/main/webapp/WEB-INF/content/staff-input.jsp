@@ -24,7 +24,7 @@
 <script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
 <script src="${ctx}/js/table.js" type="text/javascript"></script>
 </head>
-<body id="spa" class="treatment">
+<body id="spa" class="zone">
 <div id="container">
 
 <div id="header"></div>
@@ -107,10 +107,10 @@
 			<th>外貌:3 技术:3 态度:3</th>
 		</tr>
 		<tr>
-			<td>${customer.name}的点评:<br/>&nbsp;&nbsp;&nbsp;&nbsp;${comment}</td>
+			<td>${customer.name}的点评:<br/><div style="margin-left: 10px;">${comment}</div></td>
 		</tr>
 		<tr>
-			<td>${technician.name}的回复:<br/>&nbsp;&nbsp;&nbsp;&nbsp;${reply}</td>
+			<td>${technician.name}的回复:<br/><div style="margin-left: 10px;">${reply}</div></td>
 		</tr>
 		</tbody>
 	</table>

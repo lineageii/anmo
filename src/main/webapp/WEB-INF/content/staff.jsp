@@ -24,7 +24,7 @@
 <script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
 <script src="${ctx}/js/table.js" type="text/javascript"></script>
 </head>
-<body id="spa" class="treatment">
+<body id="spa" class="zone">
 <div id="container">
 
 <div id="header"></div>
@@ -40,6 +40,10 @@
 	<li><a href="${ctx}/">首页</a></li>
 	<li>技师魅影</li>
 </ul>
+<div id="topicsArea">
+<h2>技师魅影</h2>
+</div>
+<br/>
 <ul id="tbList">
 	<s:iterator value="page.result">
 	<%@ include file="/WEB-INF/include/stafflist.jsp" %>

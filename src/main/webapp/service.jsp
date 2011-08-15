@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ include file="/common/taglibs.jsp" %>
+<%@ include file="/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -10,168 +10,372 @@
 <meta name="description"
 	content="東京・後楽園、東京ドームに併設されたスパ施設を中心とした水がテーマの総合アミューズメント施設「LaQua」の公式ページ。都会の真ん中で夜景を楽しみながらお湯を楽しみ、極上の癒しが手に入るスパ・ラクーアをはじめ、併設されたショッピングセンターでは有名ブランドのショッピングやレストランで食事が楽しめます。お得なプラン、セール、キャンペーンやイベントのご案内など情報が満載。" />
 <title>ロータスムーン - Spa | LaQua</title>
-<link href="/template/spa/css/spa.css" rel="stylesheet" type="text/css" />
-<link href="/css/jquery.lightbox-0.5.css" rel="stylesheet"
+<link href="${ctx}/template/spa/css/spa.css" rel="stylesheet"
 	type="text/css" />
-<script type="text/javascript" src="/template/spa/js/jquery.js"></script>
+<link href="${ctx}/template/spa/css/module.css" rel="stylesheet"
+	type="text/css" />
+<link href="${ctx}/template/spa/css/jquery.lightbox-0.5.css"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${ctx}/template/spa/js/jquery.js"></script>
 <script type="text/javascript"
-	src="/template/spa/js/jquery.lightbox-0.5.js"></script>
-<script type="text/javascript" src="/template/spa/js/jq-lib.js"></script>
-<script type="text/javascript" src="/template/spa/js/navi.js"></script>
+	src="${ctx}/template/spa/js/jquery.lightbox-0.5.js"></script>
+
+<script type="text/javascript" src="${ctx}/template/spa/js/jq-lib.js"></script>
+<script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
+<script src="${ctx}/js/table.js" type="text/javascript"></script>
 </head>
 <!-- /# スパ -->
 
 <!-- スパ レストラン -->
-<body id="spa" class="restaurant">
-	<div id="container">
-		<!-- スパ T&B -->
-		<div id="header"></div>
-		<!-- /#header -->
-		<div id="contents">
-			<div id="layerBg"></div>
-			<div id="main-sub">
-				<div id="main">
+<body id="spa" class="healing">
+<div id="container"><!-- スパ T&B -->
+<div id="header"></div>
+<!-- /#header -->
+<div id="contents">
+<div id="layerBg"></div>
+<div id="main-sub">
+<div id="main">
 
-					<ul id="topicPath">
-						<li><a href="${ctx}/">首页</a>
-						</li>
-						<li>服务项目
-						</li>
-					</ul>
+<ul id="topicPath">
+	<li><a href="${ctx}/">首页</a></li>
+	<li>服务项目</li>
+</ul>
+
+<div id="menuArea">
+<h2>服务项目</h2>
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_001-214x195.jpg"
+		width="214" height="195" border="0" /></p>
+	<dl>
+		<dt>◆中式推拿</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 150元<br />
+		・90分钟 200元<br />
+		・120分钟 300元</dd>
+	</dl>
+	</li>
+</ul>
+<div id="pickUpArea" class="pickUpArea">
+<div id="slideImg" class="slideImg">
+<div id="slideBox" class="slideBox">
+<ul style="width: 900px;">
+	<!--拡大表示用-->
+	<li><a
+		href="http://www.laqua.jp/wp-content/uploads/2011/01/049a-214x321.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/049a-214x321.jpg"
+		height="110" border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+</ul>
+</div>
+<p id="slideBack" class="slideBack"><img
+	src="${ctx}/template/spa/images/staff/slide_back.gif" width="19"
+	height="19" alt="back"></p>
+<p id="slideNext" class="slideNext" style="display: block;"><img
+	src="${ctx}/template/spa/images/staff/slide_next.gif" width="19"
+	height="19" alt="next"></p>
+</div>
+</div>
+
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_001-214x195.jpg"
+		width="214" height="195" border="0" /></p>
+	<dl>
+		<dt>◆中式推拿</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 150元<br />
+		・90分钟 200元<br />
+		・120分钟 300元</dd>
+	</dl>
+	</li>
+</ul>
+
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/04/resize_0021-214x142.jpg"
+		width="214" height="142" border="0" /></p>
+	<dl>
+		<dt>◆韩式松骨</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 150元<br />
+		・90分钟 200元<br />
+		・120分钟 300元</dd>
+	</dl>
+	</li>
+</ul>
+
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img src="${ctx}/images/service/tai/049a-214x321.jpg"
+		width="214" border="0" /></p>
+	<dl>
+		<dt>◆泰式按摩</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 150元<br />
+		・90分钟 200元<br />
+		・120分钟 300元</dd>
+		</dd>
+	</dl>
+	</li>
+</ul>
+<div id="pickUpArea" class="pickUpArea">
+<div id="slideImg_tai" class="slideImg">
+<div id="slideBox_tai" class="slideBox">
+<ul style="width: 900px;">
+	<!--拡大表示用-->
+	<li><a href="${ctx}/images/service/tai/049a-214x321.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/tai/049a-214x321.jpg" height="110"
+		border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+	<li><a href="${ctx}/images/service/tai/063a-214x321.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/tai/063a-214x321.jpg" height="110"
+		border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+	<li><a href="${ctx}/images/service/tai/072a-306x459.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/tai/072a-306x459.jpg" height="110"
+		border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+	<li><a href="${ctx}/images/service/tai/113-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/tai/113-214x142.jpg" height="110"
+		border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+	<li><a href="${ctx}/images/service/tai/119-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/tai/119-214x142.jpg" height="110"
+		border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+	<li><a href="${ctx}/images/service/tai/tai.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;泰式按摩&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/tai/tai.jpg" height="110" border="0"></a>
+	<p>泰式按摩</p>
+	</li>
+</ul>
+</div>
+<p id="slideBack_tai" class="slideBack"><img
+	src="${ctx}/template/spa/images/staff/slide_back.gif" width="19"
+	height="19" alt="back"></p>
+<p id="slideNext_tai" class="slideNext" style="display: block;"><img
+	src="${ctx}/template/spa/images/staff/slide_next.gif" width="19"
+	height="19" alt="next"></p>
+</div>
+</div>
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img src="${ctx}/images/service/jykb/i02_color_deep-214x319.jpg"
+		width="214" border="0" /></p>
+	<dl>
+		<dt>◆精油开背</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 150元<br />
+		・90分钟 200元<br />
+		・120分钟 300元</dd>
+		</dd>
+	</dl>
+	</li>
+</ul>
+<div id="pickUpArea" class="pickUpArea">
+<div id="slideImg_jykb" class="slideImg">
+<div id="slideBox_jykb" class="slideBox">
+<ul style="width: 900px;">
+	<!--拡大表示用-->
+	<li><a href="${ctx}/images/service/jykb/i01_chakura-214x143.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;精油开背&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/jykb/i01_chakura-214x143.jpg" height="110"
+		border="0"></a>
+	<p>精油开背</p>
+	</li>
+	<li><a
+		href="${ctx}/images/service/jykb/i02_color_deep-214x319.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;精油开背&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/jykb/i02_color_deep-214x319.jpg"
+		height="110" border="0"></a>
+	<p>精油开背</p>
+	</li>
+	<li><a href="${ctx}/images/service/jykb/i02_cuna_cuna-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;精油开背&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/jykb/i02_cuna_cuna-214x142.jpg"
+		height="110" border="0"></a>
+	<p>精油开背</p>
+	</li>
+	<li><a
+		href="${ctx}/images/service/jykb/i03_face_treatment-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;精油开背&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/jykb/i03_face_treatment-214x142.jpg"
+		height="110" border="0"></a>
+	<p>精油开背</p>
+	</li>
+</ul>
+</div>
+<p id="slideBack_jykb" class="slideBack"><img
+	src="${ctx}/template/spa/images/staff/slide_back.gif" width="19"
+	height="19" alt="back"></p>
+<p id="slideNext_jykb" class="slideNext" style="display: block;"><img
+	src="${ctx}/template/spa/images/staff/slide_next.gif" width="19"
+	height="19" alt="next"></p>
+</div>
+</div>
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img src="${ctx}/images/service/lomi/i05_hot_stone-214x321.jpg"
+		width="214" border="0" /></p>
+	<dl>
+		<dt>◆Lomi Lomi夏威夷式精石SPA</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟200元<br />
+		・90分钟300元<br />
+		・120分钟400元</dd>
+		</dd>
+	</dl>
+	</li>
+</ul>
+<div id="pickUpArea" class="pickUpArea">
+<div id="slideImg_lomi" class="slideImg">
+<div id="slideBox_lomi" class="slideBox">
+<ul style="width: 900px;">
+	<!--拡大表示用-->
+	<li><a
+		href="${ctx}/images/service/lomi/i01_hawai_romiromi-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;Lomi Lomi夏威夷式精石SPA&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/lomi/i01_hawai_romiromi-214x142.jpg"
+		height="110" border="0"></a>
+	<p>Lomi Lomi</p>
+	</li>
+	<li><a href="${ctx}/images/service/lomi/i02_30min-214x321.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;Lomi Lomi夏威夷式精石SPA&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/lomi/i02_30min-214x321.jpg" height="110"
+		border="0"></a>
+	<p>Lomi Lomi</p>
+	</li>
+	<li><a
+		href="${ctx}/images/service/lomi/i03_super_detocs-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;Lomi Lomi夏威夷式精石SPA&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/lomi/i03_super_detocs-214x142.jpg"
+		height="110" border="0"></a>
+	<p>Lomi Lomi</p>
+	</li>
+	<li><a href="${ctx}/images/service/lomi/i04_bihaku-214x142.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;Lomi Lomi夏威夷式精石SPA&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/lomi/i04_bihaku-214x142.jpg" height="110"
+		border="0"></a>
+	<p>Lomi Lomi</p>
+	</li>
+	<li><a href="${ctx}/images/service/lomi/i05_hot_stone-214x321.jpg"
+		rel="&lt;span&gt;&lt;strong&gt;Lomi Lomi夏威夷式精石SPA&lt;/strong&gt;&lt;/span&gt;"><img
+		src="${ctx}/images/service/lomi/i05_hot_stone-214x321.jpg"
+		height="110" border="0"></a>
+	<p>Lomi Lomi</p>
+	</li>
+</ul>
+</div>
+<p id="slideBack_lomi" class="slideBack"><img
+	src="${ctx}/template/spa/images/staff/slide_back.gif" width="19"
+	height="19" alt="back"></p>
+<p id="slideNext_lomi" class="slideNext" style="display: block;"><img
+	src="${ctx}/template/spa/images/staff/slide_next.gif" width="19"
+	height="19" alt="next"></p>
+</div>
+</div>
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
+		width="214" height="233" border="0" /></p>
+	<dl>
+		<dt>◆彩蝶双飞</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 300元<br />
+		・90分钟 400元<br />
+		・120分钟 600元</dd>
+		</dd>
+	</dl>
+	</li>
+</ul>
+
+<ul id="dPickUp" class="commodity">
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_0051-214x142.jpg"
+		width="214" height="142" border="0" /></p>
+	<dl>
+		<dt>◆香薰耳烛</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟200元<br />
+		・90分钟300元<br />
+		・120分钟400元</dd>
+		</dd>
+	</dl>
+	</li>
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
+		width="214" height="233" border="0" /></p>
+	<dl>
+		<dt>◆拔罐</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 300元<br />
+		・90分钟 400元<br />
+		・120分钟 600元</dd>
+		</dd>
+	</dl>
+	</li>
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_0051-214x142.jpg"
+		width="214" height="142" border="0" /></p>
+	<dl>
+		<dt>◆刮痧</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟200元<br />
+		・90分钟300元<br />
+		・120分钟400元</dd>
+		</dd>
+	</dl>
+	</li>
+	<li>
+	<p><img
+		src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
+		width="214" height="233" border="0" /></p>
+	<dl>
+		<dt>◆采耳</dt>
+		<dd class="lead"></dd>
+		<dd class="body">・60分钟 300元<br />
+		・90分钟 400元<br />
+		・120分钟 600元</dd>
+		</dd>
+	</dl>
+	</li>
+</ul>
+
+<!--サムネイル用 END--></div>
+
+<div id="pageTop" class="pageTop"><img
+	src="${ctx}/template/spa/images/pagetop.gif" width="54" height="12"
+	alt="Page Top" /></div>
 
 
-					<div class="contentsIn">
-
-						<!-- トピックス -->
-
-						<!-- アイテム -->
-						<!--<div id="menuArea">-->
-						<div id="menuArea">
-							<h2></h2>
+</div>
+<!-- /#main --> <%@ include file="/common/sub.jsp"%>
+<!-- /#sub --></div>
+<!-- /#main-sub --></div>
+<!-- /#contents -->
 
 
-							<!--サムネイル用-->
-							<ul id="dPickUp" class="commodity">
-								<li>
-									<p>
-										<img
-											src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_001-214x195.jpg"
-											width="214" height="195" border="0" />
-									</p>
-									<dl>
-										<dt>◆前菜</dt>
-										<dd class="lead"></dd>
-										<dd class="body">
-											・小海老と豚肉の生春巻き 1本￥360<br /> ・アボカドとサーモンの生春巻き 1本￥400<br />
-
-											・アボカドと魚介のサラダ ￥900<br /> ・青いパパイヤのサラダ ￥800<br /> ・蓮の茎のサラダ
-											￥800
-										</dd>
-									</dl></li>
-								<li>
-									<p>
-										<img
-											src="http://www.laqua.jp/wp-content/uploads/2011/04/resize_0021-214x142.jpg"
-											width="214" height="142" border="0" />
-									</p>
-									<dl>
-										<dt>おつまみ</dt>
-										<dd class="lead"></dd>
-										<dd class="body">
-											・蟹肉入りの揚げ春巻き 4本￥630<br /> ・さとうきびに巻いた海老のすり身 3本￥630<br />
-
-											・バリ風サテ、ピーナッツソース 2本￥500<br /> ・サモサ ￥480<br /> ・チキンティッガ ￥700
-										</dd>
-									</dl></li>
-								<li>
-									<p>
-										<img
-											src="http://www.laqua.jp/wp-content/uploads/2011/04/resize_003-214x142.jpg"
-											width="214" height="142" border="0" />
-									</p>
-									<dl>
-										<dt>◆ベトナムメニュー</dt>
-										<dd class="lead"></dd>
-										<dd class="body">
-											・青菜と厚揚げのガーリック炒め ￥980<br /> ・蟹とゴーヤの卵とじ、チャンプル風 ￥1,150<br />
-
-											・イカのグリル、レモングラスチリ風味 ￥780<br /> ・ココナッツ風味の鶏の唐揚げ ￥630
-										</dd>
-									</dl></li>
-								<li>
-									<p>
-										<img
-											src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_0041-214x142.jpg"
-											width="214" height="142" border="0" />
-									</p>
-									<dl>
-										<dt>◆麺類</dt>
-										<dd class="lead"></dd>
-										<dd class="body">
-											・フォー(鶏肉と野菜/ピリ辛豚挽肉/たっぷり魚介) ￥880～<br /> ・ベトナム式つけ麺“ブン・チャー” ￥950<br />
-
-											・トムヤムクンヌードル ￥980<br /> ・黒胡麻タンタン麺 ￥1,000<br />
-
-											・インドネシアの焼きそば“ミー・ゴレン”/￥1,000
-										</dd>
-									</dl></li>
-								<li>
-									<p>
-										<img
-											src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_0051-214x142.jpg"
-											width="214" height="142" border="0" />
-									</p>
-									<dl>
-										<dt>◆御飯物</dt>
-										<dd class="lead"></dd>
-										<dd class="body">
-											・ココナッツ風味のチキンカレー ￥980<br /> ・タイのグリーンカレー ￥1,050<br />
-
-											・目玉焼きのせナシゴレン ￥980<br /> ・マレーシアカレー ￥980
-										</dd>
-									</dl></li>
-								<li>
-									<p>
-										<img
-											src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
-											width="214" height="233" border="0" />
-									</p>
-									<dl>
-										<dt>◆デザート</dt>
-										<dd class="lead"></dd>
-										<dd class="body">
-											・アジアンフラッペ ￥730<br /> ・マンゴーフラッペ ￥630<br /> ・本日のココナッツチェー ￥630<br />
-
-											・マンゴージュレのシャーベット ￥480<br /> ・本日のアジアンアイス ￥470<br /> ・とろとろ杏仁豆腐
-											￥470<br /> ・ぷるぷるマンゴープリン ￥470
-										</dd>
-									</dl></li>
-							</ul>
-							<!--サムネイル用 END-->
-						</div>
-
-						<div id="pageTop" class="pageTop">
-							<img src="${ctx}/template/spa/images/pagetop.gif" width="54" height="12"
-								alt="Page Top" />
-						</div>
-					</div>
-					<!-- /.contentsIn -->
-
-
-				</div>
-				<!-- /#main -->
-				<%@ include file="/common/sub.jsp" %>
-				<!-- /#sub -->
-
-			</div>
-			<!-- /#main-sub -->
-		</div>
-		<!-- /#contents -->
-
-
-		<div id="footer"></div>
-		<!-- /#footer -->
-
-	</div>
+<div id="footer"></div>
+<!-- /#footer --></div>
 </body>
 </html>

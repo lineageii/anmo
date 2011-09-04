@@ -5,8 +5,10 @@
 <html> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<meta name="keywords" content="ラクーア,laqua,東京ドーム,東京ドームシティ,ミーツポート,温泉,日帰り温泉,スパ,アジアンリゾート,都会,リゾート,極上,贅沢,東京,後楽園,水道橋,ビューティー,リラックス,女性,レディース,レディースデイ,水曜日,健康,ランスパ,ランニング,ジョギング,マラソン,エステ,アロマ,マッサージ,ヘッドスパ,タイ式,大浴場,宴会,手ぶら,こだわり,安心,安全,アミューズメント,夜景,観覧車,ジェットコースター,噴水,水,夜景,買い物,食事,飲み会,レストラン,ショッピングモール,ショッピングセンター,ショップリスト,セール" /> 
-<meta name="description" content="東京・後楽園、東京ドームに併設されたスパ施設を中心とした水がテーマの総合アミューズメント施設「LaQua」の公式ページ。都会の真ん中で夜景を楽しみながらお湯を楽しみ、極上の癒しが手に入るスパ・ラクーアをはじめ、併設されたショッピングセンターでは有名ブランドのショッピングやレストランで食事が楽しめます。お得なプラン、セール、キャンペーンやイベントのご案内など情報が満載。" /><title>８周年記念！入館回数券割引のご案内 - Spa | LaQua</title> 
+<meta name="keywords"
+	content="上海上门按摩,上海上门SPA,上海酒店按摩,上海酒店SPA,shanghai hotel massage,shanghai home massage,大学生按摩" />
+<meta name="description" content="JIAG SPA 提供上海上门按摩，上海酒店SPA，shanghai hotel massage等高端服务。高薪聘请大学生，模特，空姐等众多美女技师为顾客服务。" />
+<title>+G spa | 迦季养生馆 | News</title>
 <link href="${ctx}/template/spa/css/spa.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/template/spa/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/template/spa/js/jquery.js"></script>

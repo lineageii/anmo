@@ -2,9 +2,9 @@
 
 	var headerSpa = '\
 		<div id="headerIn">\
-		<p><a href="/"><img src="template/spa/images/logo.gif" width="214" height="77" alt="LaQua TOKYO DOME CITY" /></a></p>\
+		<p><a href="/"><img src="template/spa/images/logo.gif" width="214" height="77" alt="+G spa | 迦季养生馆 LOGO" /></a></p>\
 		<ul id="hNavHead">\
-		<li><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="東京ドームシティわくわくダイヤル 03-5800-9999" /></a></li>\
+		<li><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="上门预约电话  13052090702" /></a></li>\
 		</ul>\
 		<ul id="hNavFoot">\
 		<li id="hnav_home"><a href=' + ctx+ '/ ><img src="template/spa/images/head/hnav_home.gif" height="20" alt="首页" /></a></li>\
@@ -23,11 +23,10 @@
 	var footer = '\
 		<div id="footerIn">\
 		<dl>\
-		<dd><a href="http://www.tokyo-dome.co.jp/" target="_blank">首页</a></dd>\
-		<dd><a href="http://www.tokyo-dome.jp/" target="_blank">公司信息</a></dd>\
-		<dd><a href="http://www.tokyo-dome.co.jp/contact/" target="_blank">联系我们</a></dd>\
+		<dd><a href="/" target="_blank">首页</a></dd>\
+		<dd><a href="/contact/" target="_blank">联系我们</a></dd>\
 		</dl>\
-		<p><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="東京ドームシティわくわくダイヤル 03-5800-9999" /></p>\
+		<p><img src="template/spa/images/footer_dial.gif" width="287" height="16" alt="上门预约电话  13052090702" /></p>\
 		<div id="copyright">Copyright&copy;上海塞依信息 All right reserved.</div>\
 		</div>\
 	';

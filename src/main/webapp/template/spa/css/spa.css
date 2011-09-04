@@ -180,28 +180,23 @@ body.top #main-sub{
 	overflow:hidden;
 }
 
-#mainImg p{
-	float:left;
-	width:574px;
-}
 
-
-#mainImg ul{
+#right_ul {
 	overflow:hidden;
-	float:left;
+	float:right;
 	width:310px;
 	background:url("../images/main_nav_bg.gif") top left no-repeat;
 }
-#mainImg ul li{
+#right_ul li{
 	float:left;
 	overflow:hidden;
 	line-height:0;
 	font-size:0;
 }
 
-#mainImg ul li a{display:block;}
-#mainImg ul li a:hover {background:transparent;}
-#mainImg ul li a:hover img{visibility:hidden;}
+#right_ul li a{display:block;}
+#right_ul li a:hover {background:transparent;}
+#right_ul li a:hover img{visibility:hidden;}
 
 
 #spaTopLeft {

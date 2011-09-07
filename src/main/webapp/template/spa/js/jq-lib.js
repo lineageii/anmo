@@ -23,6 +23,8 @@ $(function(){
 	dLightBoxs('_lomi');
 	slideImgs('_tai');
 	dLightBoxs('_tai');
+	slideImgs('_zifu');
+	dLightBoxs('_zifu');
 	popup();
 	engNav();
 	detailDesign();

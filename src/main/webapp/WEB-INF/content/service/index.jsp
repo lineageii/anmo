@@ -58,11 +58,6 @@
 									<td>400元/1小时+路费<br/>500元/1.5小时+路费<br/><span>600</span>元/2小时+路费<br/>1000元/3小时+路费</td>
 									<td>700元/1小时+路费<br/>800元/1.5小时+路费<br/><span>800</span>元/2小时+路费<br/>1200元/3小时+路费</td>
 								</tr>
-								<tr>
-									<th>皇家礼炮<br/><br/>(所有项目任意组合)</th>
-									<td>800元/1小时+路费<br/>1000元/1.5小时+路费<br/><span>1200</span>元/2小时+路费<br/>1600元/3小时+路费</td>
-									<td>1600元/1小时+路费<br/>1800元/1.5小时+路费<br/><span>2000</span>元/2小时+路费<br/>2400元/3小时+路费</td>
-								</tr>
 							</tbody>
 						</table>
 
@@ -128,21 +123,6 @@
 							</div>
 						</div>
 
-						<ul id="dPickUp" class="commodity">
-							<li>
-								<p>
-									<img
-										src="http://www.laqua.jp/wp-content/uploads/2011/04/resize_0021-214x142.jpg"
-										width="214" height="142" border="0" />
-								</p>
-								<dl>
-									<dt>◆韩式松骨</dt>
-									<dd class="lead"></dd>
-									<dd class="body">
-										・60分钟 150元<br /> ・90分钟 200元<br /> ・120分钟 300元
-									</dd>
-								</dl></li>
-						</ul>
 
 						<ul id="dPickUp" class="commodity">
 							<li>
@@ -154,7 +134,6 @@
 									<dt>◆泰式按摩</dt>
 									<dd class="lead"></dd>
 									<dd class="body">
-										・60分钟 150元<br /> ・90分钟 200元<br /> ・120分钟 300元
 									</dd>
 								</dl></li>
 						</ul>
@@ -222,7 +201,6 @@
 									<dt>◆精油开背</dt>
 									<dd class="lead"></dd>
 									<dd class="body">
-										・60分钟 150元<br /> ・90分钟 200元<br /> ・120分钟 300元
 									</dd>
 								</dl></li>
 						</ul>
@@ -281,7 +259,6 @@
 									<dt>◆Lomi Lomi夏威夷式精石SPA</dt>
 									<dd class="lead"></dd>
 									<dd class="body">
-										・60分钟200元<br /> ・90分钟300元<br /> ・120分钟400元
 									</dd>
 								</dl></li>
 						</ul>
@@ -337,77 +314,74 @@
 								</p>
 							</div>
 						</div>
-						<ul id="dPickUp" class="commodity">
-							<li>
-								<p>
-									<img
-										src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
-										width="214" height="233" border="0" />
-								</p>
-								<dl>
-									<dt>◆彩蝶双飞</dt>
-									<dd class="lead"></dd>
-									<dd class="body">
-										・60分钟 300元<br /> ・90分钟 400元<br /> ・120分钟 600元
-									</dd>
-								</dl></li>
-						</ul>
 
 						<ul id="dPickUp" class="commodity">
 							<li>
 								<p>
 									<img
-										src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_0051-214x142.jpg"
-										width="214" height="142" border="0" />
+										src="${ctx}/images/service/zfyh/jingcha.jpg"
+										width="214" border="0" />
 								</p>
 								<dl>
-									<dt>◆香薰耳烛</dt>
+									<dt>◆制服诱惑</dt>
 									<dd class="lead"></dd>
 									<dd class="body">
-										・60分钟200元<br /> ・90分钟300元<br /> ・120分钟400元
-									</dd>
-								</dl></li>
-							<li>
-								<p>
-									<img
-										src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
-										width="214" height="233" border="0" />
-								</p>
-								<dl>
-									<dt>◆拔罐</dt>
-									<dd class="lead"></dd>
-									<dd class="body">
-										・60分钟 300元<br /> ・90分钟 400元<br /> ・120分钟 600元
-									</dd>
-								</dl></li>
-							<li>
-								<p>
-									<img
-										src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_0051-214x142.jpg"
-										width="214" height="142" border="0" />
-								</p>
-								<dl>
-									<dt>◆刮痧</dt>
-									<dd class="lead"></dd>
-									<dd class="body">
-										・60分钟200元<br /> ・90分钟300元<br /> ・120分钟400元
-									</dd>
-								</dl></li>
-							<li>
-								<p>
-									<img
-										src="http://www.laqua.jp/wp-content/uploads/2011/01/resize_006-214x233.jpg"
-										width="214" height="233" border="0" />
-								</p>
-								<dl>
-									<dt>◆采耳</dt>
-									<dd class="lead"></dd>
-									<dd class="body">
-										・60分钟 300元<br /> ・90分钟 400元<br /> ・120分钟 600元
 									</dd>
 								</dl></li>
 						</ul>
-
+						<div id="pickUpArea" class="pickUpArea">
+							<div id="slideImg_zifu" class="slideImg">
+								<div id="slideBox_zifu" class="slideBox">
+									<ul style="width: 900px;">
+										<!--拡大表示用-->
+										<li><a
+											href="${ctx}/images/service/zfyh/shuishou.jpg"
+											rel="&lt;span&gt;&lt;strong&gt;水手服&lt;/strong&gt;&lt;/span&gt;"><img
+												src="${ctx}/images/service/zfyh/shuishou.jpg"
+												height="110" border="0"/>
+										</a>
+											<p>水手服</p></li>
+										
+										<li><a
+											href="${ctx}/images/service/zfyh/nvpu.jpg"
+											rel="&lt;span&gt;&lt;strong&gt;女仆装&lt;/strong&gt;&lt;/span&gt;"><img
+												src="${ctx}/images/service/zfyh/nvpu.jpg"
+												height="110" border="0"/>
+										</a>
+											<p>女仆装</p></li>
+										<li><a
+											href="${ctx}/images/service/zfyh/jingcha.jpg"
+											rel="&lt;span&gt;&lt;strong&gt;警察服&lt;/strong&gt;&lt;/span&gt;"><img
+												src="${ctx}/images/service/zfyh/jingcha.jpg"
+												height="110" border="0"/>
+										</a>
+											<p>警察服</p></li>
+										<li><a
+											href="${ctx}/images/service/zfyh/hushi.jpg"
+											rel="&lt;span&gt;&lt;strong&gt;护士装&lt;/strong&gt;&lt;/span&gt;">
+											<img src="${ctx}/images/service/zfyh/hushi.jpg" 
+												height="110" border="0"/>
+										</a>
+											<p>护士装</p></li>
+										<li><a
+											href="${ctx}/images/service/zfyh/qipao.jpg"
+											rel="&lt;span&gt;&lt;strong&gt;旗袍&lt;/strong&gt;&lt;/span&gt;"><img
+												src="${ctx}/images/service/zfyh/qipao.jpg"
+												height="110" border="0"/>
+										</a>
+											<p>旗袍</p></li>
+									</ul>
+								</div>
+						<p id="slideBack_zifu" class="slideBack">
+									<img src="${ctx}/template/spa/images/staff/slide_back.gif"
+										width="19" height="19" alt="back"/>
+								</p>
+								<p id="slideNext_zifu" class="slideNext" style="display: block;">
+									<img src="${ctx}/template/spa/images/staff/slide_next.gif"
+										width="19" height="19" alt="next"/>
+								</p>
+							</div>
+						</div>
 						<!--サムネイル用 END-->
 					</div>
 

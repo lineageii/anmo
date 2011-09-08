@@ -46,7 +46,7 @@
 	<tbody>
 		<tr>
 			<s:iterator value="weekWorkList">
-				<th><fmt:formatDate value="${day}" pattern="M/d" /></th>
+				<th><fmt:formatDate value="${day}" pattern="M/d E" /></th>
 			</s:iterator>
 		</tr>
 		<tr>

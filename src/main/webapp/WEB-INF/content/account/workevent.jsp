@@ -41,7 +41,7 @@
 
 				<s:iterator value="page.result">
 					<tr>
-						<td>${eventdate}&nbsp;</td>
+						<td><fmt:formatDate value="${eventdate}" type="date" />&nbsp;</td>
 						<td>${technician.empno}-${technician.name}&nbsp;</td>
 						<td>${workStatusMap[status]}&nbsp;</td>
 						<td>${workTimeMap[starttime]}&nbsp;</td>

@@ -19,13 +19,16 @@
 		var files = $('input[type="file"]');
 		
 		$.each(files, function(i,element){
-			//alert(i + ':'+ element.value);
+			$(element).attr('name', 'uploadFile[' + i + '].upload')
 		});
 		$("#inputForm").submit();
 	}
 	
 	// 删除图片
 	function removeimg(uploadid){
+		if(!confirm('确实要删除吗?')){
+			return;
+		}
 		var result = $.ajax({
 			  url: "${ctx}/account/upload!delete.anmo?id=" + uploadid,
 			  async: false
@@ -56,6 +59,12 @@
 		$(obj).parent().parent().hide();
 		$(obj).next().val('1');
 	}
+	
+	// 添加照片
+	function addpic(addBtn){
+		$(addBtn).after('<br><input type="file" name="uploadFile.upload" value="">');
+		
+	}
 </script>
 <body>
 <div id="doc3">
@@ -77,17 +86,18 @@
 <div class="field"><label>爱好</label><input type="text" name="hobby" value="${hobby}" /></div>
 <div class="field"><label>梦想</label><input type="text" name="dream" value="${dream}" /></div>
 <c:if test="${empty uploadList}">
-	<div><s:file name="uploadFile[0].upload" label="照片" /></div>
-	<div><s:file name="uploadFile[1].upload" label="照片" /></div>
+	<div><s:file name="uploadFile.upload" label="照片" /></div>
+	<div><s:file name="uploadFile.upload" label="照片" /></div>
 </c:if>
 <c:if test="${not empty uploadList}">
 	<s:iterator value="uploadList" status="status">
-		<div><s:file name="uploadFile[%{#status.index}].upload" label="照片" />
+		<div><s:file name="uploadFile.upload" label="照片" />
 		<input type="hidden" name="uploadFile[${status.index}].uploadid" value="${id}"/></div>
 		<div><img src="${ctx}/upload/${sysname}" height="200px"/></div>
 		<div><a href="#" onclick="removeimg(${id})" >删除</a></div>
 	</s:iterator>
 </c:if>
+<input type="button" id="addpicBtn" value="     添加照片    " onclick="addpic(this)"/>
 <br>
 <div id="contact">联系方式</div>
 <div class="field"><label>手机</label><input id="mobileno" name="mobileno" value="${mobileno}" type="text" size="10"/></div>

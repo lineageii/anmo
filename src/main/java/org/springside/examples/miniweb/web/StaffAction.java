@@ -88,6 +88,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	}
 
 	private void initPulldown() {
+		thisyear = Calendar.getInstance().get(Calendar.YEAR);
 		provinceMap = getProvinceMap(Lan.getLanByLocale(getLocale()));
 		workTimeMap = PulldownUtil.getWorkTimeMap(getText("workTimePrex"));
 		workStatusMap = PulldownUtil.getWorkStatusMap(getText("work"), getText("rest"));
@@ -106,7 +107,7 @@ public class StaffAction extends CrudActionSupport<Technician> {
 	@Override
 	public String list() throws Exception {
 		initPulldown();
-		thisyear = Calendar.getInstance().get(Calendar.YEAR);
+		
 
 		List<PropertyFilter> filters = PropertyFilter.buildFromHttpRequest(Struts2Utils.getRequest());
 		// 设置默认排序方式

@@ -6,11 +6,9 @@
 body {
 	background: #fff;
 	color: #231815;
-	font-size: 0.8em;
-	font-family: "ＭＳ Ｐゴシック", "メイリオ", "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka, sans-serif;
+	font-size: 12px;
+	font-family: Arial, "宋体";
 	line-height: 1.3em;
-	/*font-family: "メイリオ", "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka;*/
-	/*line-height: 1.5em;*/
 }
 
 
@@ -228,7 +226,7 @@ ul#topicPath li a:hover {color:#666;text-decoration:none;}
 }
 
 #sub ul{width:185px;}
-#sub ul li{zoom:1;font-size:0;line-height:0;overflow:hidden;font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka;}
+#sub ul li{zoom:1;font-size:0;line-height:0;overflow:hidden;font-family: Arial, "宋体"}
 #sub ul a{display:block;}
 #sub ul a:hover {background:transparent;}
 #sub ul a:hover img{visibility:hidden;}

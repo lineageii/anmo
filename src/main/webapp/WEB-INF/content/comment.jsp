@@ -1,10 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/common/taglibs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<<%@ include file="/common/meta.jsp"%>
+<%@ include file="/common/meta.jsp"%>
 <title>顾客点评 | 迦季养生馆 | +G spa</title>
 <link href="${ctx}/template/spa/css/spa.css" rel="stylesheet"
 	type="text/css" />
@@ -25,7 +24,7 @@ function searchCustomer(obj){
 				{},
 				function(response){
 					if(response == null) {
-						alert('no fount customer');
+						alert('no found customer');
 					} else {
 						$("#customerid").val(response.id);
 					}

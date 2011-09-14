@@ -15,7 +15,7 @@
 </head> 
 <body id="spa" class="news"><div id="container"> 
 <!-- スパ --> 
-<div id="header"></div><!-- /#header --> 
+<%@ include file="/common/home_header.jsp" %><!-- /#header --> 
 	<div id="contents"> 
 		<div id="layerBg"></div> 
 		<div id="main-sub"> 
@@ -53,7 +53,7 @@
 	</div><!-- /#main-sub --> 
 </div><!-- /#contents --> 
  
-<div id="footer"></div><!-- /#footer --> 
+<%@ include file="/common/home_footer.jsp" %><!-- /#footer --> 
  
 </div></body> 
 </html> 

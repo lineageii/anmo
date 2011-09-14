@@ -21,7 +21,7 @@
 <body id="spa" class="zone">
 <div id="container">
 
-<div id="header"></div>
+<%@ include file="/common/home_header.jsp" %>
 <!-- /#header -->
 
 <div id="contents">
@@ -67,7 +67,7 @@
 <!-- /#main-sub --></div>
 <!-- /#contents -->
 
-<div id="footer"></div>
+<%@ include file="/common/home_footer.jsp" %>
 <!-- /#footer --></div>
 </body>
 </html>

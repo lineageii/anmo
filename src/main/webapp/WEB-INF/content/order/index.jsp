@@ -17,12 +17,13 @@
 <script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
 <script src="${ctx}/js/table.js" type="text/javascript"></script>
 <script type="text/javascript">
+
 </script>
 </head>
 <body id="spa" class="treatment">
 <div id="container">
 
-<div id="header"></div>
+<%@ include file="/common/home_header.jsp" %>
 <!-- /#header -->
 
 <div id="contents">
@@ -62,7 +63,7 @@
 <!-- /#main-sub --></div>
 <!-- /#contents -->
 
-<div id="footer"></div>
+<%@ include file="/common/home_footer.jsp" %>
 <!-- /#footer --></div>
 </body>
 </html>

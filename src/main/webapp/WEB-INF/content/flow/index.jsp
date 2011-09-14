@@ -15,7 +15,7 @@
 <body id="spa" class="first">
 <div id="container">
 
-<div id="header"></div>
+<%@ include file="/common/home_header.jsp" %>
 <!-- /#header -->
 
 <div id="contents">
@@ -70,7 +70,7 @@
 		<%@ include file="/common/sub.jsp" %><!-- /#sub --> 
 	</div><!-- /#main-sub --> 
 </div><!-- /#contents --> 
-<div id="footer"></div><!-- /#footer --> 
+<%@ include file="/common/home_footer.jsp" %><!-- /#footer --> 
  
 </div></body> 
 </html>

@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/common/taglibs.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html> 
-<head> 
-<%@ include file="/common/meta.jsp" %>
-<title>News | 迦季养生馆 | +G spa</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>上海按摩|上海上门按摩——迦季SPA养生馆上海最大最专业的SPA养生馆</title>
+<meta name="keywords" content="上海SPA,上海上门SPA,上海酒店SPA,shanghai hotel massage,上海出張マッサージ” />
+<meta name="description" content="提供专业的上海上门按摩,上海上门SPA,上海酒店SPA等高端服务。拥有众多大学生模特空姐美女技师,让您尽享尊贵与奢华" />
 <link href="${ctx}/template/spa/css/spa.css" rel="stylesheet" type="text/css" />
 <link href="${ctx}/template/spa/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${ctx}/template/spa/js/jquery.js"></script>
@@ -23,7 +24,7 @@
 			<div id="main"> 
 				<ul id="topicPath"> 
 					<li><a href="${ctx}/">首页</a></li> 
-					<li><a href="${ctx}/news.anmo">NEWS</a></li> 
+					<li><a href="${ctx}/news.anmo">SPA NEWS</a></li> 
 					<li>${title}</li> 
 				</ul> 
 				<div id="pageTitle"> 

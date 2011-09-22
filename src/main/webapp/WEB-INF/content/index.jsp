@@ -11,7 +11,6 @@
 <script type="text/javascript" src="${ctx}/template/spa/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/template/spa/js/jquery.lightbox-0.5.js"></script>
 <script type="text/javascript" src="${ctx}/template/spa/js/jq-lib.js"></script>
-<script type="text/javascript" src="${ctx}/template/spa/js/navi.js"></script>
 </head>
 
 

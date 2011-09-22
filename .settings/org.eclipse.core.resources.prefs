@@ -1,4 +1,4 @@
-#Thu Sep 08 17:51:27 CST 2011
+#Thu Sep 22 17:56:07 CST 2011
 eclipse.preferences.version=1
 encoding//src/main/resources/i18n_zh_CN.properties=UTF-8
 encoding//src/main/webapp/WEB-INF/content/flow/index.jsp=UTF-8
@@ -6,5 +6,4 @@ encoding//src/main/webapp/WEB-INF/content/news-input.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/content/service/index.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/content/staff.jsp=UTF-8
 encoding//src/main/webapp/common/meta.jsp=UTF-8
-encoding//src/main/webapp/template/spa/js/navi.js=UTF-8
 encoding/<project>=UTF-8

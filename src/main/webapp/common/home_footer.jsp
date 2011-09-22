@@ -13,5 +13,5 @@
 </div>
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F96dee6b2083edba75b3fb280bd686a37' type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa5f7aa8822596275ad3e7fdf4f5ded27' type='text/javascript'%3E%3C/script%3E"));
 </script>

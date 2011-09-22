@@ -7,7 +7,7 @@
 <dd><a href="/">首页</a></dd>
 <dd><a href="/contact/" target="_blank">联系我们</a></dd>
 </dl>
-<p><img src="/template/spa/images/footer_dial.gif" width="287" height="16" alt="上门预约电话  13052090702" /></p>
+<p><img src="/template/spa/images/footer_dial.gif" width="287px" height="16px" alt="上门预约电话  13052090702" /></p>
 <div id="copyright">Copyright&copy;上海塞依信息 All right reserved. <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备11031814号-1</a></div>
 </div>
 </div>

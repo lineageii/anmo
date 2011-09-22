@@ -56,7 +56,6 @@ public class UploadService {
 	public Upload uploadFile(UploadFile file, String uploadDir, Technician technician) {
 		String ramdom = UUID.randomUUID().toString();
 		String sysFileName = ramdom + getExtention(file.getUploadFileName());
-		String smallSysFileName = ramdom + "_small" + getExtention(file.getUploadFileName());
 		File sysFile = new File(uploadDir + "/" + sysFileName);
 		try {
 			FileUtils.copyFile(file.getUpload(), sysFile);
@@ -65,8 +64,9 @@ public class UploadService {
 			throw new RuntimeException("上传文件错误", e);
 		}
 		ImageIcon imgIcon = new ImageIcon(uploadDir + "/" + sysFileName);
-		int width = imgIcon.getIconWidth() / (imgIcon.getIconHeight() / 160);
-		this.resizeImg(sysFile, uploadDir + "/" + smallSysFileName, width, 160);
+		float small = (float) imgIcon.getIconHeight() / (float) 160;
+		int width = (int) (imgIcon.getIconWidth() / small);
+		this.resizeImg(sysFile, uploadDir + "/small/" + sysFileName, width, 160);
 
 		Upload upload = new Upload();
 		upload.setOriname(file.getUploadFileName());

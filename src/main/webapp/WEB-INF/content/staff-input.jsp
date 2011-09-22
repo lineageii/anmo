@@ -50,7 +50,7 @@
 			test="${empty uploadList}">
 			<img src="${ctx}/staff_imges/nopic.jpg" height="160" />
 		</c:if> <c:if test="${not empty uploadList}">
-			<img src="${ctx}/upload/${uploadList[0].sysname}" height="160" />
+		<img src="${ctx}/upload/small/${uploadList[0].sysname}" height="160" />
 		</c:if> </a></div>
 		</th>
 		<td class="txt">
@@ -114,7 +114,7 @@
 	<s:iterator value="uploadList">
 		<li><a href="${ctx}/upload/${sysname}"
 			rel="&lt;span&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;/span&gt;"><img
-			src="${ctx}/upload/${sysname}" height="110" border="0"></a>
+			src="${ctx}/upload/small/${sysname}" height="110" border="0"></a>
 		<p>${name}</p>
 		</li>
 	</s:iterator>

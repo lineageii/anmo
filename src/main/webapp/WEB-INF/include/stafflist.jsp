@@ -9,7 +9,7 @@
 			test="${empty uploadList}">
 			<img src="${ctx}/staff_imges/nopic.jpg" height="160" />
 		</c:if> <c:if test="${not empty uploadList}">
-			<img src="${ctx}/upload/${uploadList[0].sysname}" height="160" />
+			<img src="${ctx}/upload/small/${uploadList[0].sysname}" height="160" />
 		</c:if> </a></div>
 		</th>
 		<td class="txt">

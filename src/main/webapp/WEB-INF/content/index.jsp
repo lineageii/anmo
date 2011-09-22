@@ -89,7 +89,7 @@
 		<p><c:if test="${empty technician.uploadList}">
 			<img src="${ctx}/staff_imges/nopic.jpg" width="80" border="0" />
 		</c:if> <c:if test="${not empty technician.uploadList}">
-			<img src="${ctx}/upload/${technician.uploadList[0].sysname}" width="80" border="0" />
+			<img src="${ctx}/upload/small/${technician.uploadList[0].sysname}" width="80" border="0" />
 		</c:if></p>
 		</li>
 	</s:iterator>

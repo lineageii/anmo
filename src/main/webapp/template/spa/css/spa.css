@@ -296,7 +296,7 @@ body.top #main-sub {
 #spaNews p.more a {
 	display: block;
 	margin: 0 0 0 auto;
-	width: 160px;
+	width: 80px;
 	background: url("../images/icon_link.gif") center left no-repeat;
 }
 
@@ -377,7 +377,7 @@ ul#topBanners li {
 #spaTopRight p.more a {
 	display: block;
 	margin: 0 0 0 auto;
-	width: 120px;
+	width: 80px;
 	background: url("../images/icon_link.gif") center left no-repeat;
 }
 

@@ -32,14 +32,14 @@
 
 <ul id="right_ul">
 	<li><img src="${ctx}/template/spa/images/main_nav_ttl.gif" width="220" height="33" alt="网站导航" /></li>
-	<li><a href="${ctx}/sitemap/"><img src="${ctx}/template/spa/images/main_nav_map.gif" width="90" height="33" alt="网站地图" /> </a></li>
-	<li><a href="${ctx}/staff.anmo"><img src="${ctx}/template/spa/images/main_nav_spa.gif" width="310" height="51" alt="技师魅影" /> </a></li>
-	<li><a href="${ctx}/service/"><img src="${ctx}/template/spa/images/main_nav_healing.gif" width="310" height="53" alt="服务项目" /> </a></li>
-	<li><a href="${ctx}/order/"><img src="${ctx}/template/spa/images/main_nav_relaxation.gif" width="310" height="53" alt="网上预约" /> </a></li>
-	<li><a href="${ctx}/comment.anmo"><img src="${ctx}/template/spa/images/main_nav_treatment.gif" width="310" height="52" alt="顾客点评" /> </a></li>
-	<li><a href="${ctx}/store.anmo"><img src="${ctx}/template/spa/images/main_nav_restaurant.gif" width="310" height="51" alt="附近的店铺" /> </a></li>
-	<li><a href="${ctx}/job/"><img src="${ctx}/template/spa/images/main_nav_info.gif" width="157" height="37" alt="招聘信息" /> </a></li>
-	<li><a href="${ctx}/flow/"><img src="${ctx}/template/spa/images/main_nav_firsttime.gif" width="153" height="37" alt="服务流程" /> </a></li>
+	<li><a href="${ctx}/sitemap/"><img src="${ctx}/template/spa/images/main_nav_map.gif" width="90px" height="33px" alt="网站地图" /> </a></li>
+	<li><a href="${ctx}/staff.anmo"><img src="${ctx}/template/spa/images/main_nav_spa.gif" width="310px" height="51px" alt="技师魅影" /> </a></li>
+	<li><a href="${ctx}/service/"><img src="${ctx}/template/spa/images/main_nav_healing.gif" width="310px" height="53px" alt="服务项目" /> </a></li>
+	<li><a href="${ctx}/order/"><img src="${ctx}/template/spa/images/main_nav_relaxation.gif" width="310px" height="53px" alt="网上预约" /> </a></li>
+	<li><a href="${ctx}/comment.anmo"><img src="${ctx}/template/spa/images/main_nav_treatment.gif" width="310px" height="52px" alt="顾客点评" /> </a></li>
+	<li><a href="${ctx}/store.anmo"><img src="${ctx}/template/spa/images/main_nav_restaurant.gif" width="310px" height="51px" alt="附近的店铺" /> </a></li>
+	<li><a href="${ctx}/job/"><img src="${ctx}/template/spa/images/main_nav_info.gif" width="157px" height="37px" alt="招聘信息" /> </a></li>
+	<li><a href="${ctx}/flow/"><img src="${ctx}/template/spa/images/main_nav_firsttime.gif" width="153px" height="37px" alt="服务流程" /> </a></li>
 </ul>
 </div>
 <div id="spaTopLeft">
@@ -48,7 +48,7 @@
 </ul>
 
 <div id="spaNews">
-<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549" height="32" alt="Spa News" /></h1>
+<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549px" height="32px" alt="Spa News" /></h1>
 <ul id="spaNewsList">
 	<s:iterator value="newsPage.result">
 		<li>
@@ -59,7 +59,7 @@
 	</s:iterator>
 </ul>
 <p class="more"><a href="${ctx}/news.anmo">查看更多...</a></p>
-<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549" height="32" alt="Spa News" /></h1>
+<h1><img src="${ctx}/template/spa/images/ttl_news.gif" width="549px" height="32px" alt="Spa News" /></h1>
 <ul id="tbList1">
 	<s:iterator value="staffPage.result">
 		<%@ include file="/WEB-INF/include/stafflist.jsp"%>
@@ -73,7 +73,7 @@
 <!-- /#spaTopLeft -->
 <div id="spaTopRight">
 
-<h2><img src="${ctx}/template/spa/images/ttl_topics.gif" width="310" height="51" alt="Topics" /></h2>
+<h2><img src="${ctx}/template/spa/images/ttl_topics.gif" width="310px" height="51px" alt="Topics" /></h2>
 <div id="spaTopicsList">
 <ul>
 	<s:iterator value="commentPage.result">
@@ -87,9 +87,9 @@
 
 		</dl>
 		<p><c:if test="${empty technician.uploadList}">
-			<img src="${ctx}/staff_imges/nopic.jpg" width="80" border="0" />
+			<img src="${ctx}/staff_imges/nopic.jpg" width="80px" border="0" />
 		</c:if> <c:if test="${not empty technician.uploadList}">
-			<img src="${ctx}/upload/small/${technician.uploadList[0].sysname}" width="80" border="0" />
+			<img src="${ctx}/upload/small/${technician.uploadList[0].sysname}" width="80px" border="0" />
 		</c:if></p>
 		</li>
 	</s:iterator>

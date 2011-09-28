@@ -252,6 +252,12 @@
 			<artifactId>json</artifactId>
 			<version>20090211</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>httpunit</groupId>
+			<artifactId>httpunit</artifactId>
+			<version>1.6</version>
+		</dependency>
 	</dependencies>
 
 	<build>

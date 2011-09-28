@@ -22,44 +22,42 @@ public class MsgAction extends ActionSupport {
 	@Autowired
 	private MsglogDao msglogDao;
 	private Random random = new Random();
-	List<String> sidAllList = Lists.newArrayList("1","2","3","4");
+	private List<String> sidAllList = Lists.newArrayList("1", "2", "3", "4");
+
 	public String execute() {
-		
-		
+
+		// 客服端ID
 		String cid = Struts2Utils.getParameter("cid");
+		// 客服ID
 		String kfid = Struts2Utils.getParameter("kfid");
-		
+		// 消息
 		String msg = Struts2Utils.getParameter("msg");
-		
-		if(StringUtils.isNotBlank(msg)){
+
+		if (StringUtils.isNotBlank(msg)) {
 			String sid = save(cid, kfid, msg);
 			// server QQ 侦听 get msg from msglog and send msg to kefu QQ
 			// 
 		} else {
 			// comet
 		}
-		
-		
 
-		
 		// send message to server
 		Struts2Utils.renderText("1", "encoding:UTF-8");
 
 		return null;
 	}
-	
-	public String save(String cid, String kfid, String msg){
+
+	public String save(String cid, String kfid, String msg) {
 		// get sid list by cid and kfid from mapping
 		List<String> sidList = mappingDao.getSidList(cid, kfid);
 		sidAllList.removeAll(sidList);
 		// 取得空闲sid
 		String sid = sidAllList.get(random.nextInt(sidAllList.size()));
-		
-		
+
 		// save
 		Mapping mapping = new Mapping(cid, kfid, sid);
 		mappingDao.save(mapping);
-		
+
 		Msglog msglog = new Msglog("t", cid, msg, "0");
 		msglogDao.save(msglog);
 		return sid;

@@ -1,10 +1,16 @@
 package org.springside.examples.miniweb.webqq;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.meterware.httpunit.ClientProperties;
 import com.meterware.httpunit.GetMethodWebRequest;
@@ -175,29 +181,18 @@ public class SmailImpl implements ISmail {
 	//[{"Header":{"sResId":"SmsRes","sMethod":"Create","sRandId":76352},"Data":{"sAction":"createroom","oMembers":[{"sAddress":"63090585@qq.com","sName":"63090585"},{"sAddress":"1917842895@qq.com","nUin":"-1664313091","sName":"我"}],"oMailIndex":{"oFrom":[{"sAddress":"1917842895@qq.com","nUin":"-1664313091","sName":"我"}],"oTo":[{"sAddress":"63090585@qq.com","sName":"63090585"}],"nToTime":1317198090,"sMailBuss":"ml","sAbstract":"55555"},"sReadType":"List"}}]
 	public void sendSmail(String to, String message) throws Exception {
 		String url = "http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=" + this.sid + "&res=ConvsRes";
-		String requests_array = "[{\"Header\":{\"sResId\":\"SmsRes\",\"sMethod\":\"Create\",\"sRandId\":76354},\"Data\":{\"sAction\":\"createroom\",\"oMembers\":[{\"sAddress\":\""
-				+ to
-				+ "@qq.com\",\"sName\":\""
-				+ to
-				+ "\"},{\"sAddress\":\""
-				+ this.id
-				+ "@qq.com\",\"nUin\":\""
-				+ this.nUin
-				+ "\",\"sName\":\"我\"}],\"oMailIndex\":{\"oFrom\":[{\"sAddress\":\""
-				+ this.id
-				+ "@qq.com\",\"nUin\":\""
-				+ this.nUin
-				+ "\",\"sName\":\"我\"}],\"oTo\":[{\"sAddress\":\""
-				+ to
-				+ "@qq.com\",\"sName\":\""
-				+ to
-				+ "\"}],\"nToTime\":1317198090,\"sMailBuss\":\"ml\",\"sAbstract\":\""
+		String requests_array = "[{\"Header\":{\"sResId\":\"SmsRes\",\"sMethod\":\"Create\",\"sRandId\":"
+				+ new Random().nextInt(99999) + "},\"Data\":{\"sAction\":\"createroom\",\"oMembers\":[{\"sAddress\":\""
+				+ to + "@qq.com\",\"sName\":\"" + to + "\"},{\"sAddress\":\"" + this.id + "@qq.com\",\"nUin\":\""
+				+ this.nUin + "\",\"sName\":\"我\"}],\"oMailIndex\":{\"oFrom\":[{\"sAddress\":\"" + this.id
+				+ "@qq.com\",\"nUin\":\"" + this.nUin + "\",\"sName\":\"我\"}],\"oTo\":[{\"sAddress\":\"" + to
+				+ "@qq.com\",\"sName\":\"" + to + "\"}],\"nToTime\":1317198090,\"sMailBuss\":\"ml\",\"sAbstract\":\""
 				+ message + "\"},\"sReadType\":\"List\"}}]";
 		PostMethodWebRequest post = new PostMethodWebRequest(url);
 		post.setParameter("resp_charset", "UTF8");
 		post.setParameter("f", "json");
 		post.setParameter("requests_array", requests_array);
-		WebResponse rs = wc.getResponse(post);
+		WebResponse rs = wc.getResource(post);
 		log.info("requests_array:" + requests_array);
 		log.info("login response:" + rs.getText());
 		Matcher matcher = Pattern.compile("sTid:\".*?\"").matcher(rs.getText());
@@ -210,20 +205,11 @@ public class SmailImpl implements ISmail {
 		}
 
 		String url2 = "http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=" + this.sid + "&res=MsgsRes";
-		requests_array = "[{\"Header\":{\"sResId\":\"SmsRes\",\"sMethod\":\"Create\",\"sRandId\":49825},\"Data\":{\"oMailIndex\":{\"oFrom\":[{\"sAddress\":\""
-				+ this.id
-				+ "@qq.com\",\"nUin\":\""
-				+ this.nUin
-				+ "\",\"sName\":\"我\"}],\"oTo\":[{\"sAddress\":\""
-				+ to
-				+ "@qq.com\",\"sName\":\""
-				+ to
-				+ "\"}],\"nToTime\":1317200932,\"sMailBuss\":\"ml\",\"sAbstract\":\""
-				+ message
-				+ "\",\"sSubject\":\""
-				+ message
-				+ "\",\"nXQQStyle\":0},\"sTid\":\""
-				+ sTid
+		requests_array = "[{\"Header\":{\"sResId\":\"SmsRes\",\"sMethod\":\"Create\",\"sRandId\":"
+				+ new Random().nextInt(99999) + "},\"Data\":{\"oMailIndex\":{\"oFrom\":[{\"sAddress\":\"" + this.id
+				+ "@qq.com\",\"nUin\":\"" + this.nUin + "\",\"sName\":\"我\"}],\"oTo\":[{\"sAddress\":\"" + to
+				+ "@qq.com\",\"sName\":\"" + to + "\"}],\"nToTime\":1317200932,\"sMailBuss\":\"ml\",\"sAbstract\":\""
+				+ message + "\",\"sSubject\":\"" + message + "\",\"nXQQStyle\":0},\"sTid\":\"" + sTid
 				+ "\",\"sAction\":\"send\",\"sMailContent\":\"" + message + "\",\"sReadType\":\"Item\"}}]";
 		post = new PostMethodWebRequest(url2);
 		post.setParameter("resp_charset", "UTF8");
@@ -233,4 +219,122 @@ public class SmailImpl implements ISmail {
 		log.info("requests_array:" + requests_array);
 		log.info("login response:" + rs.getText());
 	}
+
+	// http://msgopt.mail.qq.com/cgi-bin/folderlist?resp_charset=UTF8&ef=js&sid=zwCfGew3qeZlJlQa&folderid=9&t=sms_mgr.json&s=unreadcnt&r=0.9464781171699853&action=fdonly
+	//	({
+	//	content	: {unreadCnt : 1},
+	//	title 	: "success",
+	//	errcode	: "0",
+	//	errmsg	: "ok"
+	//})
+	public int getUnreadCount() throws Exception {
+		String url = "http://msgopt.mail.qq.com/cgi-bin/folderlist?resp_charset=UTF8&ef=js&sid=" + this.sid
+				+ "&folderid=9&t=sms_mgr.json&s=unreadcnt&r=" + Math.random() + "&action=fdonly";
+		String res = wc.getResponse(url).getText();
+		//log.info("getUnreadCount:" + res);
+		Matcher matcher = Pattern.compile("unreadCnt.*?}").matcher(res);
+		int count = 0;
+		if (matcher.find()) {
+			count = Integer.parseInt(matcher.group().replace("unreadCnt : ", "").replace("}", ""));
+			log.info("count:" + count);
+			return count;
+		} else {
+			throw new Exception("Can't find count");
+		}
+	}
+
+	public List<GMessage> getMessage() throws Exception {
+		// http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=zwCfGew3qeZlJlQa&res=ConvsRes
+		// resp_charset UTF8
+		// f	json
+		// requests_array	[{"Header":{"sResId":"SmsRes","sMethod":"Read","sRandId":18784},"Data":{"oGt":["nToTime",1317265149],"sReadType":"List"}}]
+
+		// [{Data:{oItems:[{nTidType:1,oMailIndex:{nToTime:1317265562,nUnread:1,nXQQStyle:0,oFrom:[{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"roy"}],oTo:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"我"},{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"63090585"}],sAbstract:"aaaaaaaaaaaaaaaaaaa",sMailBuss:"ml",sSubject:"test"},oMembers:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"我"},{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"roy"}],sMailId:"C9Tv868CB20D",sTid:"v868CB20D"}],oMeta:{nCount:1,nSvrTime:1317265571,nTotal:1,nUnread:1}},Header:{nResCode:0,nResVersion:"1.0",nUin:1917842895,sErrMsg:"",sRandId:"18784",sResID:"SmsRes"}}]
+		// [{Data:{oItems:[{nTidType:1,oMailIndex:{nToTime:1317272739,nUnread:1,nXQQStyle:0,oFrom:[{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"roy"}],oTo:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"63090585"}],sAbstract:"11111111111111111111111",sMailBuss:"ml",sSubject:"test"},oMembers:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"roy"}],sMailId:"C9Tv868CB20D",sTid:"v868CB20D"},
+		// {nTidType:1,oMailIndex:{nToTime:1317272736,nUnread:1,nXQQStyle:0,oFrom:[{nUin:"-2201040294",sAddress:"1919606673@qq.com",sHome:"",sIcon:"",sName:"test"}],oTo:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-2201040294",sAddress:"1919606673@qq.com",sHome:"",sIcon:"",sName:"1919606673"}],sAbstract:"2222222222222222222",sMailBuss:"ml",sSubject:"eeeeeeeeeeee"},oMembers:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-2201040294",sAddress:"1919606673@qq.com",sHome:"",sIcon:"",sName:"test"}],sMailId:"C9Tv832E1A09",sTid:"v832E1A09"}],
+		// oMeta:{nCount:2,nSvrTime:1317272775,nTotal:2,nUnread:2}},Header:{nResCode:0,nResVersion:"1.0",nUin:1917842895,sErrMsg:"",sRandId:"3520",sResID:"SmsRes"}}]
+		String url = "http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=" + this.sid + "&res=ConvsRes";
+		String requests_array = "[{\"Header\":{\"sResId\":\"SmsRes\",\"sMethod\":\"Read\",\"sRandId\":"
+				+ new Random().nextInt(99999)
+				+ "},\"Data\":{\"oGt\":[\"nToTime\",1317265149],\"sReadType\":\"List\"}}]";
+		PostMethodWebRequest post = new PostMethodWebRequest(url);
+		post.setParameter("resp_charset", "UTF8");
+		post.setParameter("f", "json");
+		post.setParameter("requests_array", requests_array);
+		String rs = wc.getResource(post).getText();
+		log.info("getMessage:" + rs);
+
+		return parseGmessage(rs);
+
+	}
+
+	/**
+	 * 更新消失,设置为已经读取
+	 * @throws Exception 
+	 */
+	// http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=zwCfGew3qeZlJlQa&res=ConvsRes
+	// resp_charset UTF8
+	// f	json
+	// requests_array	[{"Header":{"sResId":"SmsRes","sMethod":"Update","sRandId":29696},"Data":{"sMailId":"C9Tv868CB20D","oMailIndex":{"nUnread":0},"sAction":"mail_flag","sReadType":"List"}}]
+
+	// [{Data:null,Header:{nResCode:0,nResVersion:"1.0",nUin:1917842895,sErrMsg:"",sRandId:"29696",sResID:"SmsRes"}}]
+	public void updateMessage(GMessage gMessage) throws Exception {
+		String url = "http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=" + this.sid + "&res=ConvsRes";
+		String requests_array = "[{\"Header\":{\"sResId\":\"SmsRes\",\"sMethod\":\"Update\",\"sRandId\":"
+				+ new Random().nextInt(99999) + "},\"Data\":{\"sMailId\":\"" + gMessage.getsMailId()
+				+ "\",\"oMailIndex\":{\"nUnread\":0},\"sAction\":\"mail_flag\",\"sReadType\":\"List\"}}]";
+		PostMethodWebRequest post = new PostMethodWebRequest(url);
+		post.setParameter("resp_charset", "UTF8");
+		post.setParameter("f", "json");
+		post.setParameter("requests_array", requests_array);
+		String rs = wc.getResource(post).getText();
+		log.info("getMessage:" + rs);
+	}
+
+	/**
+	 * 解析返回结果生成接收信息列表
+	 * @param rs
+	 * @return List<GMessage>
+	 * @throws JSONException 
+	 */
+	// [{Data:{oItems:[{nTidType:1,oMailIndex:{nToTime:1317272739,nUnread:1,nXQQStyle:0,oFrom:[{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"roy"}],oTo:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"63090585"}],sAbstract:"11111111111111111111111",sMailBuss:"ml",sSubject:"test"},oMembers:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-69972646",sAddress:"63090585@qq.com",sHome:"",sIcon:"",sName:"roy"}],sMailId:"C9Tv868CB20D",sTid:"v868CB20D"},
+	// {nTidType:1,oMailIndex:{nToTime:1317272736,nUnread:1,nXQQStyle:0,oFrom:[{nUin:"-2201040294",sAddress:"1919606673@qq.com",sHome:"",sIcon:"",sName:"test"}],oTo:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-2201040294",sAddress:"1919606673@qq.com",sHome:"",sIcon:"",sName:"1919606673"}],sAbstract:"2222222222222222222",sMailBuss:"ml",sSubject:"eeeeeeeeeeee"},oMembers:[{nUin:"-1664313091",sAddress:"1917842895@qq.com",sHome:"",sIcon:"",sName:"1917842895"},{nUin:"-2201040294",sAddress:"1919606673@qq.com",sHome:"",sIcon:"",sName:"test"}],sMailId:"C9Tv832E1A09",sTid:"v832E1A09"}],
+	// oMeta:{nCount:2,nSvrTime:1317272775,nTotal:2,nUnread:2}},Header:{nResCode:0,nResVersion:"1.0",nUin:1917842895,sErrMsg:"",sRandId:"3520",sResID:"SmsRes"}}]
+	private List<GMessage> parseGmessage(String rs) throws JSONException {
+		List<GMessage> gmessageList = new ArrayList<GMessage>();
+		JSONObject jsonbject = (JSONObject) new JSONArray(rs).get(0);
+		JSONArray oItems = jsonbject.getJSONObject("Data").getJSONArray("oItems");
+		for (int i = 0; i < oItems.length(); i++) {
+			JSONObject oItem = (JSONObject) oItems.get(i);
+			JSONObject oMailIndex = oItem.getJSONObject("oMailIndex");
+			JSONObject oFrom = (JSONObject) oMailIndex.getJSONArray("oFrom").get(0);
+			String sAddress = oFrom.getString("sAddress");
+			String sName = oFrom.getString("sName");
+			String nUin = oFrom.getString("nUin");
+			String sAbstract = oMailIndex.getString("sAbstract");
+			String sSubject = oMailIndex.getString("sSubject");
+			String sMailId = oItem.getString("sMailId");
+			String sTid = oItem.getString("sTid");
+
+			GMessage gmessage = new GMessage();
+			gmessage.setsAddress(sAddress);
+			gmessage.setsName(sName);
+			gmessage.setnUin(nUin);
+			gmessage.setsAbstract(sAbstract);
+			gmessage.setsSubject(sSubject);
+			gmessage.setsMailId(sMailId);
+			gmessage.setsTid(sTid);
+			gmessageList.add(gmessage);
+		}
+		return gmessageList;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 }

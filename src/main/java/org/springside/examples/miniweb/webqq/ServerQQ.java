@@ -1,18 +1,20 @@
 package org.springside.examples.miniweb.webqq;
 
 import java.util.List;
+import java.util.Observable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.dao.account.MappingDao;
 import org.springside.examples.miniweb.dao.account.MsglogDao;
 import org.springside.examples.miniweb.entity.account.Mapping;
 import org.springside.examples.miniweb.entity.account.Msglog;
 
-@Component
+@Service("serverQQ")
 @Transactional
-public class ServerQQ implements Runnable {
+public class ServerQQ extends Observable implements Runnable {
 	@Autowired
 	private MsglogDao msglogDao;
 	@Autowired
@@ -71,6 +73,8 @@ public class ServerQQ implements Runnable {
 					if (mapping != null) {
 						Msglog msglog = new Msglog("f", mapping, gMessage.getsAbstract(), "0");
 						saveMsglog(msglog);
+						setChanged();
+						notifyObservers(msglog);
 					}
 				}
 			}

@@ -5,6 +5,8 @@ import javax.servlet.ServletContextListener;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 import org.springside.examples.miniweb.webqq.ServerQQ;
 import org.springside.examples.miniweb.webqq.SmailImpl;
 
@@ -12,14 +14,14 @@ public class ServerQQListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		//WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
-		ApplicationContext wac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
+		//ApplicationContext wac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		try {
 			String id = "1917842895";
 			SmailImpl smailImpl = new SmailImpl(id, "huyang,./");
 			smailImpl.loginMail();
 			smailImpl.initSendSmail();
-			final ServerQQ serverQQ = wac.getBean(ServerQQ.class);
+			final ServerQQ serverQQ = (ServerQQ) wac.getBean("serverQQ");
 
 			serverQQ.setSmailImpl(smailImpl);
 			new Thread(new Runnable() {

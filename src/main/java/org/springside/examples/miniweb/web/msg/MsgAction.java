@@ -32,7 +32,7 @@ public class MsgAction extends ActionSupport implements Observer{
 	private ServerQQ serverQQ;
 	
 	private String cid;
-	private Msglog fromMsglog;
+	private List<Msglog> fromMsglogs;
 	private boolean hasFromMsglog = false;
 	
 	@Transactional
@@ -59,7 +59,11 @@ public class MsgAction extends ActionSupport implements Observer{
 		} else {
 			for(int i=0; i<10; i++){
 				if(hasFromMsglog){
-					Struts2Utils.renderText(fromMsglog.getMsg(), "encoding:UTF-8");
+					String returnMsg = "";
+					for(Msglog fromMsglog : fromMsglogs){
+						returnMsg = returnMsg + fromMsglog.getMapping().getKfid() + ":"+fromMsglog.getMsg() +"<br>";
+					}
+					Struts2Utils.renderText(returnMsg, "encoding:UTF-8");
 					hasFromMsglog = false;
 					serverQQ.deleteObserver(this);
 					return null;
@@ -153,13 +157,20 @@ public class MsgAction extends ActionSupport implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		if(arg != null && arg instanceof Msglog){
-			Msglog msglog = (Msglog)arg;
-			if(msglog.getMapping().getCid().equals(cid)){
-				fromMsglog = msglog;
-				hasFromMsglog = true;
-				Log.info("msglog:" + msglog.toString());
+		if(arg != null && arg instanceof List){
+			List<Msglog> msglogs = (List<Msglog>)arg;
+			List<Msglog> msglogList = Lists.newArrayList();
+			for(Msglog msglog : msglogs){
+				if(msglog.getMapping().getCid().equals(cid)){
+					msglogList.add(msglog);
+				}
 			}
+			
+			if(msglogList.size() > 0){
+				hasFromMsglog = true;
+				fromMsglogs = msglogList;
+			}
+
 		}
 		
 	}

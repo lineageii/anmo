@@ -201,7 +201,7 @@ public class SmailImpl implements ISmail {
 			sTid = matcher.group().replace("sTid:\"", "").replace("\"", "");
 			log.info("sTid:" + sTid);
 		} else {
-			throw new Exception("Can't find nUid");
+			throw new Exception("Can't find sTid");
 		}
 
 		String url2 = "http://msgopt.mail.qq.com/cgi-bin/CommCgi?sid=" + this.sid + "&res=MsgsRes";

@@ -48,5 +48,17 @@
 <input type="text" id="sendTxt" />
 <input type="hidden" id="cid" value="123" />
 <input type="button" id="sendBtn" onclick="onClickSendMsg()" value="发送"/>
+<script type="text/javascript">
+tocplusTop=95;
+tocplusLeft=2;
+tocplusMinimizedImage='http://asia.tocplus007.com/img/minimized_zh.gif';
+tocplusHAlign='right';
+tocplusWidth=110;
+tocplusHeight=240;
+tocplusUserName='客人';
+tocplusFrameColor="orange";
+tocplusFloatingWindow=true;
+</script> <script type="text/javascript" src="http://localhost:8080/chatLoader.jsp"></script>
+
 </body>
 </html>

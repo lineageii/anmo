@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Observable;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.miniweb.dao.account.MappingDao;
 import org.springside.examples.miniweb.dao.account.MsglogDao;
 import org.springside.examples.miniweb.entity.account.Mapping;
 import org.springside.examples.miniweb.entity.account.Msglog;
+
+import com.google.common.collect.Lists;
 
 @Service("serverQQ")
 @Transactional
@@ -58,7 +59,8 @@ public class ServerQQ extends Observable implements Runnable {
 				saveMsglog(msglog);
 			}
 
-			if (smailImpl.getUnreadCount() > 0) {
+			int count = smailImpl.getUnreadCount();
+			if (count > 0) {
 				List<GMessage> gmessageList = smailImpl.getMessage();
 				System.out.println(gmessageList);
 
@@ -66,17 +68,26 @@ public class ServerQQ extends Observable implements Runnable {
 					smailImpl.updateMessage(gGmessage);
 				}
 
+				List<Msglog> gms = Lists.newArrayList();
 				// send message to customer
-				for (GMessage gMessage : gmessageList) {
+				for (int i=0; i< count; i++) {
+					GMessage gMessage = gmessageList.get(i);
 					String kfid = gMessage.getsAddress().replace("@qq.com", "");
 					Mapping mapping = mappingDao.selectMappingByKfidAndSid(kfid, smailImpl.getId());
 					if (mapping != null) {
 						Msglog msglog = new Msglog("f", mapping, gMessage.getsAbstract(), "0");
 						saveMsglog(msglog);
-						setChanged();
-						notifyObservers(msglog);
+						//setChanged();
+						//notifyObservers(msglog);
+						gms.add(msglog);
 					}
 				}
+				
+				if(gms.size()>0){
+					setChanged();
+					notifyObservers(gms);
+				}
+				
 			}
 
 		} catch (Exception e) {
